@@ -9,10 +9,10 @@ Los integrantes del equipo son:
 
 
 Paginas de Referencia:
-https://www.reconsciente.com/
-https://ecolisitamarket.mitiendanube.com/
-https://ecoroots.us/
-https://www.2cool.com.ar/
+- https://www.reconsciente.com/
+- https://ecolisitamarket.mitiendanube.com/
+- https://ecoroots.us/
+- https://www.2cool.com.ar/
 
 
 Paleta de colores: 
