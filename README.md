@@ -1,5 +1,12 @@
-Una breve descripción de la oferta de productos y/o servicios ofrecidos por su sitio. También agregar una breve descripción del público al que apunta el sitio.
-Una breve descripción de los integrantes del equipo
+El sitio fue diseñado para la venta de productos sustentables y amigables con el medioambiente. Apunta principalmente a clientes que buscan reemplazar productos de uso diario poco sustentables por otros que generen menos residuos o sean biodegradables.
+
+Los integrantes del equipo son:
+- Clara: 
+
+- Mateo:
+
+- Jimena:
+
 
 Paginas de Referencia:
 https://www.reconsciente.com/
