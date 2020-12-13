@@ -7,6 +7,10 @@ Los integrantes del equipo son:
 
 - Jimena:
 
+Wireframes:
+
+https://www.figma.com/file/Yj6jBdLR8hw49Y2i7OjXeO/Wireframes?node-id=23%3A92
+
 
 Paginas de Referencia:
 - https://www.reconsciente.com/
