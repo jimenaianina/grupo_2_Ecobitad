@@ -1,4 +1,11 @@
-El sitio fue diseñado para la venta de productos sustentables y amigables con el medioambiente. Apunta principalmente a clientes que buscan reemplazar productos de uso diario poco sustentables por otros que generen menos residuos o sean biodegradables.
+Acerca del proyecto:
+El sitio fue diseñado para la venta de productos sustentables y amigables con el medioambiente. 
+
+Acerca del nombre del proyecto:
+Ecobitad es un término que contiene dos conceptos esenciales del proyecto; "eco" el cual refiere al ecosistema y a la ecología, y "hábitad", referenciando al espacio y componentes que compartimos los seres vivos.
+
+Público Objetivo: 
+Apunta principalmente a clientes que buscan reemplazar productos de uso diario poco sustentables por otros que generen menos residuos o sean biodegradables.
 
 Los integrantes del equipo son:
 - Clara: Economista con MBA, con experiencia como Product Owner en proyectos de Integración Digital con clientes (B2B, Marketplace, APIs).
@@ -6,6 +13,7 @@ Los integrantes del equipo son:
 - Mateo:
 
 - Jimena:
+
 
 Wireframes:
 https://www.figma.com/file/Yj6jBdLR8hw49Y2i7OjXeO/Wireframes?node-id=23%3A92
