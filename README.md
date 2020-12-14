@@ -1,7 +1,7 @@
 El sitio fue diseñado para la venta de productos sustentables y amigables con el medioambiente. Apunta principalmente a clientes que buscan reemplazar productos de uso diario poco sustentables por otros que generen menos residuos o sean biodegradables.
 
 Los integrantes del equipo son:
-- Clara: 
+- Clara: Economista con MBA, con experiencia como Product Owner en proyectos de Integración Digital con clientes (B2B, Marketplace, APIs).
 
 - Mateo:
 
@@ -16,6 +16,7 @@ Paginas de Referencia:
 - https://ecolisitamarket.mitiendanube.com/
 - https://ecoroots.us/
 - https://www.2cool.com.ar/
+- https://sabelatierra.com/
 
 
 Paleta de colores: 
