@@ -10,7 +10,7 @@ Apunta principalmente a clientes que buscan reemplazar productos de uso diario p
 Los integrantes del equipo son:
 - Clara: Economista con MBA, con experiencia como Product Owner en proyectos de Integración Digital con clientes (B2B, Marketplace, APIs).
 
-- Mateo:
+- Mateo: Estudiante  de ingenieria mecanica en la universidad nacional tecnologica regional pacheco.
 
 - Jimena:
 
