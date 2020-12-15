@@ -1,3 +1,5 @@
+ECOBITAD
+
 Acerca del proyecto:
 El sitio fue diseñado para la venta de productos sustentables y amigables con el medioambiente. 
 
