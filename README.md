@@ -12,7 +12,7 @@ Los integrantes del equipo son:
 
 - Mateo: Estudiante  de ingenieria mecanica en la universidad nacional tecnologica regional pacheco.
 
-- Jimena:
+- Jimena: Estudiante y docente en la Facultad de Medicina de la Universidad de Buenos Aires.
 
 
 Wireframes:
