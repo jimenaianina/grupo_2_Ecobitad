@@ -10,7 +10,7 @@ Público Objetivo:
 Apunta principalmente a clientes que buscan reemplazar productos de uso diario poco sustentables por otros que generen menos residuos o sean biodegradables.
 
 Los integrantes del equipo son:
-- Clara: Economista y gradudada MBA, con experiencia como Product Owner en proyectos de Integración Digital con clientes (B2B, Marketplace, APIs).
+- Clara: Economista graduada de MBA, con experiencia como Product Owner en proyectos de Integración Digital con clientes (B2B, Marketplace, APIs).
 
 - Mateo: Estudiante  de ingenieria mecanica en la universidad nacional tecnologica regional pacheco.
 
