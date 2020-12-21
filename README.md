@@ -34,3 +34,6 @@ https://coolors.co/113c4a-265a5c-3f7b70-5893d4-1f3c88-070d59
 
 Fuente: 
 https://fonts.google.com/specimen/Spartan?category=Sans+Serif&vfonly=true
+
+Tablero de trabajo:
+https://trello.com/b/FoIZcJcE
