@@ -2,9 +2,9 @@
   "name": "ecobitad",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "nodemon app.js"
+    "test": "nodemon app.js -e .js,.mjs,.json,.html,.css"
   },
   "author": "",
   "license": "ISC",
