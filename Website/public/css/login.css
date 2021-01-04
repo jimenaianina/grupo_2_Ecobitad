@@ -10,6 +10,7 @@ body {
     background-color: #CEDDEF;
     width: 100%;
     height: 70px;
+    margin: 0px;
     padding: 4px 8px;
     position:static;
     box-sizing: border-box;
@@ -33,6 +34,11 @@ body {
 #menu li{
     display: inline;
     padding: 16px;
+}
+
+#menu li a{
+    transition: all 0.4s linear;
+    border-radius: 40px;
 }
 
 #menu li a:hover{
@@ -82,7 +88,7 @@ body {
     text-decoration: none;
 }
 
-#medios-de-pago {
+.medios-de-pago {
     text-align: left;
     font-size: 15px;
 }
@@ -96,12 +102,15 @@ body {
     text-decoration: none;
 }
 
-#redes-sociales {
-    text-align: left;
+.redes-sociales {
     font-size: 15px;
 }
 
-#redes-sociales li a {
+#iconos-redes li{
+    display: inline-block;
+}
+
+#iconos-redes li a {
     text-decoration: none;
 }
 
