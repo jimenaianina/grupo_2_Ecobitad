@@ -41,20 +41,20 @@
             <p id="titulo"> Creá tu cuenta para guardar todas tus compras en un sólo lugar </p>
             <form action = "/" method="POST">
                 <label for="Nombre"> Nombre </label>
-                <p><input type="text" name="Nombre"></p>
+                <p><input type="text" name="Nombre" id="box"></p>
                 <label for="Apellido"> Apellido </label>
-                <p><input type="text" name="Apellido"></p>
+                <p><input type="text" name="Apellido" id="box"></p>
                 <label for="E-mail"> E-mail </label>
-                <p><input type="email" name="E-mail"></p>
+                <p><input type="email" name="E-mail" id="box"></p>
                 <label for="Teléfono"> Teléfono </label>
-                <p><input type="tel" name="Teléfono"></p>
+                <p><input type="tel" name="Teléfono" id="box"></p>
                 <label for="Contraseña"> Contraseña </label>
-                <p><input type="password" name="Contraseña"></p>
+                <p><input type="password" name="Contraseña" id="box"></p>
                 <label for="Confirmar-Contraseña"> Confirmar contraseña </label>
-                <p><input type="password" name="Confirmar-Contraseña"></p>
+                <p><input type="password" name="Confirmar-Contraseña" id="box"></p>
             </form>
 
-            <p><button type="submit"> Registrarse </button></p>
+            <p><button type="submit" class="btn"> Registrarse </button></p>
 
         </div>
         
@@ -81,12 +81,14 @@
                 <li><a href= #> info@ecobitad.com </a></li>
             </ul>
         
-            <ul type = none id="redes-sociales">
-                <li> Redes Sociales </li>
-                <li><a href= #> Ig </a></li>
-                <li><a href= #> Tw </a></li>
-                <li><a href= #> Fb </a></li>
+            <section class="redes-sociales">
+                <p>Redes Sociales</p>
+            <ul type = none id="iconos-redes">
+                <li><a href= #> <i class="fab fa-instagram"></i> </a></li>
+                <li><a href= #> <i class="fab fa-twitter"></i> </a></li>
+                <li><a href= #> <i class="fab fa-facebook"></i> </a></li>
             </ul>
+            </section>
         
             </div>
         </footer> 

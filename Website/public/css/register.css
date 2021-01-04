@@ -50,6 +50,31 @@ body {
     margin-bottom: 100px;
 }
 
+#box{
+    width : 350px;
+    margin-top: 0px;
+  
+    -webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
+       -moz-box-sizing: border-box; /* For legacy (Firefox <29) Gecko based browsers */
+            box-sizing: border-box;
+  }
+
+.btn {
+    -webkit-border-radius: 28;
+    -moz-border-radius: 20;
+    border-radius: 15px;
+  text-shadow: 1px #9daef5;
+    -webkit-box-shadow: 24px whitesmoke;
+    -moz-box-shadow: 24px whitesmoke;
+    box-shadow: 3px 2px 5px whitesmoke;
+  font-family: "Spartan Medium";
+    color: black;
+    font-size: 17px;
+    padding: 10px;
+    text-decoration: none;
+    border: rgb(0, 0, 0);
+}
+
 #titulo{
 margin-bottom: 50px;
 text-align: center;
@@ -98,15 +123,18 @@ font-size: 15px;
     text-decoration: none;
 }
 
-#redes-sociales {
+.redes-sociales {
     text-align: left;
     font-size: 15px;
 }
 
-#redes-sociales li a {
-    text-decoration: none;
+#iconos-redes li{
+    display: inline-block;
 }
 
+#iconos-redes li a {
+    text-decoration: none;
+}
 #derechos {
     font-size:x-small;
     text-align: right;

@@ -56,9 +56,50 @@ body {
     margin-bottom: 100px;
 }
 
+::-webkit-input-placeholder {
+    text-align: center;
+ }
+ 
+ :-moz-placeholder { /* Firefox 18- */
+    text-align: center;  
+ }
+ 
+ ::-moz-placeholder {  /* Firefox 19+ */
+    text-align: center;  
+ }
+ 
+ :-ms-input-placeholder {  
+    text-align: center; 
+ }
+
 .olvido-contrasena a {
     font-size: 11px;
 }
+
+.btn {
+    -webkit-border-radius: 28;
+    -moz-border-radius: 20;
+    border-radius: 15px;
+  text-shadow: 1px #9daef5;
+    -webkit-box-shadow: 24px whitesmoke;
+    -moz-box-shadow: 24px whitesmoke;
+    box-shadow: 3px 2px 5px whitesmoke;
+  font-family: "Spartan Medium";
+    color: black;
+    font-size: 17px;
+    padding: 10px;
+    text-decoration: none;
+    border: rgb(0, 0, 0);
+}
+
+#box{
+    width : 350px;
+    margin-top: 0px;
+  
+    -webkit-box-sizing: border-box; 
+       -moz-box-sizing: border-box; 
+            box-sizing: border-box;
+  }
 
 .footer {
     background-color: #CEDDEF;
