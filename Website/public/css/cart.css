@@ -1,14 +1,43 @@
-/* Estilos para el cart
-
-/* Mobile 
-/* se resuelve con mobile first (esta en playground)
-
-/* Tablet
-@media all and (max-width:768px{
-
+body {
+    background-color:white;
+    font-family: "Spartan";
+    font-weight: 500;
+    font-size: 17px;
+    font-style: normal;
+    text-align: center;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+.contenedor{
+    display: flex;
 }
 
-/* Desktop
+#total{
+    text-align: left;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.producto{
+    margin-left: 40px; 
+}
+.columna{
+    flex-direction: column;
+}
+.espaciado{
+    justify-content: space-between;
+    margin-right: 40px;
+}
 
+.izquierda{
+    text-align: left;
+    margin-left: 40px;
+}
+.detalle{
+    text-align: left;
+    line-height: 15px;
+}
 
-//ESto va dentro de todos los docs .css
+.derecha{
+    margin-left: 830px;
+}
+
