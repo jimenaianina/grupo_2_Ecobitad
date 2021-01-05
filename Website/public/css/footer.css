@@ -1,0 +1,82 @@
+.footer {
+    background-color: #CEDDEF;
+    width: 100%;
+    height: 100px;
+    padding: 4px 8px;
+    position:static;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.container-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+    margin-right: 50px;
+    margin-left: 10px;
+}
+
+#menu-footer {
+    margin-top: 12.450px;
+    text-align: left;
+    font-size: 15px;
+}
+
+#menu-footer li a {
+    text-decoration: none;
+}
+
+.medios-de-pago {
+    text-align: left;
+    font-size: 15px;
+}
+
+.medios-de-pago img {
+    display: inline-block;
+    height: 16px;
+    margin-top: 6px;
+}
+
+#contacto {
+    text-align: left;
+    font-size: 15px;
+}
+
+#contacto a {
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 6px;
+}
+
+.redes-sociales {
+    font-size: 15px;
+}
+
+footer ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+footer section h2 {
+font-size: 15px;
+margin-bottom: 0px;
+font-family: "Spartan";
+font-weight: 500;
+}
+
+#iconos-redes {
+    display: flex;
+    list-style: none;
+    margin-top: 6px;
+    justify-content: space-around;
+}
+
+#iconos-redes li a {
+    text-decoration: none;
+}
+
+#derechos {
+    font-size:x-small;
+    text-align: right;
+}
