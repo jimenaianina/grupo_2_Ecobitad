@@ -1,30 +1,42 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+/* Mobile */
+
 body {
     background-color:white;
-    font-family: "Spartan Medium";
-    font-size: 17px;
-    font-style: normal;
+    font-family: "Spartan";
+    font-weight: 500;
+    font-size: 16px;
     text-align: center;
 }
 
 .formularios{
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 100px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
+
+#titulo {
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 12px;
+  }
+
 
 #box{
     width : 350px;
     margin-top: 0px;
   
-    -webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
-       -moz-box-sizing: border-box; /* For legacy (Firefox <29) Gecko based browsers */
+    -webkit-box-sizing: border-box; 
+       -moz-box-sizing: border-box; 
             box-sizing: border-box;
   }
 
 .btn {
-    -webkit-border-radius: 28;
-    -moz-border-radius: 20;
-    border-radius: 15px;
   text-shadow: 1px #9daef5;
     -webkit-box-shadow: 24px whitesmoke;
     -moz-box-shadow: 24px whitesmoke;
@@ -37,8 +49,54 @@ body {
     border: rgb(0, 0, 0);
 }
 
+
+/* Desktop */
+
+@media screen and (min-width: 768px) {
+
+    
+  body {
+    background-color:white;
+    font-family: "Spartan Medium";
+    font-size: 16px;
+    text-align: center;
+}
+
+.formularios{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
 #titulo{
-margin-bottom: 50px;
-text-align: center;
-font-size: 15px;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 15px;
+  }
+  
+
+#box{
+    width : 350px;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    -webkit-box-sizing: border-box; 
+       -moz-box-sizing: border-box; 
+            box-sizing: border-box;
+  }
+
+.btn {
+  width: 300px;
+  text-shadow: 1px #9daef5;
+    -webkit-box-shadow: 24px whitesmoke;
+    -moz-box-shadow: 24px whitesmoke;
+    box-shadow: 3px 2px 5px whitesmoke;
+    font-family: "Spartan";
+    font-weight: 500;
+    color: black;
+    font-size: 16px;
+    padding: 8px;
+    text-decoration: none;
+    border: rgb(0, 0, 0);
+}
+
 }
