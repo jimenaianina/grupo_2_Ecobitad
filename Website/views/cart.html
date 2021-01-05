@@ -1,23 +1,170 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang = "es">
     <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial -scale=1">
-    <link href= "header.css" rel= "stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel= "Stylesheet" href= "/css/login.css">
+    <link rel= "Stylesheet" href= "/css/header.css">
+    <link rel= "Stylesheet" href= "/css/footer.css">
+    
     
     <title> EcoBitad </title>
     
     <script src="https://kit.fontawesome.com/d8781bdac2.js" crossorigin="anonymous"></script>
 
     </head>
+
     <body>
-        <section>
-            <h1>Carrito de compras</h1>
-            <h2>Producto</h2>
-            <h2>Subtotal</h2>
+    
+        <header class= "header">
+
+            <div class = "container-header">
+                <img src = "/img/Logo - Blanco.png" width="160px" alt = "Logo">     
+
+                <nav>
+            <ul type = none id="menu">
+                <li><a href= #> Inicio </a></li>
+                <li><a href= #> Productos </a></li>
+                <li><a href= #> Nosotros </a></li>
+            </ul>
+                </nav>
+
+            <ul type = none id="iconos">
+                <li><a href= #><i class="fas fa-search"></i></a></li>
+                <li><a href= #><i class="far fa-user"></i></a></li>
+                <li><a href= #><i class="fas fa-shopping-cart"></i></a></li>
+            </ul>
+        </div>
             
+        
+        </header>
+    <h1 class="izquierda">Carrito de Compras</h1>
+    <hr>
+    <section class="contenedor espaciado">
+
+        <h2 class="producto">Producto</h2>
+    </section>
+
+    <section class="contenedor columna">
+        <article class="contenedor">
+            <figure>
+                <img src="/assets/images/cepillos.jpg" width="160" height="160">
+            </figure>
+            <section class="detalle">
+                <p>Cepillo de dientes Bambú colores</p>
+                <p>$80</p>
+                <form>
+                    <button>
+                        <i class="far fa-minus-square"></i>
+                    </button>
+                    <input type="number" id="cantidad" name="quantity" />
+                    <button>
+                        <i class="far fa-plus-square"></i>
+                    </button>
+                </form>
+            </section>  
+            <section class="derecha">
+            <form>
+                <input type="hidden" id="producto" name="product" value="2" />
+                <button type="submit">
+                    <i class="far fa-trash-alt"></i>
+                </button>
+            </form>
         </section>
-    </body>
+        </article>
+    </section>
+    <section class="contenedor">
+        <article class="contenedor">
+            <figure>
+                <img src="/assets/images/jabonera.jpg" width="160" height="160">
+            </figure>
+            <section class="detalle">
+                <p>Jabonera de madera</p>
+                <p>$350</p>
+                <form>
+                    <button>
+                        <i class="far fa-minus-square"></i>
+                    </button>
+                    <input type="number" id="cantidad" name="quantity" />
+                    <button>
+                        <i class="far fa-plus-square"></i>
+                    </button>
+                </form>
+            </section>
+            <section>
+            <form >
+                
+                <input type="hidden" id="producto" name="product" value="2" />
+                <button type="submit">
+                    <i class="far fa-trash-alt"></i>
+                </button>
+            </form>
+        </section>
+        
+        </article>
+    </section>
+    <h2 id="total" class="contenedor espaciado">
+        Total (sin envío):
+        <span>$ 430</span>
+    </h2>
+    <section class="izquierda">
+      
+            <i class="fas fa-truck"></i>
+            <span> Medios de envío</span>
+        <form>
+            <input type="text" id="codigoPostal" name="postalCode" placeholder="Ingrese su código postal">
+            <button type="CALCULAR">CALCULAR</button>
+        </form>
+        <br>
+        <a href="https://www.correoargentino.com.ar/formularios/cpa">No conozco mi código postal</a>
+    </section>
+</body>
+<footer class= "footer">
+    <div class = "container-footer">
+       <nav>
+        <ul type = none id="menu-footer">
+            <li><a href= #> Inicio </a></li>
+            <li><a href= #> Productos </a></li>
+            <li><a href= #> Nosotros </a></li>
+        </ul>
+        </nav>
+
+    <section class="medios-de-pago">
+        <h2>Medios de pago</h2>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Former_Visa_%28company%29_logo.svg" alt="Logo-de-visa">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg" alt="Logo-de-Mastercard">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/American_Express_Logo.svg" alt="Logo-de-AmericanExpress">
+    <img src="https://static.wikia.nocookie.net/logopedia/images/d/d2/MercadoPago_%28Horizontal%29.svg" alt="Logo-de-Mercadopago">
+    </section>
+
+    <section id="contacto">
+    <h2> Contactanos </h2>
+    <a href= #> info@ecobitad.com </a>
+    </section>
+
+    <section class="redes-sociales">
+        <h2>Redes Sociales</h2>
+        <nav>
+    <ul id="iconos-redes">
+        <li><a href= #> <i class="fab fa-instagram"></i> </a></li>
+        <li><a href= #> <i class="fab fa-twitter"></i> </a></li>
+        <li><a href= #> <i class="fab fa-facebook"></i> </a></li>
+    </ul>
+    </nav>
+    </section>
+
+    </div>
+</footer> 
+
+<div>
+    <p id = "derechos">
+        Todos los derechos reservados.
+    </p>
+</div>
+
+</html>
+

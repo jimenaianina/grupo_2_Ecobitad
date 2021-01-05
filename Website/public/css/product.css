@@ -1,0 +1,65 @@
+body {
+    background-color:white;
+    font-family: "Spartan";
+    font-weight: 500;
+    font-size: 17px;
+    font-style: normal;
+    text-align: center;
+
+}
+
+.izquierda{
+    text-align: left;
+    margin-top: 30px;
+}
+
+.contenedor-medio {
+    display: flex;  
+    flex-direction: row;   
+}
+.contenedor{
+    display: flex;
+    
+    margin-top: 20px;
+   
+} 
+ #miniaturas{
+     display:flex; 
+     flex-direction: column;
+ }
+
+ #miniaturas img {
+     width: 160px;
+     height: 160px;    
+ }
+
+ #specific{
+     margin-top: 4px;
+ }
+
+ #destacada img {
+    flex-direction: row;
+    width: 335px;
+     height: 324px;
+     align-items: flex-start;
+     margin-left: 5px;
+}
+
+.contenedor-chico-2{
+    margin-left: 15px;
+    justify-content: left;
+    text-align: left;
+    
+}
+.delivery {
+text-align: left;
+margin-top: 10px;
+display: inline-block;
+}
+
+
+
+.pago {
+    text-align: left;
+    margin-top: 30px;
+    }
