@@ -10,27 +10,37 @@ body {
 
 .izquierda{
     text-align: left;
-    margin-top: 30px;
+    margin-top: 50px;
+    margin-left: 200px;
 }
 
 .contenedor-medio {
     display: flex;  
-    flex-direction: row;   
+    flex-direction: row; 
+    margin-left: 120px;  
+  
+    
 }
 .contenedor{
     display: flex;
+    margin-left: 120px;  
+    margin-top: 40px;
+    border-style: solid;
+    border-color: #9daef5;
+    border-width:1px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     
-    margin-top: 20px;
-   
 } 
  #miniaturas{
      display:flex; 
      flex-direction: column;
+     margin-left: 120px;  
  }
 
  #miniaturas img {
-     width: 160px;
-     height: 160px;    
+     width: 180px;
+     height: 180px;    
  }
 
  #specific{
@@ -39,14 +49,14 @@ body {
 
  #destacada img {
     flex-direction: row;
-    width: 335px;
-     height: 324px;
+    width: 360px;
+     height: 364px;
      align-items: flex-start;
      margin-left: 5px;
 }
 
 .contenedor-chico-2{
-    margin-left: 15px;
+    margin-left: 70          p[;;;lpx;
     justify-content: left;
     text-align: left;
     
