@@ -1,3 +1,4 @@
+
 body {
     background-color:white;
     font-family: "Spartan";
@@ -8,17 +9,167 @@ body {
 
 }
 
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
 .izquierda{
     text-align: left;
-    margin-top: 50px;
-    margin-left: 200px;
+    margin-top: 10px;
+    font-size: 15px;
 }
 
 .contenedor-medio {
     display: flex;  
     flex-direction: row; 
     margin-left: 120px;  
-  
+    
+}
+.contenedor{
+    display: flex;
+    margin-left: 10px;  
+    margin-top: 10px;
+    border-style: solid;
+    border-color: #9daef5;
+    border-width:1px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    margin-right: 120px;
+    width: 100%;
+
+
+}
+.medios-de-pago{
+    width: 80%;
+    margin-right:  0px;
+    font-size: 10px;
+
+    
+}
+.tarjetas img{
+width: 25px;
+
+}
+
+.detalles{
+    margin-top: 20px;
+    font-size: 10px;
+    width: 100%;
+}
+
+.agregar{
+background-color:  #afb3b6 ;
+color: rgb(17, 18, 19);
+border: 0px;
+width: 90%;
+margin-top: 10px;
+height: 25px;
+}
+
+.contenedor-chico-2 .precio {
+    margin-top: 5px;
+}
+
+ #miniaturas{
+     display:flex; 
+     flex-direction: column;
+     margin-left: 10px;  
+
+
+ } 
+
+ #miniaturas img {
+     width: 180px;
+     height: 180px;    
+ }
+
+ #specific{
+     margin-top: 4px;
+ }
+
+ #destacada img {
+    flex-direction: row;
+    width: 360px;
+     height: 364px;
+     align-items: flex-start;
+     margin-left: 5px;
+     display: none;
+}
+
+.contenedor-chico-2{
+    margin-left: 10px;
+    justify-content: left;
+    text-align: left;
+    width:100%;
+
+    
+    
+}
+.delivery {
+text-align: left;
+margin-top: 30px;
+display: inline-block;
+}
+
+.delivery p{
+    margin-bottom: 0px;
+    margin-top: 5px;
+}
+
+
+
+.pago {
+    text-align: left;
+    margin-top: 50px;
+    }
+
+.descripcion {
+    margin-left: 120px;  
+    margin-top: 30px;
+    padding-bottom: 30px;
+    margin-right: 120px;
+}
+     
+.descripcion .titulo .explicacion{
+    font-family: "Spartan";
+        font-weight: 200;
+        color: black;
+        font-size: 16px;
+}
+
+@media screen and (min-width: 768px){
+
+body {
+    background-color:white;
+    font-family: "Spartan";
+    font-weight: 500;
+    font-size: 17px;
+    font-style: normal;
+    text-align: center;
+
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+.izquierda{
+    text-align: left;
+    margin-top: 50px;
+    margin-left: 170px;
+}
+
+.contenedor-medio {
+    display: flex;  
+    flex-direction: row; 
+    margin-left: 120px;  
+ 
     
 }
 .contenedor{
@@ -30,8 +181,36 @@ body {
     border-width:1px;
     padding-top: 30px;
     padding-bottom: 30px;
-    
+    margin-right: 120px;
+    width: 1200px;
+
+}
+.medios-de-pago{
+    width: 70%;
+    margin-top: 30px;
+}
+
+.tarjetas img{
+    width: initial;
 } 
+
+.detalles{
+    margin-top: 20px;
+}
+
+.agregar{
+background-color:  #afb3b6 ;
+color: rgb(17, 18, 19);
+border: 0px;
+width: 230px;
+margin-top: 10px;
+height: 25px;
+}
+
+.contenedor-chico-2 .precio {
+    margin-top: 5px;
+}
+
  #miniaturas{
      display:flex; 
      flex-direction: column;
@@ -53,26 +232,56 @@ body {
      height: 364px;
      align-items: flex-start;
      margin-left: 5px;
+     display: initial;
 }
 
 .contenedor-chico-2{
-    margin-left: 70          p[;;;lpx;
+    margin-left: 70px;
     justify-content: left;
     text-align: left;
     
 }
 .delivery {
 text-align: left;
-margin-top: 10px;
+margin-top: 30px;
 display: inline-block;
 }
 
 .delivery p{
     margin-bottom: 0px;
+    margin-top: 5px;
 }
+
 
 
 .pago {
     text-align: left;
-    margin-top: 30px;
+    margin-top: 50px;
     }
+
+.descripcion {
+    margin-left: 120px;  
+    margin-top: 30px;
+    padding-bottom: 30px;
+    margin-right: 120px;
+}
+     
+.descripcion .titulo .explicacion{
+    font-family: "Spartan";
+        font-weight: 200;
+        color: black;
+        font-size: 16px;
+}
+}
+    
+/*desktop
+/* @media (min-width: 375px){
+    #detalles {
+        content: 10%;
+        .contenedor{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 354vw;
+    height: 110vh;
+    }   
+
