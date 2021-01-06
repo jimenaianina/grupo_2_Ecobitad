@@ -57,6 +57,9 @@ margin-top: 10px;
 display: inline-block;
 }
 
+.delivery p{
+    margin-bottom: 0px;
+}
 
 
 .pago {
