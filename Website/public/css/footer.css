@@ -6,6 +6,83 @@
 
 /*Mobile*/
 
+.footer {
+    background-color: #CEDDEF;
+    text-align: center;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer ul {
+    list-style-type: none;
+}
+
+footer h2 {
+    font-size: 24px;
+    font-weight: 520;
+}
+
+footer nav ul li a {
+    text-decoration: none;
+    display: block;
+    padding: 6px;
+    font-size: 24px;
+    text-align: center;
+    margin: 8px 0px;
+    color: #113C4A;
+    transition: all .3s ease-in-out;
+}
+
+.mediosDePago{
+    margin-top: 20px;
+}
+
+.mediosDePago img {
+    display: inline-block;
+    height: 30px;
+    margin-top: 16px;
+}
+
+.contacto {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.contacto a {
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 6px;
+}
+
+.redes-sociales {
+    margin-top: 30px;
+}
+
+footer ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+#iconos-redes {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin-top: 4px;
+    justify-content: space-between;
+}
+
+#iconos-redes li a {
+    text-decoration: none;
+}
+
+#derechos {
+    margin-top: 6px;
+    font-size:x-small;
+    text-align: right;
+}
 
 /*Desktop*/
 
@@ -30,22 +107,22 @@
         margin-left: 10px;
     }
     
-    #menu-footer {
+    .navegadorFooter {
         margin-top: 12.450px;
         text-align: left;
         font-size: 15px;
     }
     
-    #menu-footer li a {
+    .navegadorFooter li a {
         text-decoration: none;
     }
     
-    .medios-de-pago {
+    .mediosDePago {
         text-align: left;
-        font-size: 15px;
+        font-size: 16px;
     }
     
-    .medios-de-pago img {
+    .mediosDePago img {
         display: inline-block;
         height: 16px;
         margin-top: 6px;
@@ -56,7 +133,7 @@
         font-size: 15px;
     }
     
-    #contacto a {
+    .contacto a {
         display: inline-block;
         text-decoration: none;
         margin-top: 6px;
@@ -90,6 +167,7 @@
     }
     
     #derechos {
+        margin-top: 6px;
         font-size:x-small;
         text-align: right;
     }
