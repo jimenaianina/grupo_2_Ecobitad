@@ -1,3 +1,4 @@
+
 body {
     background-color:white;
     font-family: "Spartan";
@@ -8,29 +9,86 @@ body {
 
 }
 
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
 .izquierda{
     text-align: left;
-    margin-top: 30px;
+    margin-top: 10px;
+    font-size: 15px;
 }
 
 .contenedor-medio {
     display: flex;  
-    flex-direction: row;   
+    flex-direction: row; 
+    margin-left: 120px;  
+    
 }
 .contenedor{
     display: flex;
-    
-    margin-top: 20px;
-   
-} 
+    margin-left: 7px;  
+    margin-top: 10px;
+    border-style: solid;
+    border-color: #9daef5;
+    border-width:1px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width:96%;
+
+
+}
+.medios-de-pago{
+    width: 80%;
+    margin-right:  0px;
+    font-size: 10px;
+    margin-top: 10px;
+}
+
+.medios{
+    font-weight: 100px;
+
+}
+.tarjetas img{
+width: 25px;
+
+}
+
+.detalles{
+    margin-top: 3px;
+    font-size: 12px;
+    width: 100%;
+}
+
+.agregar{
+background-color:  #afb3b6 ;
+color: rgb(17, 18, 19);
+border: 0px;
+width: 90%;
+margin-top: 4px;
+height: 20px;
+font-size: 12px;
+}
+
+.contenedor-chico-2 .precio {
+    margin-top: 5px;
+    font-size: 10px;
+    width: 100%;
+}
+
  #miniaturas{
      display:flex; 
      flex-direction: column;
- }
+     margin-left: 10px;  
+
+ } 
 
  #miniaturas img {
-     width: 160px;
-     height: 160px;    
+     width: 180px;
+     height: 180px;    
  }
 
  #specific{
@@ -39,16 +97,21 @@ body {
 
  #destacada img {
     flex-direction: row;
-    width: 335px;
-     height: 324px;
+    width: 360px;
+     height: 364px;
      align-items: flex-start;
      margin-left: 5px;
+     display: none;
 }
 
 .contenedor-chico-2{
-    margin-left: 15px;
+    margin-left: 10px;
     justify-content: left;
     text-align: left;
+    width:100%;
+    margin-right: 50px;
+
+    
     
 }
 .delivery {
@@ -57,9 +120,231 @@ margin-top: 10px;
 display: inline-block;
 }
 
-
+.delivery p{
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 10px;
+    font-weight: 500;
+}
 
 .pago {
     text-align: left;
     margin-top: 30px;
     }
+   
+.mediosFrase{
+    font-size: 11px;
+}
+
+.ingrese{
+font-size: 11px;
+margin-top: 0px;
+}
+
+.calcular{
+    font-size: 11px;
+}
+.descripcion {
+    margin-left: 10px;  
+    margin-top: 30px;
+    padding-bottom: 30px;
+    margin-right: 10px;
+    
+}
+     
+.descripcion .titulo .explicacion{
+    font-family: "Spartan";
+        font-weight: 200;
+        color: black;
+        
+}
+
+.lila {
+    border: none;
+    color: black;
+    background-color: rgb(228, 182, 228);
+    padding: 5px 5px;
+    text-align: center;
+    font-size: 10px;
+
+  }
+
+  /* como hacer que el tamano del boton sean mas grande */
+
+  .musgo {
+    border: none;
+    color: black;
+    background-color: rgb(17, 107, 81);
+    padding: 5px 5px;
+    text-align: center;
+    font-size: 10px;
+  }
+  
+  .aqua {
+    border: none;
+    color: black;
+    background-color: rgb(137, 187, 216);
+    padding: 5px 5px;
+    text-align: center;
+    font-size: 10px;
+  }
+.correo{
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+.explicacion {
+    justify-content: left;
+    font-size: 12px;
+    text-align:left;
+
+}
+@media screen and (min-width: 768px){
+
+body {
+    background-color:white;
+    font-family: "Spartan";
+    font-weight: 500;
+    font-size: 17px;
+    font-style: normal;
+    text-align: center;
+
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+.izquierda{
+    text-align: left;
+    margin-top: 50px;
+    margin-left: 170px;
+}
+
+.contenedor-medio {
+    display: flex;  
+    flex-direction: row; 
+    margin-left: 120px;  
+ 
+    
+}
+.contenedor{
+    display: flex;
+    margin-left: 120px;  
+    margin-top: 40px;
+    border-style: solid;
+    border-color: #9daef5;
+    border-width:1px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-right: 120px;
+    width: 1200px;
+
+}
+.medios-de-pago{
+    width: 70%;
+    margin-top: 30px;
+}
+
+.tarjetas img{
+    width: 30px;
+} 
+
+.detalles{
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.agregar{
+background-color:  #afb3b6 ;
+color: rgb(17, 18, 19);
+border: 0px;
+width: 230px;
+margin-top: 10px;
+height: 25px;
+}
+
+.contenedor-chico-2 .precio {
+    margin-top: 5px;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+ #miniaturas{
+     display:flex; 
+     flex-direction: column;
+     margin-left: 120px;  
+ }
+
+ #miniaturas img {
+     width: 180px;
+     height: 180px;    
+ }
+
+ #specific{
+     margin-top: 4px;
+ }
+
+ #destacada img {
+    flex-direction: row;
+    width: 360px;
+     height: 364px;
+     align-items: flex-start;
+     margin-left: 5px;
+     display: initial;
+}
+
+.contenedor-chico-2{
+    margin-left: 70px;
+    justify-content: left;
+    text-align: left;
+    
+}
+.delivery {
+text-align: left;
+margin-top: 30px;
+display: inline-block;
+}
+
+.delivery p{
+    margin-bottom: 0px;
+    margin-top: 5px;
+    font-size: 17px;
+    font-weight:initial;
+}
+
+.pago {
+    text-align: left;
+    margin-top: 50px;
+    }
+
+.descripcion {
+    margin-left: 120px;  
+    margin-top: 30px;
+    padding-bottom: 30px;
+    margin-right: 120px;
+}
+     
+.descripcion .titulo .explicacion{
+    font-family: "Spartan";
+        font-weight: 200;
+        color: black;
+        font-size: 16px;
+}
+}
+    
+/*desktop
+/* @media (min-width: 375px){
+    #detalles {
+        content: 10%;
+        .contenedor{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 354vw;
+    height: 110vh;
+    }   
+

@@ -1,44 +1,107 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+/* Mobile */
+
 body {
     background-color:white;
+    font-family: "Spartan";
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+}
+
+.formularios{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#titulo {
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 12px;
+  }
+
+
+#box{
+    width : 240px;
+    height: 24px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    -webkit-box-sizing: border-box; 
+       -moz-box-sizing: border-box; 
+            box-sizing: border-box;
+  }
+
+.btn {
+  width: 154px;
+  height: 40px;
+  text-shadow: 1px #9daef5;
+    -webkit-box-shadow: 24px whitesmoke;
+    -moz-box-shadow: 24px whitesmoke;
+    box-shadow: 3px 2px 5px whitesmoke;
+  font-family: "Spartan";
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: black;
+  font-size: 12px;
+  padding: 12px;
+  text-decoration: none;
+  border: rgb(0, 0, 0);
+}
+
+
+/* Desktop */
+
+@media screen and (min-width: 768px) {
+
+    
+  body {
+    background-color:white;
     font-family: "Spartan Medium";
-    font-size: 17px;
-    font-style: normal;
+    font-size: 16px;
     text-align: center;
 }
 
 .formularios{
     text-align: center;
-    margin-top: 50px;
-    margin-bottom: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
+
+#titulo{
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 12px;
+  }
+  
 
 #box{
     width : 350px;
-    margin-top: 0px;
-  
-    -webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
-       -moz-box-sizing: border-box; /* For legacy (Firefox <29) Gecko based browsers */
+    margin-top: 8px;
+    margin-bottom: 12px;
+    -webkit-box-sizing: border-box; 
+       -moz-box-sizing: border-box; 
             box-sizing: border-box;
   }
 
 .btn {
-    -webkit-border-radius: 28;
-    -moz-border-radius: 20;
-    border-radius: 15px;
+  width: 300px;
   text-shadow: 1px #9daef5;
-    -webkit-box-shadow: 24px whitesmoke;
-    -moz-box-shadow: 24px whitesmoke;
-    box-shadow: 3px 2px 5px whitesmoke;
-  font-family: "Spartan Medium";
-    color: black;
-    font-size: 17px;
-    padding: 10px;
-    text-decoration: none;
-    border: rgb(0, 0, 0);
+  -webkit-box-shadow: 24px whitesmoke;
+   -moz-box-shadow: 24px whitesmoke;
+  box-shadow: 3px 2px 5px whitesmoke;
+  font-family: "Spartan";
+  font-weight: 500;
+  color: black;
+  font-size: 16px;
+  padding: 8px;
+  text-decoration: none;
+  border: rgb(0, 0, 0);
 }
 
-#titulo{
-margin-bottom: 50px;
-text-align: center;
-font-size: 15px;
 }
