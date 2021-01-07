@@ -29,7 +29,6 @@ img{
     justify-content: center;
     align-items: center;
     position: relative;
-    height: 30vh;
     overflow: hidden;
     
 }
@@ -73,6 +72,30 @@ img{
  @media screen and (min-width: 768px){
      #categorias{
          display: flex;
-         flex-direction: column;
+         justify-content: space-between;
+         margin:0 16px;
+         flex-direction:row;
+         widows: 100%;
+         height:30vh ;
+         
+     }
+     #categorias figure{
+         flex: 1;
+         overflow: hidden;
+         position: relative;
+
+     }
+     #categorias figure a{
+        position: absolute;
+        background-color: rgba(12, 12, 12, 0.4);
+        background-position: center;
+        color: white;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        font-weight: bold;
+        
      }
  }
