@@ -6,6 +6,83 @@
 
 /*Mobile*/
 
+.footer {
+    background-color: #CEDDEF;
+    text-align: center;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer ul {
+    list-style-type: none;
+}
+
+footer h2 {
+    font-size: 24px;
+    font-weight: 520;
+}
+
+footer nav ul li a {
+    text-decoration: none;
+    display: block;
+    padding: 6px;
+    font-size: 24px;
+    text-align: center;
+    margin: 8px 0px;
+    color: #113C4A;
+    transition: all .3s ease-in-out;
+}
+
+.mediosDePago{
+    margin-top: 20px;
+}
+
+.mediosDePago img {
+    display: inline-block;
+    height: 30px;
+    margin-top: 16px;
+}
+
+.contacto {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.contacto a {
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 6px;
+}
+
+.redes-sociales {
+    margin-top: 30px;
+}
+
+footer ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+#iconos-redes {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin-top: 4px;
+    justify-content: space-between;
+}
+
+#iconos-redes li a {
+    text-decoration: none;
+}
+
+#derechos {
+    margin-top: 6px;
+    font-size:x-small;
+    text-align: right;
+}
 
 /*Desktop*/
 
@@ -13,57 +90,69 @@
 
     .footer {
         background-color: #CEDDEF;
-        width: 100%;
         height: 100px;
-        padding: 4px 8px;
-        position:static;
-        box-sizing: border-box;
-        justify-content: space-between;
-        align-items: flex-start;
-    }
-    
-    .container-footer {
+        padding-top: 6px;
+        padding-right: 12px;
+        padding-left: 20px;
         display: flex;
-        justify-content: space-between;
-        align-items: top;
-        margin-right: 50px;
-        margin-left: 10px;
-    }
-    
-    #menu-footer {
-        margin-top: 12.450px;
+        flex-direction: row; 
+        justify-content: space-around;
+        align-items: flex-start;
         text-align: left;
-        font-size: 15px;
+        font-size: 16px;
     }
     
-    #menu-footer li a {
+    footer a {
+    text-decoration: none;
+    }
+    
+    .footer ul {
+        list-style-type: none;
+    }
+    
+    footer nav ul li a {
         text-decoration: none;
-    }
-    
-    .medios-de-pago {
+        display: block;
+        padding: 0px;
+        font-size: 16px;
         text-align: left;
-        font-size: 15px;
+        margin: 8px 0px;
+        color: #113C4A;
+        transition: all .3s ease-in-out;
     }
     
-    .medios-de-pago img {
+    footer h2 {
+        font-size: 16px;
+        font-weight: 520;
+    }
+
+    .mediosDePago {
+        text-align: left;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    
+    .mediosDePago img {
         display: inline-block;
         height: 16px;
         margin-top: 6px;
     }
     
-    #contacto {
+    .contacto {
         text-align: left;
-        font-size: 15px;
+        font-size: 16px;
+        margin-top: 10px;
     }
     
-    #contacto a {
+    .contacto a {
         display: inline-block;
         text-decoration: none;
         margin-top: 6px;
     }
     
     .redes-sociales {
-        font-size: 15px;
+        font-size: 16px;
+        margin-top: 10px;
     }
     
     footer ul {
@@ -71,12 +160,6 @@
         padding: 0px;
     }
     
-    footer section h2 {
-    font-size: 15px;
-    margin-bottom: 0px;
-    font-family: "Spartan";
-    font-weight: 500;
-    }
     
     #iconos-redes {
         display: flex;
@@ -90,6 +173,7 @@
     }
     
     #derechos {
+        margin-top: 6px;
         font-size:x-small;
         text-align: right;
     }
