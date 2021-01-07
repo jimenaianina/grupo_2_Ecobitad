@@ -5,8 +5,7 @@ body {
     font-size: 17px;
     font-style: normal;
     text-align: center;
-    margin-right: 40px;
-    margin-left: 40px;
+  
 }
 .contenedor{
     display: flex;
