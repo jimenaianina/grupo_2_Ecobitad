@@ -93,6 +93,7 @@ body {
          flex: 1;
          overflow: hidden;
          position: relative;
+         margin: 10px;
 
      }
      #categorias figure a{
