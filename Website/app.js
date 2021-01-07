@@ -12,7 +12,7 @@ const path=require("path");
 app.use(express.static(path.resolve(__dirname,"public")));
 
 //configuro las rutas para las vistas
-app.get("/",(req,res)=> res.sendFile(path.resolve(__dirname,"views","index.html")));
+app.get("/",(req,res)=> res.sendFile(path.resolve(__dirname,"views","home.html")));
 app.get("/producto",(req,res)=> res.sendFile(path.resolve(__dirname,"views","product.html")));
 app.get("/login",(req,res)=> res.sendFile(path.resolve(__dirname,"views","login.html")));
 app.get("/registro",(req,res)=> res.sendFile(path.resolve(__dirname,"views","register.html")));
