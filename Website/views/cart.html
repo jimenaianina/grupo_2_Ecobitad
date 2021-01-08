@@ -4,10 +4,10 @@
     <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial -scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel= "Stylesheet" href= "/css/login.css">
+    <link rel= "Stylesheet" href= "/css/cart.css">
     <link rel= "Stylesheet" href= "/css/header.css">
     <link rel= "Stylesheet" href= "/css/footer.css">
     
@@ -62,68 +62,56 @@
             </ul>
 
         </header>
-    <h1 class="izquierda">Carrito de Compras</h1>
-    <hr>
-    <section class="contenedor espaciado">
-
-        <h2 class="producto">Producto</h2>
+    <section class="carrito">
+    <p class="izquierda">Carrito de Compras</p>
+    </section>
+<hr>
+    <section class="palabra-producto">
+        <article class="producto">Producto</article> 
     </section>
 
-    <section class="contenedor columna">
-        <article class="contenedor">
+    <section class="contenedor-cepillo">
+        <article class="cepillos">
             <figure>
-                <img src="/assets/images/cepillos.jpg" width="160" height="160">
+                <img src="/assets/images/cepillos.jpg"   ˜ width="160" height="160">
             </figure>
-            <section class="detalle">
+        </article> 
+        <article class="detalle">
                 <p>Cepillo de dientes Bambú colores</p>
                 <p>$80</p>
                 <form>
-                    <button>
-                        <i class="far fa-minus-square"></i>
-                    </button>
-                    <input type="number" id="cantidad" name="quantity" />
-                    <button>
-                        <i class="far fa-plus-square"></i>
+                    <input type="number" id="cantidad" name="quantity">        
+                </form>
+                <form>
+                    <input type="hidden" id="producto" name="product" value="2">
+                    <button type="submit">
+                        <i class="far fa-trash-alt"></i>
                     </button>
                 </form>
-            </section>  
-            <section class="derecha">
-            <form>
-                <input type="hidden" id="producto" name="product" value="2" />
-                <button type="submit">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </form>
-        </section>
-        </article>
+        </article>     
     </section>
-    <section class="contenedor">
-        <article class="contenedor">
+
+    <section class="contenedor-jabonera">
+        <article class="jabonera">
             <figure>
                 <img src="/assets/images/jabonera.jpg" width="160" height="160">
             </figure>
-            <section class="detalle">
+        </article>
+        <article class="detalle">
                 <p>Jabonera de madera</p>
                 <p>$350</p>
                 <form>
-                    <button>
-                        <i class="far fa-minus-square"></i>
-                    </button>
-                    <input type="number" id="cantidad" name="quantity" />
-                    <button>
-                        <i class="far fa-plus-square"></i>
+                    <input type="number" id="cantidad" name="quantity">
+                </form>
+                <form>
+                    <input type="hidden" id="producto" name="product" value="2">
+                    <button type="submit">
+                        <i class="far fa-trash-alt"></i>
                     </button>
                 </form>
-            </section>
-            <section>
-            <form >
-                
-                <input type="hidden" id="producto" name="product" value="2" />
-                <button type="submit">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </form>
-        </section>
+        </article>
+        
+    </section>
         
         </article>
     </section>
