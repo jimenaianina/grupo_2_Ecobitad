@@ -179,13 +179,26 @@ margin-top: 0px;
     margin-top: 30px;
     padding-bottom: 30px;
     margin-right: 10px;
+    font-family: "Spartan";
+    font-weight: 500;
+    text-align: left;
+    font-size: 12px;
     
+
 }
      
-.descripcion .titulo .explicacion{
+.titulo{
+    text-decoration: underline;
+
+}
+
+.explicacion{
     font-family: "Spartan";
-        font-weight: 200;
-        color: black;
+        font-weight: 500;  
+        text-align: left;      
+        margin-right: 10px;
+        text-decoration: underline;
+        word-wrap: break-word;
         
 }
 
