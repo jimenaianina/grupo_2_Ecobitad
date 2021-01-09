@@ -66,6 +66,8 @@
     <p class="izquierda">Carrito de Compras</p>
     </section>
 <hr>
+
+<section class="primera"> 
     <section class="palabra-producto">
         <article class="producto">Producto</article> 
     </section>
@@ -73,33 +75,47 @@
     <section class="contenedor-cepillo">
         <article class="cepillos">
             <figure>
-                <img src="/assets/images/cepillos.jpg"   ˜ width="160" height="160">
+                <img id="cepillo" src="/assets/images/cepillos.jpg" width="160" height="160">
             </figure>
         </article> 
         <article class="detalle">
                 <p>Cepillo de dientes Bambú colores</p>
-                <p>$80</p>
-                <form>
-                    <input type="number" id="cantidad" name="quantity">        
-                </form>
-                <form>
-                    <input type="hidden" id="producto" name="product" value="2">
-                    <button type="submit">
-                        <i class="far fa-trash-alt"></i>
-                    </button>
-                </form>
-        </article>     
+                <p id="precio" > $80</p>
+            
+                <section class="cantidad-tachito">
+                    <form>
+                        <input type="number" id="cantidad" name="quantity">
+                    </form>
+                    <form>
+                        <input type="hidden" id="producto" name="product" value="2">
+                        <button type="submit">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    </form>
+                </section>  
+            </nav>
+            
+            <nav class="opciones">
+                <ul type = none>
+                        <li><a href= #> Comprar ahora</a></li>
+                        <li><a href= #> Guardar para después </a></li>
+                         
+                </ul>
+                    </nav>
+                
+        </article>  
     </section>
-
+<hr>
     <section class="contenedor-jabonera">
         <article class="jabonera">
             <figure>
-                <img src="/assets/images/jabonera.jpg" width="160" height="160">
+                <img id="jabonera" src="/assets/images/jabonera.jpg" width="160" height="160">
             </figure>
         </article>
         <article class="detalle">
                 <p>Jabonera de madera</p>
-                <p>$350</p>
+                <p id="precio" >$350</p>
+            <section class="cantidad-tachito">
                 <form>
                     <input type="number" id="cantidad" name="quantity">
                 </form>
@@ -109,28 +125,43 @@
                         <i class="far fa-trash-alt"></i>
                     </button>
                 </form>
+            </section>
+        </nav>
+            
+        <nav class="opciones">
+            <ul type = none>
+                    <li><a href= #> Comprar ahora</a></li>
+                    <li><a href= #> Guardar para después </a></li>
+                     
+            </ul>
+                </nav>
+            
+
         </article>
-        
+
     </section>
-        
+</section>
+
+<section class="segunda">       
+    <section class="sin-envio">
+        <article id="total">
+        <p>Total (sin envío):</p>
         </article>
-    </section>
-    <h2 id="total" class="contenedor espaciado">
-        Total (sin envío):
-        <span>$ 430</span>
-    </h2>
-    <section class="izquierda">
-      
+        <article>
+       <p>$ 430</p>
+        </article>
+    </section> 
+    <section class="izquierda"></section>
             <i class="fas fa-truck"></i>
-            <span> Medios de envío</span>
+            <span class="medios"> Medios de envío</span>
         <form>
             <input type="text" id="codigoPostal" name="postalCode" placeholder="Ingrese su código postal">
             <button type="CALCULAR">CALCULAR</button>
         </form>
-        <br>
-        <a href="https://www.correoargentino.com.ar/formularios/cpa">No conozco mi código postal</a>
+        <a class="conocer" href="https://www.correoargentino.com.ar/formularios/cpa">No conozco mi código postal</a>
     </section>
-
+</section>
+<hr>
 <footer class= "footer">
 
     <div class="navegadorFooter">

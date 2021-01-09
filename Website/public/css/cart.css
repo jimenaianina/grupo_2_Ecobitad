@@ -7,6 +7,15 @@ body {
     text-align: center;
   
 }
+.primera{
+    background-color: rgb(248, 243, 237);
+}
+
+.segunda{
+    background-color: rgb(248, 243, 237);
+    padding-bottom: 10px;
+
+}
 
 .carrito{
     margin-top: 15px;
@@ -14,81 +23,189 @@ body {
 }
 
 .palabra-producto{
-    margin-top: 15px;
-    margin-bottom: 15px;
+    padding-top: 10px;
+    margin-bottom: 10px;
     justify-content: center;
 }
 
 .contenedor-cepillo{
     display:flex;
-    justify-content: start;    
+    text-align: left;        
     margin-left: 10px;
     margin-right: 10px;                                                                                               
 }
 
-#total{
-    text-align: left;
-    margin-left: 40px;
-    margin-right: 40px;
-}
-
 .contenedor-jabonera{
-    display:flex;
-    justify-content: start;  
+    display:flex;  
     margin-left: 10px;
-    margin-right: 10px;                                                                                             
+    margin-right: 10px;
+    text-align: left; 
+    margin-top: 5px;                                                                                               
+}
+
+.detalle{
+    font-size: 14px;
+    width: 80%;
+    margin-left: 10px;
+    margin-top: 10px;
+    
+}
+
+#precio{
+    margin-top: 5px;
+}
+
+.cantidad-tachito{
+    display: flex;
+    width: 96%;
+    justify-content: space-between ;
 }
 
 
-.derecha{
-    margin-left: 830px;
+.opciones li{
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.sin-envio{
+    display:flex;
+    justify-content: space-between;    
+    margin-left: 10px;
+    margin-right: 10px;    
+    padding-top: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.conocer{
+    font-size: 12px;
+    margin-bottom: 17px;
+    
+}
+
+.medios{
+    font-size: 14px;
 }
 
 @media screen and (min-width: 768px) {
-body {
-    background-color:white;
-    font-family: "Spartan";
-    font-weight: 500;
-    font-size: 17px;
-    font-style: normal;
-    text-align: center;
-  
-}
-.contenedor{
+
+    body {
+        background-color: white;
+        font-family: "Spartan";
+        font-weight: 500;
+        font-size: 17px;
+        font-style: normal;
+        text-align: center;
+      
+    }
+    .primera{
+        background-color: rgb(248, 243, 237);
+        margin-left: 190px;
+        margin-right: 190px;
+        margin-top: 20px;
+        
+    }
+    
+    .segunda{
+        background-color: rgb(248, 243, 237);
+        padding-bottom: 10px;
+        margin-left: 190px;
+        margin-right: 190px;
+        margin-bottom: 20px;
+
+    
+    }
+    
+    .carrito{
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .palabra-producto{
+        padding-top: 10px;
+        margin-bottom: 10px;
+        justify-content: center;
+    }
+    
+    .contenedor-cepillo{
+        display:flex;
+        text-align: right;        
+        margin-left: 10px;
+        margin-right: 10px;    
+                                                                                                   
+    }
+
+    #cepillo{
+        width: 260px;
+        height: 260px;
+    }
+    
+    #jabonera{
+        width: 260px;
+        height: 260px;
+    }
+    .contenedor-jabonera{
+        display:flex;  
+        margin-left: 10px;
+        margin-right: 10px;
+        text-align: right;   
+        margin-top: 5px;                                                                                          
+    }
+    
+    .detalle{
+        font-size: 17px;
+        width: 80%;
+        margin-left: 10px;
+        margin-top: 10px;
+        
+    }
+
+    #precio{
+        margin-top: 10px;
+    }
+    
+    .cantidad-tachito{
+        display: flex;
+        width: 96%;
+        justify-content: right ;
+        margin-top: 10px;
+        margin-left: 600px;
+        
+    }
+
+
+.opciones {
     display: flex;
+    flex-direction: row-reverse;
+    margin-top: 10px;
 }
 
-#total{
-    text-align: left;
-    margin-left: 40px;
-    margin-right: 40px;
-}
-.producto{
-    margin-left: 40px; 
-}
-.columna{
-    flex-direction: column;
-}
-.espaciado{
-    justify-content: space-between;
-    margin-right: 40px;
-}
+.opciones li{
+    display: inline;
+    padding: 5px;
+    font-size: 15px;
+    
 
-.izquierda{
-    text-align: left;
-    margin-left: 40px;
-    font-size: 30px;
-    font-weight: 500;
-    margin-bottom: 30px;
-    margin-top: 30px;
     
 }
-.detalle{
-    text-align: left;
-    line-height: 15px;
-}
-
-.derecha{
-    margin-left: 830px;
-}
+    
+    .sin-envio{
+        display:flex;
+        justify-content: space-between;    
+        margin-left: 10px;
+        margin-right: 10px;    
+        padding-top: 10px;
+        margin-bottom: 10px;
+        font-size: 17px;
+    }
+    
+    .conocer{
+        font-size: 12px;
+        margin-bottom: 17px;
+        
+    }
+    
+    .medios{
+        font-size: 17px;
+    }
 }
