@@ -112,7 +112,8 @@ body {
 }
 .comprar{
     margin-top: 20px;
-    justify-content: right;
+    
+    margin-bottom: 10px;
 }
 
 .comprar-btn{
@@ -253,10 +254,10 @@ body {
         
     }
 
-
     .comprar{
         margin-top: 40px;
-        justify-content: right;
+    
+        margin-bottom: 10px;
     }
     .comprar-btn{
         width: 200px;
