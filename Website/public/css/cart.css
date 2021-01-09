@@ -35,6 +35,10 @@ body {
     margin-right: 10px;                                                                                               
 }
 
+.cepillos #cepillo{
+    width: 160px;
+    height: 160px;
+}
 .contenedor-jabonera{
     display:flex;  
     margin-left: 10px;
@@ -43,8 +47,13 @@ body {
     margin-top: 5px;                                                                                               
 }
 
+.jaboneras #jabonera{
+    width: 160px;
+    height: 160px;
+}
+
 .detalle{
-    font-size: 14px;
+    font-size: 12px;
     width: 80%;
     margin-left: 10px;
     margin-top: 10px;
@@ -55,16 +64,21 @@ body {
     margin-top: 5px;
 }
 
+#color{
+    margin-top: 5px;
+}
+
 .cantidad-tachito{
     display: flex;
     width: 96%;
     justify-content: space-between ;
+    margin-bottom: 5px;
 }
 
 
 .opciones li{
     font-size: 12px;
-    margin-top: 5px;
+    margin-top: 2px;
 }
 
 .sin-envio{
@@ -87,6 +101,28 @@ body {
     font-size: 14px;
 }
 
+.con-envio{
+    display:flex;
+    justify-content: space-between;    
+    margin-left: 10px;
+    margin-right: 10px;    
+    padding-top: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+.comprar{
+    margin-top: 20px;
+    justify-content: right;
+}
+
+.comprar-btn{
+    width: 180px;
+    height: 40px;
+    font-size: 16px;
+}
+
+
+
 @media screen and (min-width: 768px) {
 
     body {
@@ -100,8 +136,8 @@ body {
     }
     .primera{
         background-color: rgb(248, 243, 237);
-        margin-left: 190px;
-        margin-right: 190px;
+        margin-left: 220px;
+        margin-right: 220px;
         margin-top: 20px;
         
     }
@@ -109,11 +145,9 @@ body {
     .segunda{
         background-color: rgb(248, 243, 237);
         padding-bottom: 10px;
-        margin-left: 190px;
-        margin-right: 190px;
+        margin-left: 220px;
+        margin-right: 220px;
         margin-bottom: 20px;
-
-    
     }
     
     .carrito{
@@ -122,9 +156,10 @@ body {
     }
     
     .palabra-producto{
-        padding-top: 10px;
-        margin-bottom: 10px;
+        padding-top: 15px;
+        margin-bottom: 15px;
         justify-content: center;
+        
     }
     
     .contenedor-cepillo{
@@ -135,15 +170,16 @@ body {
                                                                                                    
     }
 
-    #cepillo{
-        width: 260px;
-        height: 260px;
+   .cepillos #cepillo{
+        width: 240px;
+        height: 240px;
     }
     
-    #jabonera{
-        width: 260px;
-        height: 260px;
+    .jaboneras #jabonera{
+        width: 240px;
+        height: 240px;
     }
+
     .contenedor-jabonera{
         display:flex;  
         margin-left: 10px;
@@ -165,14 +201,11 @@ body {
     }
     
     .cantidad-tachito{
-        display: flex;
-        width: 96%;
-        justify-content: right ;
-        margin-top: 10px;
-        margin-left: 600px;
-        
+    display: flex;   
+    justify-content: right;
+    margin-top: 10px;
+    margin-left: 560px;
     }
-
 
 .opciones {
     display: flex;
@@ -183,21 +216,18 @@ body {
 .opciones li{
     display: inline;
     padding: 5px;
-    font-size: 15px;
-    
-
-    
+    font-size: 15px;   
 }
-    
-    .sin-envio{
-        display:flex;
-        justify-content: space-between;    
-        margin-left: 10px;
-        margin-right: 10px;    
-        padding-top: 10px;
-        margin-bottom: 10px;
-        font-size: 17px;
-    }
+
+.sin-envio{
+    display:flex;
+    justify-content: space-between;    
+    margin-left: 10px;
+    margin-right: 10px;    
+    padding-top: 10px;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
     
     .conocer{
         font-size: 12px;
@@ -206,6 +236,31 @@ body {
     }
     
     .medios{
+        font-size: 17px;
+    }
+    
+    
+    .con-envio{
+        display:flex;
+        justify-content: space-between;    
+        margin-left: 10px;
+        margin-right: 10px;    
+        padding-top: 10px;
+        margin-bottom: 10px;
+        font-size: 17px;
+        font-weight: bold;
+        
+        
+    }
+
+
+    .comprar{
+        margin-top: 40px;
+        justify-content: right;
+    }
+    .comprar-btn{
+        width: 200px;
+        height: 40px;
         font-size: 17px;
     }
 }
