@@ -4,10 +4,10 @@
     <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial -scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel= "Stylesheet" href= "/css/login.css">
+    <link rel= "Stylesheet" href= "/css/cart.css">
     <link rel= "Stylesheet" href= "/css/header.css">
     <link rel= "Stylesheet" href= "/css/footer.css">
     
@@ -62,87 +62,124 @@
             </ul>
 
         </header>
-    <h1 class="izquierda">Carrito de Compras</h1>
-    <hr>
-    <section class="contenedor espaciado">
+    <section class="carrito">
+    <p class="izquierda">Carrito de Compras</p>
+    </section>
+<hr>
 
-        <h2 class="producto">Producto</h2>
+<section class="primera"> 
+    <section class="palabra-producto">
+        <article class="producto">Productos</article> 
     </section>
 
-    <section class="contenedor columna">
-        <article class="contenedor">
+    <section class="contenedor-cepillo">
+        <article class="cepillos">
             <figure>
-                <img src="/assets/images/cepillos.jpg" width="160" height="160">
+                <img id="cepillo" src="/assets/images/cepillos.jpg" >
             </figure>
-            <section class="detalle">
-                <p>Cepillo de dientes Bambú colores</p>
-                <p>$80</p>
-                <form>
-                    <button>
-                        <i class="far fa-minus-square"></i>
-                    </button>
-                    <input type="number" id="cantidad" name="quantity" />
-                    <button>
-                        <i class="far fa-plus-square"></i>
-                    </button>
-                </form>
-            </section>  
-            <section class="derecha">
-            <form>
-                <input type="hidden" id="producto" name="product" value="2" />
-                <button type="submit">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </form>
-        </section>
+        </article> 
+        <article class="detalle">
+                <p>Cepillo de dientes Bambú colores.</p>
+                <p id="color">Color: Lila.</p>
+                <p id="precio" > $80</p>
+            
+                <section class="cantidad-tachito">
+                    <form>
+                        <input type="number" id="cantidad" name="quantity">
+                    </form>
+                    <form>
+                        <input type="hidden" id="producto" name="product" value="2">
+                        <button type="submit">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    </form>
+                </section>  
+            </nav>
+            
+            <nav class="opciones">
+                <ul type = none>
+                        <li><a href= #> Comprar ahora</a></li>
+                        
+                        <li><a href= #> Ver más productos </a></li>
+                </ul>
+                    </nav>
+                
+        </article>  
+    </section>
+<hr>
+    <section class="contenedor-jabonera">
+        <article class="jaboneras">
+            <figure>
+                <img id="jabonera" src="/assets/images/jabonera.jpg" >
+            </figure>
         </article>
-    </section>
-    <section class="contenedor">
-        <article class="contenedor">
-            <figure>
-                <img src="/assets/images/jabonera.jpg" width="160" height="160">
-            </figure>
-            <section class="detalle">
-                <p>Jabonera de madera</p>
-                <p>$350</p>
+        <article class="detalle">
+                <p>Jabonera de madera.</p>
+                <p id="precio" >$350</p>
+            <section class="cantidad-tachito">
                 <form>
-                    <button>
-                        <i class="far fa-minus-square"></i>
-                    </button>
-                    <input type="number" id="cantidad" name="quantity" />
-                    <button>
-                        <i class="far fa-plus-square"></i>
+                    <input type="number" id="cantidad" name="quantity">
+                </form>
+                <form>
+                    <input type="hidden" id="producto" name="product" value="2">
+                    <button type="submit">
+                        <i class="far fa-trash-alt"></i>
                     </button>
                 </form>
             </section>
-            <section>
-            <form >
-                
-                <input type="hidden" id="producto" name="product" value="2" />
-                <button type="submit">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </form>
-        </section>
-        
+        </nav>
+            
+        <nav class="opciones">
+            <ul type = none>
+                    <li><a href= #> Comprar ahora</a></li>
+                    
+                    <li><a href= #> Ver más productos </a></li>
+                     
+            </ul>
+                </nav>
+            
+
         </article>
+
     </section>
-    <h2 id="total" class="contenedor espaciado">
-        Total (sin envío):
-        <span>$ 430</span>
-    </h2>
-    <section class="izquierda">
-      
+</section>
+
+<section class="segunda">       
+    <section class="sin-envio">
+        <article id="total">
+        <p>Total (sin envío):</p>
+        </article>
+        <article>
+       <p>$ 430</p>
+        </article>
+    </section> 
+    
+    <section class="izquierda"></section>
             <i class="fas fa-truck"></i>
-            <span> Medios de envío</span>
+            <span class="medios"> Medios de envío</span>
         <form>
             <input type="text" id="codigoPostal" name="postalCode" placeholder="Ingrese su código postal">
             <button type="CALCULAR">CALCULAR</button>
         </form>
-        <br>
-        <a href="https://www.correoargentino.com.ar/formularios/cpa">No conozco mi código postal</a>
-    </section>
+        <a class="conocer" href="https://www.correoargentino.com.ar/formularios/cpa">No conozco mi código postal</a>
 
+        <section class="con-envio">
+            <article class="con-envio-total">
+            <p>Total con envío:</p>
+        </article>
+            <article class="con-envio-precio ">  
+           <p>$ 510</p>
+            </article>
+        </section>
+        <section class="comprar">
+        <button class="comprar-btn">
+            <a href="/Comprar" >Continuar compra</a>
+        </button>
+    </section>
+    
+
+</section>
+<hr>
 <footer class= "footer">
 
     <div class="navegadorFooter">

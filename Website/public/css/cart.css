@@ -1,5 +1,5 @@
 body {
-    background-color:white;
+    background-color: white;
     font-family: "Spartan";
     font-weight: 500;
     font-size: 17px;
@@ -7,36 +7,261 @@ body {
     text-align: center;
   
 }
-.contenedor{
-    display: flex;
+.primera{
+    background-color: rgb(248, 243, 237);
 }
 
-#total{
-    text-align: left;
-    margin-left: 40px;
-    margin-right: 40px;
-}
-.producto{
-    margin-left: 40px; 
-}
-.columna{
-    flex-direction: column;
-}
-.espaciado{
-    justify-content: space-between;
-    margin-right: 40px;
+.segunda{
+    background-color: rgb(248, 243, 237);
+    padding-bottom: 10px;
+
 }
 
-.izquierda{
-    text-align: left;
-    margin-left: 40px;
+.carrito{
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
+
+.palabra-producto{
+    padding-top: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+.contenedor-cepillo{
+    display:flex;
+    text-align: left;        
+    margin-left: 10px;
+    margin-right: 10px;                                                                                               
+}
+
+.cepillos #cepillo{
+    width: 160px;
+    height: 160px;
+}
+.contenedor-jabonera{
+    display:flex;  
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: left; 
+    margin-top: 5px;                                                                                               
+}
+
+.jaboneras #jabonera{
+    width: 160px;
+    height: 160px;
+}
+
 .detalle{
-    text-align: left;
-    line-height: 15px;
+    font-size: 12px;
+    width: 80%;
+    margin-left: 10px;
+    margin-top: 10px;
+    
 }
 
-.derecha{
-    margin-left: 830px;
+#precio{
+    margin-top: 5px;
 }
 
+#color{
+    margin-top: 5px;
+}
+
+.cantidad-tachito{
+    display: flex;
+    width: 96%;
+    justify-content: space-between ;
+    margin-bottom: 5px;
+}
+
+
+.opciones li{
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.sin-envio{
+    display:flex;
+    justify-content: space-between;    
+    margin-left: 10px;
+    margin-right: 10px;    
+    padding-top: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.conocer{
+    font-size: 12px;
+    margin-bottom: 17px;
+    
+}
+
+.medios{
+    font-size: 14px;
+}
+
+.con-envio{
+    display:flex;
+    justify-content: space-between;    
+    margin-left: 10px;
+    margin-right: 10px;    
+    padding-top: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+.comprar{
+    margin-top: 20px;
+    
+    margin-bottom: 10px;
+}
+
+.comprar-btn{
+    width: 180px;
+    height: 40px;
+    font-size: 16px;
+}
+
+
+
+@media screen and (min-width: 768px) {
+
+    body {
+        background-color: white;
+        font-family: "Spartan";
+        font-weight: 500;
+        font-size: 17px;
+        font-style: normal;
+        text-align: center;
+      
+    }
+    .primera{
+        background-color: rgb(248, 243, 237);
+        margin-left: 220px;
+        margin-right: 220px;
+        margin-top: 20px;
+        
+    }
+    
+    .segunda{
+        background-color: rgb(248, 243, 237);
+        padding-bottom: 10px;
+        margin-left: 220px;
+        margin-right: 220px;
+        margin-bottom: 20px;
+    }
+    
+    .carrito{
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .palabra-producto{
+        padding-top: 15px;
+        margin-bottom: 15px;
+        justify-content: center;
+        
+    }
+    
+    .contenedor-cepillo{
+        display:flex;
+        text-align: right;        
+        margin-left: 10px;
+        margin-right: 10px;    
+                                                                                                   
+    }
+
+   .cepillos #cepillo{
+        width: 240px;
+        height: 240px;
+    }
+    
+    .jaboneras #jabonera{
+        width: 240px;
+        height: 240px;
+    }
+
+    .contenedor-jabonera{
+        display:flex;  
+        margin-left: 10px;
+        margin-right: 10px;
+        text-align: right;   
+        margin-top: 5px;                                                                                          
+    }
+    
+    .detalle{
+        font-size: 17px;
+        width: 80%;
+        margin-left: 10px;
+        margin-top: 10px;
+        
+    }
+
+    #precio{
+        margin-top: 10px;
+    }
+    
+    .cantidad-tachito{
+    display: flex;   
+    justify-content: right;
+    margin-top: 10px;
+    margin-left: 560px;
+    }
+
+.opciones {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 10px;
+}
+
+.opciones li{
+    display: inline;
+    padding: 5px;
+    font-size: 15px;   
+}
+
+.sin-envio{
+    display:flex;
+    justify-content: space-between;    
+    margin-left: 10px;
+    margin-right: 10px;    
+    padding-top: 10px;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+    
+    .conocer{
+        font-size: 12px;
+        margin-bottom: 17px;
+        
+    }
+    
+    .medios{
+        font-size: 17px;
+    }
+    
+    
+    .con-envio{
+        display:flex;
+        justify-content: space-between;    
+        margin-left: 10px;
+        margin-right: 10px;    
+        padding-top: 10px;
+        margin-bottom: 10px;
+        font-size: 17px;
+        font-weight: bold;
+        
+        
+    }
+
+    .comprar{
+        margin-top: 40px;
+    
+        margin-bottom: 10px;
+    }
+    .comprar-btn{
+        width: 200px;
+        height: 40px;
+        font-size: 17px;
+    }
+}

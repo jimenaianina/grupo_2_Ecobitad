@@ -20,13 +20,6 @@ body {
   margin-bottom: 10px;
 }
 
-#titulo {
-  margin-bottom: 50px;
-  text-align: center;
-  font-size: 12px;
-  }
-
-
 #box{
     width : 240px;
     height: 24px;
@@ -60,25 +53,27 @@ body {
 @media screen and (min-width: 768px) {
 
     
-  body {
+body {
     background-color:white;
-    font-family: "Spartan Medium";
+    font-family: "Spartan";
+    font-weight: 500;
     font-size: 16px;
     text-align: center;
 }
 
+h1 {
+  font-family: "Spartan";
+  font-weight: 500;
+  font-size: 12px;
+  text-align: left;
+}
+
 .formularios{
     text-align: center;
+    font-size: 12px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
-#titulo{
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 12px;
-  }
-  
 
 #box{
     width : 350px;
