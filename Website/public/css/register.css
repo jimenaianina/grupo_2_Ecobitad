@@ -57,51 +57,72 @@ main img {
 @media screen and (min-width: 768px) {
 
     
-body {
-    background-color:white;
+  main img {
+    height: 466px;
+    display: block;
+    position: absolute;
+    right: 120px;
+}
+
+.formularios {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    margin-left: 60px;
+}
+
+body form {
+    text-align: left;
+}
+
+.btn {
+    width: 300px;
+    text-shadow: 1px #9daef5;
+    -webkit-box-shadow: 24px whitesmoke;
+    -moz-box-shadow: 24px whitesmoke;
+    box-shadow: 3px 2px 5px whitesmoke;
     font-family: "Spartan";
     font-weight: 500;
+    color: black;
     font-size: 16px;
-    text-align: center;
-}
-
-h1 {
-  font-family: "Spartan";
-  font-weight: 500;
-  font-size: 12px;
-  text-align: left;
-}
-
-
-.formularios{
-    text-align: center;
-    font-size: 12px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    padding: 8px;
+    text-decoration: none;
+    border: rgb(0, 0, 0)
+    ;
 }
 
 #box{
     width : 350px;
     margin-top: 8px;
-    margin-bottom: 12px;
-    -webkit-box-sizing: border-box; 
-       -moz-box-sizing: border-box; 
-            box-sizing: border-box;
+    ;
   }
 
-.btn {
-  width: 300px;
-  text-shadow: 1px #9daef5;
-  -webkit-box-shadow: 24px whitesmoke;
-   -moz-box-shadow: 24px whitesmoke;
-  box-shadow: 3px 2px 5px whitesmoke;
-  font-family: "Spartan";
-  font-weight: 500;
-  color: black;
-  font-size: 16px;
-  padding: 8px;
-  text-decoration: none;
-  border: rgb(0, 0, 0);
-}
+  ::-webkit-input-placeholder {
+    text-align: left;
+    font-size: 12px;
+    font-family: "Spartan";
+    font-weight: 500;
+ }
+ 
+ :-moz-placeholder { 
+    text-align: left;  
+    font-size: 12px;
+    font-family: "Spartan";
+    font-weight: 500;
+ }
+ 
+ ::-moz-placeholder {  
+    text-align: left;
+    font-size: 12px;
+    font-family: "Spartan";
+    font-weight: 500;
+ }
+ 
+ :-ms-input-placeholder {  
+    text-align: left; 
+    font-size: 12px;
+    font-family: "Spartan";
+    font-weight: 500;
+ }
 
 }
