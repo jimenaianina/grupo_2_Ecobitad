@@ -14,6 +14,10 @@ body {
     text-align: center;
 }
 
+main img {
+  display: none;
+}
+
 .formularios{
   text-align: center;
   margin-top: 10px;
@@ -67,6 +71,7 @@ h1 {
   font-size: 12px;
   text-align: left;
 }
+
 
 .formularios{
     text-align: center;
