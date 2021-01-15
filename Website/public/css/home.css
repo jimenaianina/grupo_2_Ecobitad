@@ -171,9 +171,10 @@
     }
     #banner_main article.banner_container h2{
         position: absolute;
-        margin: 200px;
+        margin: 170px;
         color: snow;
         background-color: rgba(12, 12, 12, 0.4);
+        font-size: 24px;
     }
     #banner_main article.banner_container figure img{
         width: 100%;
@@ -213,10 +214,11 @@
         margin-bottom: 40px;
     }
     #products{
-      background-color: seagreen;
-      flex-direction: row;
+      background-color: #ddd;
+      flex-direction: column;
       flex-wrap: wrap;
       justify-content: space-around;
+      padding: .25rem;
     }
     #products article.product_container{
       width: calc(50% - 1rem);
@@ -224,6 +226,29 @@
     #products article.product_container .image_product figure{
         max-height: 50vw;
     }
+    #deco{
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      position: relative;
+      padding: .25rem;
+    }
+    #deco article.deco_container figure{
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      
+    }
+    #deco article.deco_container figure a img{
+      display: flex;
+      flex-direction: column;
+        width: 25vw;
+        height: 25vw;
+        justify-content: space-between;
+        padding: 10px;
+      margin-bottom: 40px;
+    }
+  
   }
   
   /* Laptop */
