@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 
 //configuro las rutas para las vistas
 app.get("/",(req,res)=> res.sendFile(path.resolve(__dirname,"views","home.html")));
-app.get("/producto",(req,res)=> res.sendFile(path.resolve(__dirname,"views","product.html")));
-app.get("/login",(req,res)=> res.sendFile(path.resolve(__dirname,"views","login.html")));
-app.get("/registro",(req,res)=> res.sendFile(path.resolve(__dirname,"views","register.html")));
-app.get("/carrito",(req,res)=> res.sendFile(path.resolve(__dirname,"views","cart.html")));
+app.get("/producto",(req,res)=> res.sendFile(path.resolve(__dirname,"views","./products/product.html")));
+app.get("/login",(req,res)=> res.sendFile(path.resolve(__dirname,"views","./users/login.html")));
+app.get("/registro",(req,res)=> res.sendFile(path.resolve(__dirname,"views","./users/register.html")));
+app.get("/carrito",(req,res)=> res.sendFile(path.resolve(__dirname,"views","./products/cart.html")));
