@@ -1,248 +1,436 @@
+
 *{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-}
-body {
+  }
+  body {
     background-color:white;
     font-family: "Spartan";
     font-weight: 500;
     font-size: 17px;
     font-style: normal;
     text-align: center;
-  
-}
-img{
-    max-width: 100%;
-    height:100%;
-
-}
-#banner-main article{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  }
+  /* Mobile */
+  #banner_main{
+      display: flex;
+      flex-direction:center;
+      align-items: center;
+      position: relative;
+      
+  }
+  #banner_main article.banner_container{
     position: relative;
-    height: 40vh;
-    overflow: hidden;
-}
-#banner-main article h2{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  #banner_main article.banner_container h2{
+      position: absolute;
+      margin: 20vw;
+      color: snow;
+      font-size: 16px;
+      background-color: rgba(12, 12, 12, 0.4);
+  }
+  #banner_main article.banner_container figure img{
+      width: 100%;
+  }
+  #categorias {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+  }
+  #categorias article.categorias_container figure a{
     position: absolute;
-    background-color: rgba(12, 12, 12, .4);
-    color: snow;
-    font-style:normal;
+    margin: 150px;
+    display: flex;
+    width: 20vw;
+    height: 20vw;
     font-weight: bold;
-    font-size: 36px;
-    
-}
-#categorias{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    margin-top: 35px;
-    
-}
-
-   
-
- #categorias article a{
-     position: absolute;
-     background-color: rgba(12, 12, 12, .4);
-     color: black;
-     width: 100%;
-     height: 100%;
-     display: flex;
-     justify-content: center;
-     align-items:center;
-     text-align: center;
-    
- }   
- #categorias article figure{
-     display: flex;
-     justify-content: center;
-     width: 25vw;
-     height: 30vh;
-     padding: 10px;
-     margin-top:60px;
-     margin-bottom: 60px;
- }
- #categorias figure a{
-    position: absolute;
-    background-color: rgba(12, 12, 12, 0.4);
-    background-position: center;
     color: white;
-    width: 23.8%;
-    height: 91%;
-    display: flex;
+    background-color: rgba(12, 12, 12, 0.4);
     justify-content: center;
-    align-items:center;
-    font-weight: bold;
-    
- }
- #precio{
-     font-weight: bold;
-     margin: 5px;
- }
- #productos section {
+    align-items: center;
+  }
+  #categorias article.categorias_container figure img{
+      width: 90vw;
+      height: 50vh;
+      margin: 20px;
+  }
+  #frases{
+      display:flex;
+      justify-content: center;
+      margin: 40px;
+  }
+  h3{
+      margin-bottom: 10px;
+  }
+   h4{
+      margin-bottom: 80px;
+  }
+  #products{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ddd;
+    padding: .25rem;
+  }
+  
+  #products article.product_container{
+    width: 100%;
+    border: .25rem solid #ddd;
+    margin-bottom: 1rem;
+  }
+  
+  #products article.product_container .image_product{
+    background-color: greenyellow;
+  }
+  
+  #products article.product_container .image_product figure{
+  
+    background-color: snow;
+    overflow: hidden;
+    max-height: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 25vh;
- }
- 
- #productos figure {
-    position: relative;
-    background-position: center;
-    color: black;
-    font-size: 14px;
-
+  }
+  
+  
+  #products article.product_container .image_product img{
+    max-width: 100%;
+    height: auto;
+  }
+  
+  #products article.product_container .description_product{
+    color: rgb(17, 17, 17);
+    text-transform: uppercase;
+    text-align: center;
+    font-family:spartan;
+    padding: .25rem;
+    background-color: #ceddef;
+    font-size: 12px;
+  }
+  #products article.product_container .description_product h2{
+    margin-bottom: 1rem;
+    margin-top: 1rem;
     
- }
- #productos figure p{
-bottom: 5px;
- }
- #frases {
-     margin-top: 20px;
-     margin-bottom: 20px;
- }
- button :hover {
-    background-color: transparent;
-}
-#todoslosproduct{
-    margin: 20px;
-    color:snow;
+  }
+  #products article.product_container .description_product h3{
+    margin-bottom: 1rem;
     font-weight: bold;
-    background-color:#7f8c8d
-}
-#deco{
-    display: flex;
-    flex: 1;
-    justify-content:space-between;
-    width: 100%;
-    height: 30vh;
-    margin: 20px;
-    margin-bottom: 120px;
-    
-}
-#deco img{
-    height: 35vh;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin: 25px;
-}
- 
- @media screen and (min-width: 768px){
-     #categorias{
-         display: flex;
-         justify-content: space-between;
-         margin:0 16px;
-         flex-direction:row;
-         widows: 100%;
-         height:30vh;
-         margin-top: 30px;
-         margin-bottom: 30px;
-     }
-     #descripcion{
-         margin: 10px;
-
-     }
-     h3{
-         margin: 20px;
-         margin-top: 60px;
-     }
-     h4 {
-         margin: 20px;
-         margin-bottom: 60px;
-     }
-     #categorias figure{
-         flex: 1;
-         overflow: hidden;
-         position: relative;
-         margin: 10px;
-         
-
-     }
-     #categorias figure a{
-        position: absolute;
-        background-color: rgba(12, 12, 12, 0.4);
-        background-position: center;
-        color: white;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items:center;
-        font-weight: bold;
-     }
-     #precio{
-        font-weight: bold;
-    }
-    
-     #productos {
-        display: flex;
-        justify-content: space-between;
-        margin:0 16px;
-        flex-direction:row;
-     
-     }
-     
-     #productos figure {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-         overflow: hidden;
-         position: relative;
-         margin:10px;
-         margin-top: 15px;
-    }
-
-#todoslosproduct{
-    margin: 80px;
-    color:snow;
+  }
+  button{
+    margin: 40px;
+    font-family: 'Spartan';
+    width: 70vw;
+    height: 10vw;
+  }
+  #insta{
+    margin: 10px;
+    font-family: 'Spartan';
     font-weight: bold;
-    background-color:#7f8c8d;
-    height: 5vh;
-    width: 25vw;
-    font-family: spartan;
-   
-}
-#insta{
-    font-size: bold;
     color: black;
-    font-family: spartan;
-    font: size 24px;
-    text-decoration: none ;
-    margin:15px;
-    margin-bottom: 40px;
-}
-       
-
- #productos figure a img{
-        width: 100%;
-        height:100%;
+    text-decoration: none;
+  }
+  #deco{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    padding: .25rem;
+  }
+  #deco article.deco_container figure{
+    display: flex;
+    flex-direction: column;
+    
+  }
+  #deco article.deco_container figure a img{
+    display: flex;
+    flex-direction: column;
+      width: 100vw;
+    
+  }
+  /* Tablet */
+  @media screen and (min-width: 480px) {
+    #banner_main{
+        display: flex;
+        flex-direction:center;
+        align-items: center;
+        position: relative;
         
     }
-    #deco{
-        display: flex;
-        flex: 1;
-        justify-content:space-between;
+    #banner_main article.banner_container{
+      position: relative;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+    #banner_main article.banner_container h2{
+        position: absolute;
+        margin: 170px;
+        color: snow;
+        background-color: rgba(12, 12, 12, 0.4);
+        font-size: 24px;
+    }
+    #banner_main article.banner_container figure img{
         width: 100%;
-        height: 30vh;
+    }
+    #categorias {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+    }
+    #categorias article.categorias_container figure a{
+      position: absolute;
+      margin: 175px;
+      display: flex;
+      width: 50vw;
+      height: 5vw;
+      font-weight: bold;
+      color: white;
+      background-color: rgba(12, 12, 12, 0.4);
+      justify-content: center;
+      align-items: center;
+    }
+    #categorias article.categorias_container figure img{
+        width: 90vw;
+        height: 50vh;
         margin: 20px;
-        margin-bottom: 120px;
-        align-items: center;
     }
-    #deco img{
-        height: 35vh;
-        width: 100%;
+    #frases{
+        display:flex;
+        justify-content: center;
+        margin: 40px;
+    }
+    h3{
+        margin-bottom: 10px;
+    }
+     h4{
+        margin-bottom: 40px;
+    }
+    #products{
+      background-color: #ddd;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: .25rem;
+    }
+    #products article.product_container{
+      width: calc(50% - 1rem);
+    }
+    #products article.product_container .image_product figure{
+        max-height: 50vw;
+    }
+    #deco{
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      position: relative;
+      padding: .25rem;
+    }
+    #deco article.deco_container figure{
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      
+    }
+    #deco article.deco_container figure a img{
+      display: flex;
+      flex-direction: column;
+        width: 25vw;
+        height: 25vw;
+        justify-content: space-between;
+        padding: 10px;
+      margin-bottom: 40px;
+    }
+  
+  }
+  
+  /* Laptop */
+  @media screen and (min-width: 720px) {
+    #banner_main{
         display: flex;
-       
-        margin: 25px;
+        flex-direction:center;
+        align-items: center;
+        position: relative;
+        
     }
-    
-}
+    #banner_main article.banner_container{
+      position: relative;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+    #banner_main article.banner_container h2{
+        position: absolute;
+        margin: 230px;
+        color: snow;
+        background-color: rgba(12, 12, 12, 0.4);
+        font-size: 32px;
+    }
+    #banner_main article.banner_container figure img{
+        width: 100vw;
+        height: 35vw;
+    }
+    #categorias {
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: center;
+    }
+    #categorias article.categorias_container figure a{
+      position: absolute;
+      margin: 175px;
+      display: flex;
+      width: 50vw;
+      height: 5vw;
+      font-weight: bold;
+      color: white;
+      background-color: rgba(12, 12, 12, 0.4);
+      justify-content: center;
+      align-items: center;
+    }
+    #categorias article.categorias_container figure img{
+        width: 30vw;
+        height: 50vh;
+        margin: 20px;
+    }
+    #frases{
+        display:flex;
+        justify-content: center;
+        margin: 40px;
+    }
+    h3{
+        margin-bottom: 10px;
+    }
+     h4{
+        margin-bottom: 40px;
+     }
+    #products{
+      background-color: snow;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100vw;
+    }
+    #products article.product_container{
+      width: calc(25% - 1rem);
+      margin-right: .5rem;
+    }
+    #products article.product_container .image_product figure{
+        max-height: 20vw;
+    }
+    #categorias article.categorias_container figure a{
+        position: absolute;
+        margin: 175px;
+        display: flex;
+        width: 10vw;
+        height: 5vw;
+        font-weight: bold;
+        color: white;
+        background-color: rgba(12, 12, 12, 0.4);
+        justify-content: center;
+        align-items: center;
+      }
+      
+      #frases{
+          display:flex;
+          justify-content: center;
+          margin: 40px;
+      }
+      h3{
+          margin-bottom: 10px;
+      }
+       h4{
+          margin-bottom: 80px;
+      }
+      
+      
+      #products article.product_container{
+        width: 21%;
+        border: .25rem solid #ddd;
+        margin-bottom: 1rem;
+      }
+      
+      #products article.product_container .image_product{
+        background-color: greenyellow;
+      }
+      
+      #products article.product_container .image_product figure{
+      
+        background-color: snow;
+        overflow: hidden;
+        max-height: 80vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      
+      #products article.product_container .image_product img{
+        max-width: 100vw;
+       display: flex;
+       flex-direction: row;
+       height: 20vw;
+
+      }
+      
+      #products article.product_container .description_product{
+        color: rgb(17, 17, 17);
+        text-transform: uppercase;
+        text-align: center;
+        font-family:spartan;
+        padding: .25rem;
+        background-color: #ceddef;
+        font-size: 12px;
+      }
+      #products article.product_container .description_product h2{
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+        
+      }
+      #products article.product_container .description_product h3{
+        margin-bottom: 1rem;
+        font-weight: bold;
+      }
+      button{
+        margin: 40px;
+        font-family: 'Spartan';
+        width: 35vw;
+        height: 5vw;
+      }
+      #insta{
+        margin: 10px;
+        font-family: 'Spartan';
+        font-weight: bold;
+        color: black;
+        text-decoration: none;
+      }
+      #deco{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        position: relative;
+        padding: .25rem;
+      }
+      #deco article.deco_container figure{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        
+      }
+      #deco article.deco_container figure a img{
+        display: flex;
+        flex-direction: column;
+          width: 20vw;
+          height: 20vw;
+          justify-content: space-between;
+          padding: 10px;
+        margin-bottom: 40px;
+      }
+  }
