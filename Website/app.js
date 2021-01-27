@@ -14,8 +14,8 @@ app.set('view engine', 'ejs');
 
 
 //configuro las rutas para las vistas
-app.get("/",(req,res)=> res.render("home"));
-app.get("/producto",(req,res)=> res.render("./products/product"));
-app.get("/login",(req,res)=> res.render("./users/login", { title: "login" }));
-app.get("/registro",(req,res)=> res.render("./users/register"));
-app.get("/carrito",(req,res)=> res.render("./products/cart"));
+app.get("/",(req,res)=> res.render("home", { title: "Home" }));
+app.get("/producto",(req,res)=> res.render("./products/product", { title: "Producto" }));
+app.get("/login",(req,res)=> res.render("./users/login", { title: "Login" }));
+app.get("/registro",(req,res)=> res.render("./users/register", { title: "Registro" }));
+app.get("/carrito",(req,res)=> res.render("./products/cart", { title: "Carrito" }));
