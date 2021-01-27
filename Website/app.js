@@ -16,6 +16,6 @@ app.set('view engine', 'ejs');
 //configuro las rutas para las vistas
 app.get("/",(req,res)=> res.render("home"));
 app.get("/producto",(req,res)=> res.render("./products/product"));
-app.get("/login",(req,res)=> res.render("./users/login"));
+app.get("/login",(req,res)=> res.render("./users/login", { title: "login" }));
 app.get("/registro",(req,res)=> res.render("./users/register"));
 app.get("/carrito",(req,res)=> res.render("./products/cart"));

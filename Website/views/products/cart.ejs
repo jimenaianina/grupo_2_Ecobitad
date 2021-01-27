@@ -1,67 +1,13 @@
 <!DOCTYPE html>
 
 <html lang = "es">
-    <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel= "Stylesheet" href= "/css/cart.css">
-    <link rel= "Stylesheet" href= "/css/header.css">
-    <link rel= "Stylesheet" href= "/css/footer.css">
     
-    
-    <title> EcoBitad </title>
-    
-    <script src="https://kit.fontawesome.com/d8781bdac2.js" crossorigin="anonymous"></script>
-
-    </head>
-
-    <title> EcoBitad </title>
-    
-    <script src="https://kit.fontawesome.com/d8781bdac2.js" crossorigin="anonymous"></script>
-
-    </head>
+    <%- include ('../partials/head') %>
 
     <body>
     
-        <header class= "header">
+        <%- include ('../partials/header') %>
 
-                <nav class="menuM">
-            <ul type = none>
-                <li><a href= #> <i class="fas fa-bars"></i> </a>
-                <ul>
-                    <li><a href= #> Inicio </a></li>
-                    <li><a href= #> Productos </a></li>
-                     <li><a href= #> Nosotros </a></li>
-                </ul>
-            </li>
-            </ul>
-                </nav>
-            
-                <nav class="menuD">
-                    <ul type = none>
-                            <li><a href= #> Inicio </a></li>
-                            <li><a href= #> Productos </a></li>
-                             <li><a href= #> Nosotros </a></li>
-                    </ul>
-                        </nav>
-           
-            <a href= # class = "iconosHeader"><i class="fas fa-search"></i></a>
-            
-            <img src = "/img/Logo - Blanco.png" alt = "Logo">
-
-            <a href= # class = "iconosHeader"><i class="far fa-user"></i></a>
-            <a href= # class = "iconosHeader"><i class="fas fa-shopping-cart"></i></a>
-            
-            <ul id="iconosD">
-                <li> <a href= #><i class="fas fa-search"></i></a> </li>
-                <li> <a href= #><i class="far fa-user"></i></a></li>
-                <li><a href= #><i class="fas fa-shopping-cart"></i></a></li>
-            </ul>
-
-        </header>
     <section class="carrito">
     <p class="izquierda">Carrito de Compras</p>
     </section>
@@ -180,49 +126,8 @@
 
 </section>
 <hr>
-<footer class= "footer">
 
-    <div class="navegadorFooter">
-       <nav>
-        <ul>
-            <li><a href= #> Inicio </a></li>
-            <li><a href= #> Productos </a></li>
-            <li><a href= #> Nosotros </a></li>
-        </ul>
-        </nav>
-    </div>
-
-    <div class="mediosDePago">
-        <h2>Medios de pago</h2>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Former_Visa_%28company%29_logo.svg" alt="Logo-de-visa">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg" alt="Logo-de-Mastercard">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/American_Express_Logo.svg" alt="Logo-de-AmericanExpress">
-    <img src="https://static.wikia.nocookie.net/logopedia/images/d/d2/MercadoPago_%28Horizontal%29.svg" alt="Logo-de-Mercadopago">
-    </div>
-
-    <div class="contacto">
-    <h2> Contactanos </h2>
-    <a href= #> info@ecobitad.com </a>
-    </div>
-
-    <div class="redes-sociales">
-        <h2>Redes Sociales</h2>
-        <nav>
-    <ul id="iconos-redes">
-        <li><a href= #> <i class="fab fa-instagram"></i> </a></li>
-        <li><a href= #> <i class="fab fa-twitter"></i> </a></li>
-        <li><a href= #> <i class="fab fa-facebook"></i> </a></li>
-    </ul>
-    
-    </section>
-
-</footer> 
-
-<div>
-    <p id = "derechos">
-        Todos los derechos reservados.
-    </p>
-</div>
+<%- include ('../partials/footer') %>
 
 </body>
 
