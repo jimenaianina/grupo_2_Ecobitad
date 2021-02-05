@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang = "es">
+     
+  <%- include ('../partials/head') %>
+  <link rel= "Stylesheet" href= "/css/createForm.css">
+    <body>
+        <%- include ('../partials/header') %>  
+
+<h1> Crear producto </h1>
+
+<form action = "/create" method="POST" enctype="multipart/form-data">
+    <label for="name"> Nombre del producto </label>
+    <input type="text" placeholder="nombre del producto" name="name">
+    <label for="description"> Descripción </label>
+    <textarea name="description"></textarea>
+    <label for="images"> Fotos del producto </label>
+    <input type="file" name="fotoProducto" id="file" multiple>
+</form>
+
+Categoría (category)
+Colores (o cualquier otro campo similar como: tamaños, talles, etc)
+Precio (price)
+
+<%- include ('../partials/footer') %>
+
+</body>
+</html>
