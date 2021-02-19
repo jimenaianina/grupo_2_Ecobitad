@@ -20,6 +20,10 @@ const upload = multer( { storage: storage});
 
 router.get('/create', productsController.create);
 
-router.post('/create', upload.array('fotoProducto'), productsController.save)
+router.post('/create', upload.array('fotoProducto'), productsController.save);
+
+router.get('/edit', productsController.edit);
+
+router.put('/edit', upload.array('fotoProducto'), productsController.update);
 
 module.exports = router;

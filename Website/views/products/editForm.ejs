@@ -1,6 +1,48 @@
-Nombre del producto (name)
-Descripción (description)
-Imagen (image)
-Categoría (category)
-Colores (o cualquier otro campo similar como: tamaños, talles, etc)
-Precio (price)
+<!DOCTYPE html>
+
+<html lang = "es">
+     
+  <%- include ('../partials/head') %>
+  <link rel= "Stylesheet" href= "/css/forms.css">
+    <body>
+        <%- include ('../partials/header') %>  
+
+<h1> Editar producto </h1>
+
+<div id="formulario">
+
+<form action = "/create" method="POST" enctype="multipart/form-data">
+    <label for="name"> Nombre del producto </label>
+    <input type="text" placeholder="nombre del producto" name="name" class="box">
+    <label for="description"> Descripción </label>
+    <textarea name="description" class="box"></textarea>
+    <label for="images"> Fotos del producto </label>
+    <input type="file" name="fotoProducto" id="file" multiple>
+    <label for="category"> Categoría </label>
+    <label for="on-the-go"> <input type="radio" name="category" value="on-the-go"> On the Go </label>
+    <label for="baño"> <input type="radio" name="category" value="baño"> Baño</label>
+    <label for="cocina"> <input type="radio" name="category" value="cocina"> Cocina </label>
+    <label for="colors"> Colors </label>
+    <select name="colors" class="box">
+      <option value=""> -- Elegí un color --</option>
+      <option value="rojo"> Rojo </option>
+      <option value="verde"> Verde </option>
+      <option value="azul"> Azul </option>
+      <option value="blanco"> Blanco </option>
+    </select>
+    <label for="price"> Precio </label>
+    <input type="range" name="price" class="box" min="0" step="100" max="10000">
+    <label for="stock"> Stock </label>
+    <input type="number" name="stock" class="box">
+
+    <div id="buttons">
+    <button type="reset"> Borrar todo </button>
+    <button type="submit"> Guardar </button>
+    </div>
+</form>
+
+</div>
+<%- include ('../partials/footer') %>
+
+</body>
+</html>
