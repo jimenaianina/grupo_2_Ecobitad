@@ -129,7 +129,6 @@ justify-content: space-between;
     padding: 5px 5px;
     text-align: center;
     font-size: 10px;
-
   }
 
   .musgo {
@@ -149,6 +148,11 @@ justify-content: space-between;
     text-align: center;
     font-size: 10px;
   }
+
+.btn-color {
+    width: 1rem;
+    height: 1rem;
+}
 
 .delivery p{
     margin-bottom: 0px;

@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "Cepillo de dientes ecológico",
+    "description": "Descripción del cepillo de dientes",
+    "images": [
+      "meraki.jpg"
+    ],
+    "category": "Baño",
+    "colors": [
+      "lila",
+      "musgo",
+      "aqua"
+    ],
+    "sizes": [],
+    "price": 80,
+    "stock": 0
+  },
+  {
+    "id": 2,
+    "name": "Acondicionador Sólido",
+    "description": "Descripción del acondionador solido",
+    "images": [
+      "acondicionador eco.jpg"
+    ],
+    "category": "Baño",
+    "colors": [],
+    "sizes": [],
+    "price": 120
+  },
+  {
+    "id": 3,
+    "name": "Bolsas biodegradables",
+    "description": "Descripción de las bolsas biodegradables",
+    "images": [
+      "bolsas bio.jpg"
+    ],
+    "category": "Baño",
+    "colors": [],
+    "sizes": [],
+    "price": 120
+  },
+  {
+    "id": 4,
+    "name": "Botellas de Acero Inoxidable",
+    "description": "Descripción de la botella de acero inoxidable",
+    "images": [
+      "botella meraki.png",
+      "botella meraki fondo.jpg"
+    ],
+    "category": "Cocina",
+    "colors": [],
+    "sizes": [],
+    "price": 2450
+  },
+  {
+    "id": 5,
+    "name": "Cubiertos de bambu",
+    "description": "Descripción de los cubiertos de bambú",
+    "images": [
+      "cubiertos.png"
+    ],
+    "category": "Cocina",
+    "colors": [],
+    "sizes": [],
+    "price": 280
+  }
+]

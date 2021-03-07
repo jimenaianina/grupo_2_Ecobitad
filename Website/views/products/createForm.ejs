@@ -11,7 +11,7 @@
 
 <div id="formulario">
 
-<form action = "/create" method="POST" enctype="multipart/form-data">
+<form action = "/producto/guardar" method="POST" enctype="multipart/form-data">
     <label for="name"> Nombre del producto </label>
     <input type="text" placeholder="nombre del producto" name="name" class="box">
     <label for="description"> Descripción </label>
@@ -19,16 +19,22 @@
     <label for="images"> Fotos del producto </label>
     <input type="file" name="fotoProducto" id="file" multiple>
     <label for="category"> Categoría </label>
-    <label for="on-the-go"> <input type="radio" name="category" value="on-the-go"> On the Go </label>
-    <label for="baño"> <input type="radio" name="category" value="baño"> Baño</label>
-    <label for="cocina"> <input type="radio" name="category" value="cocina"> Cocina </label>
-    <label for="colors"> Colors </label>
+    <% categorias.forEach(categoria => { %>
+      <label for= "<%= categoria.id %>"><input type="radio" name="category" value="<%= categoria.name %>"> <%= categoria.name %> </label>
+    <% }) %>
+    <label for="colors"> Colores </label>
     <select name="colors" class="box" multiple>
       <option value=""> -- Elegí un color --</option>
-      <option value="rojo"> Rojo </option>
-      <option value="verde"> Verde </option>
-      <option value="azul"> Azul </option>
-      <option value="blanco"> Blanco </option>
+      <% colores.forEach(color => { %>
+      <option value="<%= color.name %>"> <%= color.name %></option>
+      <% }) %>
+    </select>
+    <label for="sizes"> Talles </label>
+    <select name="sizes" class="box" multiple>
+      <option value=""> -- Elegí un talle --</option>
+      <% talles.forEach(talle => { %>
+      <option value="<%= talle.name %>"> <%= talle.name %></option>
+      <% }) %>
     </select>
     <label for="price"> Precio </label>
     <input type="range" name="price" class="box" min="0" step="100" max="10000">
