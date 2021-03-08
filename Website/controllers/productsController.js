@@ -4,10 +4,11 @@ const path = require('path');
 const controller = {
 
 	index: (req, res) => {
-		
 		let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/products.json")))
-		//return res.send(products);
-		return res.render("products/list", { title: "Productos", css: "/css/list.css", products })
+		let categoria = products.filter(product => product.category == req.params.category);
+		let talles = products.filter(product => product.sizes == req.params.sizes);
+		let colores = products.filter(product => product.colors == req.params.colors);
+		return res.render("products/list", { title: "Productos", css: "/css/list.css", products, colores, categoria, talles })
 	},
 
 	detail: (req,res)=> { 
@@ -33,7 +34,7 @@ const controller = {
 		let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/categories.json")));
 		let colores = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/colors.json")));
 		let talles = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/sizes.json")));
-		return res.render("products/editForm", { title: "Editar", css: "/css/forms.css" })
+		return res.render("products/editForm", { title: "Editar", css: "/css/forms.css", product })
 	},
 
 	save: (req,res)=> {
@@ -51,7 +52,7 @@ const controller = {
 	update: (req, res) => {
 		let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/products.json")));
 		let productSelected = products.find(product => product.id == req.params.id);
-		productSelected.images.forEach( image => fs.unlinkSync(path.resolve(__dirname,"../upload/products"+image)))
+		productSelected.images.forEach( image => fs.unlinkSync(path.resolve(__dirname,"../upload/products/"+image)))
 		req.body.images = [];
 		req.files.forEach(file => {
 			req.body.images.push(file.filename)
@@ -75,8 +76,9 @@ const controller = {
 	destroy: (req, res) => {
 			let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/products.json")));
 			let productSelected = products.find(product => product.id == req.params.id);
-			products = products.filter(product => product.id != productSelected)
-			return res.send(products)
+			products = products.filter(product => product.id != productSelected.id);
+			fs.writeFileSync(path.resolve(__dirname,"../database/products.json"), JSON.stringify(products, null, 2));
+			return res.redirect("/producto")
 	}
 };
 

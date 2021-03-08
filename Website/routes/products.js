@@ -28,6 +28,6 @@ router.get('/editar/:id', productsController.edit);
 
 router.put('/actualizar/:id', upload.array('fotoProducto'), productsController.update);
 
-router.delete('/borrar/:id', productsController.destroy); 
+router.delete('/eliminar/:id', productsController.destroy); 
 
 module.exports = router;

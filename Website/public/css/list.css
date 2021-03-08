@@ -98,6 +98,7 @@
       flex-wrap: wrap;
       justify-content: center;
       width: 100vw;
+      display: flex;
     }
     #products article.product_container{
       width: calc(25% - 1rem);

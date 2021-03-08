@@ -11,11 +11,11 @@
 
 <div id="formulario">
 
-<form action = "/create" method="POST" enctype="multipart/form-data">
+<form action = "/producto/actualizar/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
     <label for="name"> Nombre del producto </label>
-    <input type="text" placeholder="nombre del producto" name="name" class="box">
+    <input type="text" value="<%= product.name %>" name="name" class="box">
     <label for="description"> Descripción </label>
-    <textarea name="description" class="box"></textarea>
+    <textarea name="description" class="box"> <%= product.description %> </textarea>
     <label for="images"> Fotos del producto </label>
     <input type="file" name="fotoProducto" id="file" multiple>
     <label for="category"> Categoría </label>
@@ -33,7 +33,7 @@
     <label for="price"> Precio </label>
     <input type="range" name="price" class="box" min="0" step="100" max="10000">
     <label for="stock"> Stock </label>
-    <input type="number" name="stock" class="box">
+    <input type="number" name="stock" class="box" placeholder="<%= product.stock %>">
 
     <div id="buttons">
     <button type="reset"> Borrar todo </button>
