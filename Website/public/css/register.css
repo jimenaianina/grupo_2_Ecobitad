@@ -57,7 +57,7 @@ main img {
 @media screen and (min-width: 768px) {
 
   main img {
-    height: 466px;
+    height: 68%;
     display: block;
     position: absolute;
     right: 120px;

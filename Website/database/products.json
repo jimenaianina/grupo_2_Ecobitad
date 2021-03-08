@@ -41,7 +41,7 @@
       "bolsas-bio-2.jpg",
       "bolsas-bio-3.png"
     ],
-    "category": "Baño",
+    "category": "On the go",
     "colors": [],
     "sizes": [],
     "price": 40
@@ -54,7 +54,7 @@
       "botella-meraki-1.png",
       "botella meraki fondo.jpg"
     ],
-    "category": "Cocina",
+    "category": "On the go",
     "colors": [],
     "sizes": [],
     "price": 2450
@@ -133,7 +133,10 @@
     "id": 10,
     "name": "Rasuradora metálica",
     "description": "Nuestra rasuradora metálica es la mejor opción para una depilación libre de plástico. Medidas: (8 cm de largo/ 4 cm de ancho). Materiales: Acero inoxidable.",
-    "images": [  
+    "images": [
+      "rasuradora de acero.png",
+      "rasuradora-1.jpg",
+      "rasuradora-2.jpg"
     ],
     "category": "Baño",
     "colors": [],
@@ -152,18 +155,21 @@
     "category": "Baño",
     "colors": [],
     "sizes": [],
-    "price": 400
+    "price": 70
   },
   {
     "id": 12,
     "name": "Sorbetes de Bambú",
     "description": "Para los amantes de las pajitas, las de bambú son la solución para poder seguir dandose el gusto, pero sin contaminar. Ingredientes, que nos encanta nombrar: 100% Bambu.",
     "images": [
+      "sorbete-bambu-1.jpg",
+      "sorbete-bambu-2.jpg",
+      "sorbete-bambu-3.jpg"
     ],
-    "category": "Baño",
+    "category": "On the go",
     "colors": [],
     "sizes": [],
-    "price": 400
+    "price": 85
   }
   
 ]

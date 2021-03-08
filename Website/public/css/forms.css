@@ -97,9 +97,6 @@ button {
 
 @media screen and (min-width: 768px) {
 
-
-
-
       ::-webkit-input-placeholder {
         text-align: left;
         font-size: 12px;
