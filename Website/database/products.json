@@ -2,11 +2,7 @@
   {
     "id": 1,
     "name": "Cepillo de dientes ecológico",
-    "description": "– Misma vida útil y experiencia de lavado que un cepillo de dientes convencional.
-    – 97% biodegradables: packaging de cartón y mango de bambú moso.
-    – 3% reciclable: cerdas de Nylon libres de BPA.
-    – Una vez que termines de utilizar tu cepillo, separá las cerdas con una pinza y descartá las cerdas junto con tus residuos reciclables.
-    – El packaging y mango pueden ser compostados.",
+    "description": "Misma vida útil y experiencia de lavado que un cepillo de dientes convencional. 97% biodegradables: packaging de cartón y mango de bambú moso. 3% reciclable: cerdas de Nylon libre de BPA. Una vez que termines de utilizar tu cepillo, separá las cerdas con una pinza y descartá las cerdas junto con tus residuos reciclables. El packaging y mango pueden ser compostados.",
     "images": [
       "cepillo-de-dientes-1.jpeg",
       "cepillo-de-dientes-2.jpg",
@@ -25,15 +21,7 @@
   {
     "id": 2,
     "name": "Acondicionador Sólido",
-    "description": "El Acondicionados sólido de Sentida Botánica nutre el cabello, dejándolo suave y sedoso de manera natural, sin efecto graso.
-
-    Peso: 100 gr.
-    
-    Aprobado por ANMAT
-    
-    Ingredientes:
-    
-    BTMS, Manteca de cacao, enriquecido con aceite de coco y aceite de jojoba.",
+    "description": "El Acondicionados sólido de Sentida Botánica nutre el cabello, dejándolo suave y sedoso de manera natural, sin efecto graso. Peso: 100 gr. Aprobado por ANMAT. Ingredientes: BTMS, Manteca de cacao, enriquecido con aceite de coco y aceite de jojoba.",
     "images": [
       "acondicionador-solido-1.jpg",
       "acondicionador-solido-2.jpg",
@@ -47,16 +35,7 @@
   {
     "id": 3,
     "name": "Bolsas biodegradables",
-    "description": "Estas son bolsas ecológicas reutilizables. 
-
-    Se hacen pocket, en una dimension de 8x10 cuando estan plegadas.
-    Extendidas son de 42x38 cm
-    
-    Dale a tus bolsas el uso que quieras, para llevarlas siempre en la mochila, cartera y que nunca te falte una bolsa extra.
-    
-    Materiales:
-    
-    100% Poliester",
+    "description": "Estas son bolsas ecológicas reutilizables. Se hacen pocket, en una dimension de 8x10 cuando estan plegadas. Extendidas son de 42x38 cm. Dale a tus bolsas el uso que quieras, para llevarlas siempre en la mochila, cartera y que nunca te falte una bolsa extra. Materiales: 100% Poliester",
     "images": [
       "bolsas-bio-1.jpg",
       "bolsas-bio-2.jpg",
@@ -70,17 +49,7 @@
   {
     "id": 4,
     "name": "Botellas de Acero Inoxidable",
-    "description": "Botella Térmica 600 ml
-    20 hs bebida fría
-    10 hs bebida caliente
-    
-    Doble capa de acero inoxidable 304 (18/8)
-    
-    Diámetro Boca: 48,5 mm
-    Ancho: 73 mm
-    Alto: 240 mm
-    Peso: 340 g
-    Tapa: Rosca de acero con terminación en bambú",
+    "description": "Botella Térmica 600 ml. 20 hs bebida fría. 10 hs bebida caliente. Doble capa de acero inoxidable 304 (18/8). Diámetro Boca: 48,5 mm. Ancho: 73 mm. Alto: 240 mm. Peso: 340 g. Tapa: Rosca de acero con terminación en bambú",
     "images": [
       "botella meraki.png",
       "botella meraki fondo.jpg"
@@ -93,13 +62,7 @@
   {
     "id": 5,
     "name": "Cubiertos de bambú",
-    "description": "Kit de cubiertos de bambú, ideales para tener siempre a mano y evitar todo esos descartes plásticos que se generan cuando comemos de paso 
-
-    El kit incluye: Tenedor, cuchillo y cuchara
-    
-    Materiales:
-    
-    Bambú: Es una de las plantas con mayor tasa de crecimiento del mundo, su recoleccion no produce deforestación de bosques y absorbe un 30% más de CO2 que otros árboles. ",
+    "description": "Kit de cubiertos de bambú, ideales para tener siempre a mano y evitar todo esos descartes plásticos que se generan cuando comemos de paso. El kit incluye: Tenedor, cuchillo y cuchara. Materiales: Bambú: Es una de las plantas con mayor tasa de crecimiento del mundo, su recoleccion no produce deforestación de bosques y absorbe un 30% más de CO2 que otros árboles. ",
     "images": [
       "cubiertos-1.png",
       "cubiertos-2.png",
@@ -113,13 +76,7 @@
   {
     "id": 6,
     "name": "Jabonera de Madera",
-    "description": "Esta jabonera es clave para apoyar cualquier jabon o producto sólido que felizmente no lleva packaging.
-
-    Para que tus jabones y productos sólidos no se pongan blandos y duren más tiempo en buenas condiciones, es importante que las pastillas se sequen al aire. De esta manera, evitemos que acumulen agua y se desperdicie producto :)
-    
-    Materiales:
-    
-    100% Madera.",
+    "description": "Esta jabonera es clave para apoyar cualquier jabon o producto sólido que felizmente no lleva packaging. Para que tus jabones y productos sólidos no se pongan blandos y duren más tiempo en buenas condiciones, es importante que las pastillas se sequen al aire. De esta manera, evitemos que acumulen agua y se desperdicie producto. Materiales: 100% Madera.",
     "images": [
       "jabonera-1.png",
       "jabonera-2.png",
@@ -147,7 +104,7 @@
   {
     "id": 8,
     "name": "Sorbetes de Acero",
-    "description": "Descripción de los cubiertos de bambú",
+    "description": "Descripción de los sorbetes de acero inoxidable",
     "images": [
       "sorbete-acero-1.jpg",
       "sorbete-acero-2.jpg",
@@ -161,13 +118,7 @@
   {
     "id": 9,
     "name": "Shampoo Sólido",
-    "description": "Este Shampoo Sólido está diseñado especialmente para detener la caída del cabello, favoreciendo la irrigaciòn sanguínea y el crecimiento capilar.
-
-    100 gr | Aprobado por ANMAT.​
-    
-    Ingredientes:
-    
-    Cocoil Isetionato de Sodio (tensioactivo natural derivado del coco), Aceite de coco, Aceite de Argán, Aceite Esencial de Romero.",
+    "description": "Este Shampoo Sólido está diseñado especialmente para detener la caída del cabello, favoreciendo la irrigaciòn sanguínea y el crecimiento capilar. 100 gr | Aprobado por ANMAT.​ Ingredientes: Cocoil Isetionato de Sodio (tensioactivo natural derivado del coco), Aceite de coco, Aceite de Argán, Aceite Esencial de Romero.",
     "images": [
       "shampoo-1.jpg",
       "shampoo-2.jpg",
