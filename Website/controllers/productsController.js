@@ -73,7 +73,10 @@ const controller = {
 	},
 
 	destroy: (req, res) => {
-		return res.send(req.body)
+			let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/products.json")));
+			let productSelected = products.find(product => product.id == req.params.id);
+			products = products.filter(product => product.id != productSelected)
+			return res.send(products)
 	}
 };
 

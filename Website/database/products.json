@@ -51,7 +51,7 @@
     "name": "Botellas de Acero Inoxidable",
     "description": "Botella Térmica 600 ml. 20 hs bebida fría. 10 hs bebida caliente. Doble capa de acero inoxidable 304 (18/8). Diámetro Boca: 48,5 mm. Ancho: 73 mm. Alto: 240 mm. Peso: 340 g. Tapa: Rosca de acero con terminación en bambú",
     "images": [
-      "botella meraki.png",
+      "botella-meraki-1.png",
       "botella meraki fondo.jpg"
     ],
     "category": "Cocina",
@@ -128,5 +128,42 @@
     "colors": [],
     "sizes": [],
     "price": 400
+  },
+  {
+    "id": 10,
+    "name": "Rasuradora metálica",
+    "description": "Nuestra rasuradora metálica es la mejor opción para una depilación libre de plástico. Medidas: (8 cm de largo/ 4 cm de ancho). Materiales: Acero inoxidable.",
+    "images": [  
+    ],
+    "category": "Baño",
+    "colors": [],
+    "sizes": [],
+    "price": 900
+  },
+  {
+    "id": 11,
+    "name": "Hisopos biodegradables",
+    "description": "",
+    "images": [
+      "hisopos-1.jpg",
+      "hisopos-2.jpg",
+      "hisopos-3.jpeg"
+    ],
+    "category": "Baño",
+    "colors": [],
+    "sizes": [],
+    "price": 400
+  },
+  {
+    "id": 12,
+    "name": "Sorbetes de Bambú",
+    "description": "Para los amantes de las pajitas, las de bambú son la solución para poder seguir dandose el gusto, pero sin contaminar. Ingredientes, que nos encanta nombrar: 100% Bambu.",
+    "images": [
+    ],
+    "category": "Baño",
+    "colors": [],
+    "sizes": [],
+    "price": 400
   }
+  
 ]

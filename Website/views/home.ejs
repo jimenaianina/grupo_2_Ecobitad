@@ -46,185 +46,19 @@
         </p>
         
         <section id="products">
+          <%  products.forEach(product => { %> 
             <article class="product_container">
               <a href="#" class="image_product">
                 <figure>
-                  <img src="\img\acondicionador eco.jpg" alt="">
+                  <img src= "/products/<%= product.images[0] %>" >
                 </figure>
               </a>
               <section class="description_product">
-                <h2>Acondicionador solido</h2>
-                <h3>$120</h3>
+                <h2><%= product.name %></h2>
+                <h3>$<%= product.price %></h3>
               </section>
             </article>
-             <article class="product_container">
-              <a href="#" class="image_product">
-                <figure>
-                  <img src="\img\bolsas bio.jpg" alt="">
-                </figure>
-              </a>
-              <section class="description_product">
-                <h2>Bolsas biodegradables</h2>
-                <h3>$40</h3>
-              </section>
-            </article>
-             <article class="product_container">
-              <a href="#" class="image_product">
-                <figure>
-                  <img src="\img\botella meraki.png" alt="">
-                </figure>
-              </a>
-              <section class="description_product">
-                <h2>Botellas de acero inoxidable</h2>
-                <h3>$2.450</h3>
-              </section>
-            </article>
-             <article class="product_container">
-              <a href="#" class="image_product">
-                <figure>
-                  <img src="\img\cubiertos.png" alt="">
-                </figure>
-              </a>
-              <section class="description_product">
-                <h2>Cubiertos de bambu</h2>
-                <h3>$280</h3>
-              </section>
-            </article>
-             <article class="product_container">
-              <a href="#" class="image_product">
-                <figure>
-                  <img src="\img\detergente solido.jpg" alt="">
-                </figure>
-              </a>
-              <section class="description_product">
-                <h2>Detergente solido</h2>
-                <h3>$140</h3>
-              </section>
-            </article>
-             <article class="product_container">
-              <a href="#" class="image_product">
-                <figure>
-                  <img src="\img\esponja vegetal.png" alt="">
-                </figure>
-              </a>
-              <section class="description_product">
-                <h2>Esponja vegetal</h2>
-                <h3>$55</h3>
-              </section>
-            </article>
-            <article class="product_container">
-              <a href="#" class="image_product">
-                <figure>
-                  <img src="\img\holder.png" alt="">
-                </figure>
-              </a>
-              <section class="description_product">
-                <h2>Holder de bambu</h2>
-                <h3>$310</h3>
-              </section>
-            </article>
-            <article class="product_container">
-              <a href="#" class="image_product">
-                <figure>
-                  <img src="\img\infusor de te.jpg" alt="">
-                </figure>
-              </a>
-              <section class="description_product">
-                <h2>Infusor de te</h2>
-                <h3>$160</h3>
-              </section>
-            </article>
-            <article class="product_container">
-              <a href="#" class="image_product">
-                <figure>
-                    <a href="#" class="image_product">
-                      <figure>
-                        <img src="\img\isopos.jpg" alt="">
-                      </figure>
-                    </a>
-                    <section class="description_product">
-                      <h2>Isopos biodegradables</h2>
-                      <h3>$110</h3>
-                    </section>
-                  </article>
-            <article class="product_container">
-                <a href="#" class="image_product">
-                  <figure>
-                    <img src="\img\jabone eco.jpg" alt="">
-                  </figure>
-                </a>
-                <section class="description_product">
-                  <h2>Jabon solido</h2>
-                  <h3>$75</h3>
-                </section>
-              </article>
-              <article class="product_container">
-                <a href="#" class="image_product">
-                  <figure>
-                    <img src="\img\jabonera.jpg" alt="">
-                  </figure>
-                </a>
-                <section class="description_product">
-                  <h2>Jabonera de bambu</h2>
-                  <h3>$240</h3>
-                </section>
-              </article>
-              <article class="product_container">
-                <a href="#" class="image_product">
-                  <figure>
-                    <img src="\img\mate de acero inox.jpg" alt="">
-                  </figure>
-                </a>
-                <section class="description_product">
-                  <h2>Mate de acero inoxidable</h2>
-                  <h3>$780</h3>
-                </section>
-              </article>
-              <article class="product_container">
-                <a href="#" class="image_product">
-                  <figure>
-                    <img src="\img\meraki.jpg" alt="">
-                  </figure>
-                </a>
-                <section class="description_product">
-                  <h2>Cepillos de bambu</h2>
-                  <h3>$130</h3>
-                </section>
-              </article>
-              <article class="product_container">
-                <a href="#" class="image_product">
-                  <figure>
-                    <img src="\img\peine de madera.png" alt="">
-                  </figure>
-                </a>
-                <section class="description_product">
-                  <h2>Peine de bambu</h2>
-                  <h3>$270</h3>
-                </section>
-              </article>
-              <article class="product_container">
-                <a href="#" class="image_product">
-                  <figure>
-                    <img src="\img\protector solar.jpg" alt="">
-                  </figure>
-                </a>
-                <section class="description_product">
-                  <h2>Protector solar ecologico</h2>
-                  <h3>$460</h3>
-                </section>
-              </article>
-              <article class="product_container">
-                <a href="#" class="image_product">
-                  <figure>
-                    <img src="\img\rasuradora de acero.png" alt="">
-                  </figure>
-                </a>
-                <section class="description_product">
-                  <h2>Rasuradora de acero</h2>
-                  <h3>$420</h3>
-                </section>
-              </article>
-           </section>
+          <% });  %> 
 
         </section>
         <button type="menu" id="todoslosproduct"> Ver todos los productos </button>
