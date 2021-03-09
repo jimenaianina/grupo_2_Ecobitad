@@ -38,6 +38,30 @@ Keep Doing:
 Less of: 
 
 Stop Doing: 
-- Mala organización del tiempo en función de los entregables comprometidos (empezamos a trabajar pasados unos días del comienzo del sprint)
+- Mala organización del tiempo en función de los entregables comprometidos (empezamos a trabajar pasados unos días del comienzo del sprint) con la madurez del equipo a través de los sprints podremos identificar aquellas "cosas" que deberíamos dejar de hacer.
 
-con la madurez del equipo a través de los sprints podremos identificar aquellas "cosas" que deberíamos dejar de hacer
+
+RETRO SPRINT 3
+
+Start Doing:
+
+-	Realizar las tareas de forma paulatina y constante.
+-	Seguimiento más exhaustivo de las tareas del sprint en el board de Trello
+-	Plasmar conclusiones de las daily en un archivo Daily.md
+
+More of:
+
+-	Realizar una meeting semanal fija, a modo de follow up, compartiendo los avances de cada integrante en relación al proyecto
+-	Daily más frecuentes
+
+Keep Doing:
+
+-	Comunicación fluída entre los miembros del equipo
+-	División equitativa de las tareas
+Stop Doing:
+-	Mala organización del tiempo en función de los entregables comprometidos (empezamos a trabajar pasados unos días del comienzo del sprint)
+
+
+
+
+
