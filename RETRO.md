@@ -18,6 +18,7 @@ Less of:
 Stop Doing: con la madurez del equipo a través de los sprints podremos identificar aquellas "cosas" que deberíamos dejar de hacer
 
 
+
 RETRO SPRINT 2
 
 Start Doing:
@@ -39,6 +40,7 @@ Less of:
 
 Stop Doing: 
 - Mala organización del tiempo en función de los entregables comprometidos (empezamos a trabajar pasados unos días del comienzo del sprint) con la madurez del equipo a través de los sprints podremos identificar aquellas "cosas" que deberíamos dejar de hacer.
+
 
 
 RETRO SPRINT 3
