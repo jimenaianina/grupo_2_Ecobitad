@@ -9,6 +9,23 @@
         <%- include ('../partials/header') %>
 
         <main class="container">
+          <nav id="filter">
+            <ul type = none>
+              <li>Elegir talle:</li>
+              <ul>
+                <li>Small</li>
+                <li>Medium</li>
+                <li>Large</li>
+              </ul>
+              <li>Elegir color: </li>
+              <li>Categoría:</li>
+              <ul>
+                <li> On the go </li>
+                <li> Baño </li>
+                <li> Cocina </li>
+              </ul>
+            </ul>
+          </nav>
             <section id= "products">
             <% products.forEach(product => { %>
                 <article class="product_container">

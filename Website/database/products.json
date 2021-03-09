@@ -1,20 +1,21 @@
 [
   {
-    "name": "Cepillo de dientes ecológicos",
-    "description": "Este es un cepillo de dientes ecológicos",
+    "name": "Cepillo de dientes ecológico",
+    "description": "Este es un cepillo de dientes ecológico",
     "category": "Baño",
     "colors": [
       "lila",
       "musgo",
       "aqua"
     ],
-    "price": 80,
-    "stock": "10",
+    "sizes": [],
+    "price": "80",
+    "stock": "100",
     "id": 1,
     "images": [
-      "fotoProducto1615244770638.jpeg",
-      "fotoProducto1615244770645.jpg",
-      "fotoProducto1615244770645.jpg"
+      "fotoProducto1615251940320.jpeg",
+      "fotoProducto1615251940323.jpg",
+      "fotoProducto1615251940324.jpg"
     ]
   },
   {
@@ -40,7 +41,8 @@
       "fotoProducto1615245202140.png"
     ],
     "colors": "",
-    "price": "5000",
+    "price": "500",
+    "sizes": [],
     "stock": "",
     "category": "on-the-go"
   },

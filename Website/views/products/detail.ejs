@@ -75,13 +75,21 @@
                 <span class="mediosFrase"> Medios de envío</span>
             <form >
                 <input class="ingrese" type="text" id="codigoPostal" name="postalCode" placeholder="Ingrese su código postal">
-                <button class="calcular" type="CALCULAR">CALCULAR</button>
+                <button class="calcular" type="CALCULAR">Calcular</button>
                 <br>
                 <article class="correo">
                 <a href=  "https://www.correoargentino.com.ar/formularios/cpa">No conozco mi código postal</a>
                 </article>
             </form>
-            </section>   
+            </section> 
+            <section>
+                <form action = "/producto/editar/<%= product.id %>" method="GET">
+                <button type="submit" class="btn"> Editar producto </button>
+                </form>
+                <form action = "/producto/eliminar/<%= product.id %>?_method=DELETE" method="POST">
+                <button type="submit" class="btn"> Eliminar producto </button>
+                </form>
+            </section>  
         </section>
     </section>
     <section class="descripcion">
@@ -94,11 +102,6 @@
     </p>
 </section>
 
-<section>
-    <form action = "/producto/eliminar/<%= product.id %>?_method=DELETE" method="POST">
-    <button type="submit"> ELIMINAR PRODUCTO </button>
-    </form>
-</section>
 
 </section>
 

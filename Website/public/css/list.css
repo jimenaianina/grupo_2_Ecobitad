@@ -42,9 +42,9 @@
   }  
   
   #products article.product_container{
-    width: 21%;
     border: .25rem solid #ddd;
     margin-bottom: 1rem;
+    background-color: #ceddef;
   }
   
   #products article.product_container .image_product{
@@ -91,6 +91,17 @@
 
   /* Laptop */
   @media screen and (min-width: 720px) {
+
+    main {
+      display: flex;
+    }
+
+    main nav {
+      display: flex;
+      background-color: #ddd;
+      width: 20%;
+      padding: 20px;
+    }
 
     #products{
       background-color: snow;

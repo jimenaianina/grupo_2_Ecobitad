@@ -246,9 +246,7 @@ body {
 .contenedor-medio {
     display: flex;  
     flex-direction: row; 
-    margin-left: 120px;  
- 
-    
+    margin-left: 120px;
 }
 .contenedor{
     display: flex;
@@ -260,7 +258,7 @@ body {
     padding-top: 30px;
     padding-bottom: 30px;
     margin-right: 120px;
-    width: 1200px;
+    width: 1100px;
 
 }
 .medios-de-pago{
@@ -331,6 +329,13 @@ margin-top: 30px;
 display: inline-block;
 }
 
+.colores button {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
 .lila {
     border: none;
     color: black;
@@ -360,13 +365,21 @@ display: inline-block;
   }
 
   .agregar{
-    background-color:  #afb3b6 ;
-    color: rgb(17, 18, 19);
-    border: 0px;
     width: 240px;
-    margin-top: 10px;
-    height: 25px;
-    font-size: 15px;
+    height: 40px;
+    text-shadow: 1px #9daef5;
+      -webkit-box-shadow: 24px whitesmoke;
+      -moz-box-shadow: 24px whitesmoke;
+      box-shadow: 3px 2px 5px whitesmoke;
+    font-family: "Spartan";
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: black;
+    font-size: 14px;
+    padding-left: 4px;
+    padding-right: 4px;
+    text-decoration: none;
+    border: rgb(0, 0, 0);
     }
 
 .delivery p{
@@ -391,10 +404,22 @@ height: 20px;
 }
 
 .calcular{
-    font-size: 15px;
-    width: 90px;
-    
+font-size: 14px;
+width: 90px;
+text-shadow: 1px #9daef5;
+-webkit-box-shadow: 24px whitesmoke;
+-moz-box-shadow: 24px whitesmoke;
+box-shadow: 3px 2px 5px whitesmoke;
+font-family: "Spartan";
+font-weight: 500;
+letter-spacing: 2px;
+color: black;
+padding-left: 4px;
+padding-right: 4px;
+text-decoration: none;
+border: rgb(0, 0, 0);
 }
+
 .descripcion {
     margin-left: 120px;  
     margin-top: 30px;
@@ -432,8 +457,26 @@ height: 20px;
     
     font-size: 17px;
     text-align:left;
-
 }
+
+.btn {
+    width: 240px;
+    height: 40px;
+    text-shadow: 1px #9daef5;
+      -webkit-box-shadow: 24px whitesmoke;
+      -moz-box-shadow: 24px whitesmoke;
+      box-shadow: 3px 2px 5px whitesmoke;
+    font-family: "Spartan";
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: black;
+    font-size: 14px;
+    padding-left: 4px;
+    padding-right: 4px;
+    text-decoration: none;
+    border: rgb(0, 0, 0);
+    margin-top: 24px;
+  }
 }
     
 /*desktop
