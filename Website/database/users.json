@@ -1,5 +1,39 @@
 [
     {
-        "id": ""
+        "id": "1",
+        "name": "Clara",
+        "lastName": "Diaz",
+        "email": "claramdiaz@hotmail.com",
+        "password": "123456",
+        "image": "Clara.jpg",
+        "role": "adminUser"
+    },
+    {
+        "id": "2",
+        "name": "Mateo",
+        "lastName": "Bou",
+        "email": "boumateo12@gmail.com",
+        "password": "capo123",
+        "image": "Mateo.jpg",
+        "role": "adminUser"
+    },
+    {
+        "id": "3",
+        "name": "Jimena",
+        "lastName": "Flores",
+        "email": "jime.ianina@gmail.com",
+        "password": "1234567",
+        "image": "Jimena.jpg",
+        "role": "adminUser"
+    },
+    {
+        "id": "4",
+        "name": "Juan",
+        "lastName": "Perez",
+        "email": "juanperez@hotmail.com",
+        "password": "elcliente",
+        "image": "Juan.png",
+        "role": "standardUser"
     }
+
 ]

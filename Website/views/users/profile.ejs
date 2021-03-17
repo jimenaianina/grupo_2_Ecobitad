@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang = "es">
+    
+<%- include ('../partials/head') %>
+
+    <body>
+    
+        <%- include ('../partials/header') %>
+        
+<main>
+
+    <div id="datos">
+    <p> Bienvenidx! </p>
+    <p> <%= user.name + " " + user.lastName%> </p>
+    <img src= "/users/<%= user.image %> " >
+    </div>
+</main>
+
+<%- include ('../partials/footer') %>
+
+</body>
+
+</html>
+
