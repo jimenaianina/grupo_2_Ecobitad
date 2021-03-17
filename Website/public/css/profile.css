@@ -14,23 +14,34 @@ body {
     font-style: normal;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+}
+
+#contenedorUsuario {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    padding-left: 40px;
+}
+
+
 #datos {
 display: flex;
 flex-direction: column;
-align-items: center;
+align-items: flex-start;
+margin-left: 30px;
 }
 
 main img {
-    width: 10vw;
+    width: 15vw;
 }
 
 /* Desktop */
 
 @media screen and (min-width: 768px) {
 
-    main img {
-        width: 10vw;
-        text-align: center;
-    }
 
 }

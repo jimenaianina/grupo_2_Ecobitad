@@ -9,11 +9,21 @@
         <%- include ('../partials/header') %>
         
 <main>
+    <h1> Bienvenidx! </h1>
 
-    <div id="datos">
-    <p> Bienvenidx! </p>
-    <p> <%= user.name + " " + user.lastName%> </p>
-    <img src= "/users/<%= user.image %> " >
+    <div id="contenedorUsuario">
+        <div id="foto">
+
+            <img src= "/users/<%= user.image %> " >
+        </div>
+
+        <div id="datos">
+
+            <p><%= user.name + " " + user.lastName%> </p>
+            <p><%= user.email %></p>
+
+        </div>
+
     </div>
 </main>
 
