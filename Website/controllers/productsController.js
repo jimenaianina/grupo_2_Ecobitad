@@ -40,9 +40,9 @@ const controller = {
 	save: (req,res)=> {
 		let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/products.json")));
 		req.body.id = products.length > 0 ? products[products.length-1].id+1 : 1;
-		req.body.images = [];
+		req.body.image = [];
 		req.files.forEach(file => {
-			req.body.images.push(file.filename)
+			req.body.image.push(file.filename)
 		});
 		products.push(req.body);
 		fs.writeFileSync(path.resolve(__dirname,"../database/products.json"), JSON.stringify(products, null, 2));

@@ -13,11 +13,11 @@
 
 <form action = "/producto/guardar" method="POST" enctype="multipart/form-data">
     <label for="name"> Nombre del producto </label>
-    <input type="text" placeholder="nombre del producto" name="name" class="box">
+    <input type="text" placeholder="nombre del producto" name="name" class="box" required>
     <label for="description"> Descripción </label>
-    <textarea name="description" class="box"></textarea>
+    <textarea name="description" class="box" required></textarea>
     <label for="images"> Fotos del producto </label>
-    <input type="file" name="fotoProducto" id="file" multiple>
+    <input type="file" name="fotoProducto" id="file" multiple required>
     <label for="category"> Categoría </label>
     <% categorias.forEach(categoria => { %>
       <label for= "<%= categoria.id %>"><input type="radio" name="category" value="<%= categoria.name %>"> <%= categoria.name %> </label>
@@ -37,9 +37,9 @@
       <% }) %>
     </select>
     <label for="price"> Precio </label>
-    <input type="range" name="price" class="box" min="0" step="100" max="10000">
+    <input type="range" name="price" class="box" min="0" step="100" max="10000" required>
     <label for="stock"> Stock </label>
-    <input type="number" name="stock" class="box" min="0">
+    <input type="number" name="stock" class="box" min="0" required>
     <div id="buttons">
     <button type="reset"> Borrar  </button>
     <button type="submit"> Crear producto </button>
