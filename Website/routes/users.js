@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const usersController = require('../controllers/usersController');
 const multer = require('multer');
+const bcrypt = require('bcryptjs');
+const session = require('express-session');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {

@@ -36,12 +36,11 @@
         "id": "4",
         "name": "Juan",
         "lastName": "Perez",
-        "age": 58,
+        "age": 18,
         "adress": "Calle Falsa 123",
         "email": "juanperez@hotmail.com",
         "password": "elcliente",
         "image": "Juan.png",
         "role": "standardUser"
     }
-
 ]
