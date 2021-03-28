@@ -14,7 +14,21 @@ const controller = {
 	
 	register: (req,res)=> {
 		res.render("users/register", { title: "Registro", css: "/css/register.css"})
-	}
+	},
+
+	save: (req,res)=> {
+		let users = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/users.json")));
+		req.body.id = users.length > 0 ? users[users.length-1].id+1 : 1;
+		req.body.images = [];
+		req.files.forEach(file => {
+			req.body.images.push(file.filename)
+		});
+		users.push(req.body);
+		fs.writeFileSync(path.resolve(__dirname,"../database/users.json"), JSON.stringify(users, null, 2));
+		return res.redirect("/home")
+		},
+	},
+
 
 };
 
