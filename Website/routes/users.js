@@ -15,9 +15,10 @@ const upload = multer( { storage: storage});
 
 router.get('/perfil/:id', usersController.profile);
 router.get('/acceder', usersController.login);
-router.post('/validar', usersController.validation)
+router.post('/acceder', usersController.processLogin)
 router.get('/registro', usersController.register);
 router.post('/crear', upload.any('fotoUsuario'), usersController.create);
+router.delete('/eliminar/:id', usersController.destroy); 
 
 
 module.exports = router;

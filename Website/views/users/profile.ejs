@@ -21,8 +21,12 @@
 
             <p><%= user.name + " " + user.lastName%> </p>
             <p><%= user.email %></p>
-
         </div>
+
+    </form>
+    <form action = "/usuario/eliminar/<%= user.id %>?_method=DELETE" method="POST">
+    <button type="submit" class="btn"> Eliminar usuario </button>
+    </form>
 
     </div>
 </main>
