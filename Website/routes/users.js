@@ -12,13 +12,14 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer( { storage: storage});
+const validations = require('../middlewares/validateRegisterMiddleware');
 
 router.get('/perfil/:id', usersController.profile);
 router.get('/acceder', usersController.login);
 router.post('/acceder', usersController.processLogin)
 router.get('/registro', usersController.register);
-router.post('/crear', upload.any('fotoUsuario'), usersController.create);
-router.delete('/eliminar/:id', usersController.destroy); 
+router.post('/registro', upload.any('fotoUsuario'), usersController.processRegister);
+router.delete('/eliminar/:id', usersController.destroy);
 
 
 module.exports = router;
