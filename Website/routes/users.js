@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const usersController = require('../controllers/usersController');
 const multer = require('multer');
+const path = require('path');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -12,7 +13,7 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer( { storage: storage});
-const validations = require('../middlewares/validateRegisterMiddleware');
+const validationResults = require('../middlewares/validateRegisterMiddleware');
 
 router.get('/perfil/:id', usersController.profile);
 router.get('/acceder', usersController.login);

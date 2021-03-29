@@ -2,15 +2,14 @@ const fs = require('fs');
 const path = require('path');
 const User = require('../models/users');
 const bcrypt = require('bcryptjs');
-const { validationResults } = require('express-validator');
+const validationResult = require('express-validator');
 const session = require('express-session');
+
 
 const controller = {
 
 	profile: (req,res)=> {		
-		let users = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/users.json")));
-		let user = users.find(user => user.id == req.params.id)
-		res.render("users/profile", { title: "Perfil", css: "/css/profile.css", user })
+		return res.render("users/profile", { user: req.session.userLogged }, { title: "Perfil", css: "/css/profile.css"})
 	},
 	
 	login: (req,res)=> {
@@ -19,7 +18,22 @@ const controller = {
 
 
 	processLogin: (req,res)=> {
-		
+		let userToLogin = User.findByField('email', req.body.email);
+		if (userToLogin) {
+			let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
+			if (isOkThePassword) {
+				delete userToLogin.password;
+				req.session.userLogged = userToLogin;
+				return res.redirect('/')
+			} 
+		return res.render('users/login', {
+			errors: {
+				email: {
+					msg: 'Las credenciales ingresadas son inválidas'
+				}
+			}
+		});		
+	}
 	},
 
 	register: (req,res)=> {
