@@ -91,15 +91,14 @@ const controller = {
 	},
 
 	destroy: (req, res) => {
-		let users = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/users.json")));
-		let userSelected = users.find(user => user.id == req.params.id);
-		users = users.filter(user => user.id != userSelected.id);
-		fs.writeFileSync(path.resolve(__dirname,"../database/users.json"), JSON.stringify(users, null, 2));
-		return res.redirect("/")
-}
+
+		let userToDelete = req.session.userLogged.id;
+		User.delete(userToDelete);
+		req.session.destroy();
+
+		return res.redirect('/');
+	}
 
 };
 
 module.exports = controller;
-
-		
