@@ -1,35 +1,42 @@
 [
-  {
-    "id": 1,
-    "name": "Clara",
-    "lastName": "Diaz",
-    "age": 18,
-    "adress": "Vicente Lopez",
-    "email": "claramdiaz@hotmail.com",
-    "password": "123456",
-    "image": "Clara.jpg",
-    "role": "adminUser"
-  },
-  {
-    "id": 2,
-    "name": "Mateo",
-    "lastName": "Bou",
-    "age": 18,
-    "adress": "Adrogué",
-    "email": "boumateo12@gmail.com",
-    "password": "capo123",
-    "image": "Mateo.jpg",
-    "role": "adminUser"
-  },
-  {
-    "id": 3,
-    "name": "Juan",
-    "lastName": "Perez",
-    "age": 18,
-    "adress": "Calle Falsa 123",
-    "email": "juanperez@hotmail.com",
-    "password": "elcliente",
-    "image": "Juan.png",
-    "role": "standardUser"
-  }
+ {
+  "id": 1,
+  "name": "Clara",
+  "lastName": "Diaz",
+  "email": "claramdiaz@hotmail.com",
+  "age": "36",
+  "address": "Vicente Lopez",
+  "password": "$2a$10$EC5MULJSP7ROo0M5W18gHu3RR/bCmR98zqPCUdQiDBvDT5b2pPDsO",
+  "image": "fotoPerfil1617314645047.jpg"
+ },
+ {
+  "id": 2,
+  "name": "Mateo",
+  "lastName": "Bou",
+  "email": "mateobou12@gmail.com",
+  "age": "23",
+  "address": "Adrogue",
+  "password": "$2a$10$yVn7vsnwyNd1ndo09SqejuFytr8TmMzWNh0o71TyBIxM7CmK6Xf76",
+  "image": "fotoPerfil1617314723918.jpg"
+ },
+ {
+  "id": 3,
+  "name": "Juan ",
+  "lastName": "Perez",
+  "email": "juan@perez.com",
+  "age": "18",
+  "address": "Calle Falsa 123",
+  "password": "$2a$10$1uYib7N4W1.6vvGJyGzzCOc0wk9ekVX4DGCxUX5NMkwx45IMFtCvO",
+  "image": "fotoPerfil1617314769813.png"
+ },
+ {
+  "id": 4,
+  "name": "Jimena",
+  "lastName": "Flores",
+  "email": "jime.ianina@gmail.com",
+  "age": "27",
+  "address": "Quilmes",
+  "password": "$2a$10$mfVP8jepbIR6cV0qAWKKF.nG5eu2gL6Sc5PCgXuQP1VJcujkHmC.K",
+  "image": "fotoPerfil1617314808675.jpg"
+ }
 ]

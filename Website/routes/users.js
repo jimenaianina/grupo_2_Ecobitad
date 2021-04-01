@@ -22,7 +22,8 @@ router.post('/acceder', usersController.processLogin);
 router.get('/salir', usersController.logout);
 router.get('/perfil/:id', authMiddleware, usersController.profile);
 router.get('/registro', guestMiddleware, usersController.register);
-router.post('/registro', upload.any('fotoUsuario'), validaciones, usersController.processRegister);
+router.post('/registro', upload.single('image'), validaciones, usersController.processRegister);
+router.post('/salir', usersController.logout);
 router.delete('/eliminar/:id', usersController.destroy);
 
 

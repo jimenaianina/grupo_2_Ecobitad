@@ -13,6 +13,7 @@ const controller = {
 	},
 
 	processLogin: (req,res)=> {
+		
 		let userToLogin = User.findByField('email', req.body.email);
 		if (userToLogin) {
 			let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
@@ -42,7 +43,6 @@ const controller = {
 
 	profile: (req,res)=> {		
 		return res.render("users/profile", 
-		{ user: req.session.userLogged }, 
 		{ title: "Perfil", css: "/css/profile.css"})
 	},
 
@@ -53,12 +53,13 @@ const controller = {
 
 	processRegister: (req,res) => {
 		let resultValidation = validationResult(req);
-
 		if (resultValidation.errors.length > 0) {
 			
 			return res.render('users/register', {
 				errors: resultValidation.mapped(),
-				oldData: req.body
+				oldData: req.body,
+				title: "Registro", 
+				css: "/css/register.css"
 			})
 		};
 
@@ -71,9 +72,11 @@ const controller = {
 						msg: 'Este email ya se encuentra registrado'
 					}
 				},
-				oldData: req.body
-		})
-	};
+				oldData: req.body,
+				title: "Registro", 
+				css: "/css/register.css"
+			})
+		};
 
 		let userToCreate = {
 			...req.body,
@@ -83,7 +86,7 @@ const controller = {
 
 		let userCreated = User.create(userToCreate);
 
-			return res.redirect('/usuario/acceder', userCreated)
+			return res.redirect('/usuario/acceder')
 	 
 	},
 

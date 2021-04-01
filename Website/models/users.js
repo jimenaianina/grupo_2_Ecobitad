@@ -29,8 +29,8 @@ const User = {
 
     findByField: function(field, text) {
         let allUsers = this.findAll();
-        let userFound = allUsers.find(oneUser => oneUser[field] === text);
-        return userFound;
+        let userFound = allUsers.find(user => user[field] === text);
+        return userFound;  
     },
 
 	create : function(userData) {
@@ -39,7 +39,7 @@ const User = {
             id: this.generateId(), 
             ...userData 
     }
-        allUsers.push(userData);
+        allUsers.push(newUser);
         fs.writeFileSync(this.filename, JSON.stringify(allUsers, null, ' '))
         return true
     },

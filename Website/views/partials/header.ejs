@@ -30,7 +30,7 @@
 <% if(locals.isLogged) {%>
 <ul id="iconosD">
     <li> <a href= #><i class="fas fa-search"></i></a> </li>
-    <li> <a href= "/usuario/perfil/:id"> </a><%= locals.userLogged.name + " " + locals.userLogged.lastName%></li>
+    <li> <a href= "/usuario/perfil/<%=locals.userLogged.id%>"> <%= locals.userLogged.name + " " + locals.userLogged.lastName%></a></li>
     <li><a href= "/producto/carrito"><i class="fas fa-shopping-cart"></i></a></li>
 <% } else { %>
     <li> <a href= "/usuario/acceder"><i class="far fa-user"></i></a></li>

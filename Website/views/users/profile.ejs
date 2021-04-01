@@ -14,20 +14,22 @@
     <div id="contenedorUsuario">
         <div id="foto">
 
-            <img src= "/users/<%= user.image %> " >
+            <img src= "/users/<%=locals.userLogged.image%> " >
         </div>
 
         <div id="datos">
 
-            <p><%= user.name + " " + user.lastName%> </p>
-            <p><%= user.email %></p>
+            <p><%= locals.userLogged.name + " " + locals.userLogged.lastName%> </p>
+            <p><%= locals.userLogged.email %></p>
         </div>
 
-    </form>
-    <form action = "/usuario/eliminar/<%= user.id %>?_method=DELETE" method="POST">
+  
+    <form action = "/usuario/eliminar/<%= locals.userLogged.id %>?_method=DELETE" method="POST">
     <button type="submit" class="btn"> Eliminar usuario </button>
     </form>
-
+    <form action = "/usuario/salir" method="POST">
+        <button type="submit" class="btn"> Logout </button>
+    </form>
     </div>
 </main>
 

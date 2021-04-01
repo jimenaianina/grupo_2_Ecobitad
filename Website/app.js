@@ -14,6 +14,7 @@ app.listen(3030,()=> console.log("inicio del servidor"));
 
 app.use(express.static(path.resolve(__dirname,"public")));
 app.use(express.static(path.resolve(__dirname,"upload")));
+app.use(express.urlencoded({extended: false}));
 app.use(session({ 
     secret: "secret",
     resave: false,

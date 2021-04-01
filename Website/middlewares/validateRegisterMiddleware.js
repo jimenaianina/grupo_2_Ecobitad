@@ -5,7 +5,7 @@ const validaciones = [
     body('name').notEmpty().withMessage('Por favor escribir un nombre'), 
     body('email')
     .notEmpty().withMessage('Por favor escribir un correo electrónico')
-    .bail().isEmail().withMessage('Por favor escribir un formato de correo válido'), 
+    .isEmail().withMessage('Por favor escribir un formato de correo válido'), 
     body('password').notEmpty().withMessage('Por favor escribir una contraseña'), 
     body('lastName').notEmpty().withMessage('Por favor escribir un apellido'), 
     body('image').custom((value, {req}) => {
@@ -16,7 +16,7 @@ const validaciones = [
         } else {
             let fileExtension = path.extname(file.originalname);
             if (!acceptedExtensions.includes(fileExtension)) {
-                throw new Error ('Las extensiones del archivo permitidas son ${acceptedExtensions.join(', ')}');
+                throw new Error ("Las extensiones del archivo permitidas son " + acceptedExtensions.join(', '));
             }
         }
         return true;
