@@ -13,13 +13,16 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer( { storage: storage});
-const validationResults = require('../middlewares/validateRegisterMiddleware');
+const validaciones = require('../middlewares/validateRegisterMiddleware');
+const guestMiddleware = require('../middlewares/guestMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
 
-router.get('/perfil/:id', usersController.profile);
 router.get('/acceder', usersController.login);
-router.post('/acceder', usersController.processLogin)
-router.get('/registro', usersController.register);
-router.post('/registro', upload.any('fotoUsuario'), usersController.processRegister);
+router.post('/acceder', usersController.processLogin);
+router.get('/salir', usersController.logout);
+router.get('/perfil/:id', authMiddleware, usersController.profile);
+router.get('/registro', guestMiddleware, usersController.register);
+router.post('/registro', upload.any('fotoUsuario'), validaciones, usersController.processRegister);
 router.delete('/eliminar/:id', usersController.destroy);
 
 

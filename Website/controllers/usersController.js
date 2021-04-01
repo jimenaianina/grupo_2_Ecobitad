@@ -2,20 +2,15 @@ const fs = require('fs');
 const path = require('path');
 const User = require('../models/users');
 const bcrypt = require('bcryptjs');
-const validationResult = require('express-validator');
+const { validationResult } = require('express-validator');
 const session = require('express-session');
 
 
 const controller = {
 
-	profile: (req,res)=> {		
-		return res.render("users/profile", { user: req.session.userLogged }, { title: "Perfil", css: "/css/profile.css"})
-	},
-	
 	login: (req,res)=> {
 		res.render("users/login", { title: "Login", css: "/css/login.css" })
 	},
-
 
 	processLogin: (req,res)=> {
 		let userToLogin = User.findByField('email', req.body.email);
@@ -26,6 +21,10 @@ const controller = {
 				req.session.userLogged = userToLogin;
 				return res.redirect('/')
 			} 
+
+		if(req.body.rememberUser) {
+			res.cookies('userCookie', req.body.email, { maxAge: (1000 * 60) * 2})
+		}
 		return res.render('users/login', {
 			errors: {
 				email: {
@@ -36,18 +35,32 @@ const controller = {
 	}
 	},
 
+	logout: (req, res) => {
+		req.session.destroy();
+		return res.redirect('/')
+	},
+
+	profile: (req,res)=> {		
+		return res.render("users/profile", 
+		{ user: req.session.userLogged }, 
+		{ title: "Perfil", css: "/css/profile.css"})
+	},
+
 	register: (req,res)=> {
+		res.cookie()
 		res.render("users/register", { title: "Registro", css: "/css/register.css"})
 	},
 
 	processRegister: (req,res) => {
-		const resultValidation = validationResult(req, res);
+		let resultValidation = validationResult(req);
+
 		if (resultValidation.errors.length > 0) {
-			return res.render('users/register', { 
-				errors: resultValidation.mapped(), 
+			
+			return res.render('users/register', {
+				errors: resultValidation.mapped(),
 				oldData: req.body
 			})
-		} 
+		};
 
 		let userinDB = User.findByField('email', req.body.email);
 
@@ -59,18 +72,19 @@ const controller = {
 					}
 				},
 				oldData: req.body
-			})
-		};
+		})
+	};
 
 		let userToCreate = {
 			...req.body,
 			password: bcrypt.hashSync(req.body.password, 10),
 			image: req.file.filename
-		}
+		};
 
-		let userCreated = user.create(userToCreate);
+		let userCreated = User.create(userToCreate);
 
-		return res.redirect('/usuario/acceder');
+			return res.redirect('/usuario/acceder', userCreated)
+	 
 	},
 
 	destroy: (req, res) => {

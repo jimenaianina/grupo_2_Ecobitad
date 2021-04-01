@@ -23,17 +23,6 @@
   },
   {
     "id": 3,
-    "name": "Jimena",
-    "lastName": "Flores",
-    "age": 26,
-    "adress": "Quilmes",
-    "email": "jime.ianina@gmail.com",
-    "password": "1234567",
-    "image": "Jimena.jpg",
-    "role": "adminUser"
-  },
-  {
-    "id": 4,
     "name": "Juan",
     "lastName": "Perez",
     "age": 18,
@@ -42,15 +31,5 @@
     "password": "elcliente",
     "image": "Juan.png",
     "role": "standardUser"
-  },
-  {
-    "name": "Para",
-    "lastName": "Probar",
-    "email": "para@probar.com",
-    "age": "14",
-    "adress": "Alo",
-    "password": "$2a$10$OxojHrsWdLEk9.MG7fxVneGxBd9VtRb8N/2jG2.P4eiuicxpfzSIG",
-    "id": 5,
-    "images": []
   }
 ]
