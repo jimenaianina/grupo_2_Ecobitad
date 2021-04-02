@@ -18,30 +18,56 @@ main {
     display: flex;
     flex-direction: column;
     margin: 30px;
+    align-items: center;
 }
 
 #contenedorUsuario {
     display: flex;
     flex-direction: row;
-    padding: 20px;
-    padding-left: 40px;
 }
 
 
 #datos {
+width: 60%;
+margin-left: 20px;
+padding-left: 20px;
 display: flex;
 flex-direction: column;
 align-items: flex-start;
-margin-left: 30px;
+justify-content: space-evenly;
+background-color: white;
 }
 
 main img {
     width: 15vw;
+    border: 4px solid white
 }
+
+.btn {
+    width: 140px;
+    height: 26px;
+    -moz-box-shadow: 12px whitesmoke;
+    box-shadow: 2px 2px 4px whitesmoke;
+    font-family: "Spartan";
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: black;
+    font-size: 8px;
+    text-decoration: none;
+    border: rgb(0, 0, 0);
+}
+
 
 /* Desktop */
 
 @media screen and (min-width: 768px) {
 
+#contenedorUsuario {
+    background-color: #CEDDEF;
+    width: 60%;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px; 
+}
 
 }
