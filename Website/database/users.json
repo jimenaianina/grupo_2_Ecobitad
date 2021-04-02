@@ -36,7 +36,17 @@
   "email": "jime.ianina@gmail.com",
   "age": "27",
   "address": "Quilmes",
-  "password": "$2a$10$mfVP8jepbIR6cV0qAWKKF.nG5eu2gL6Sc5PCgXuQP1VJcujkHmC.K",
-  "image": "fotoPerfil1617314808675.jpg"
+  "password": "$2a$10$Iufh55wbZkVwJxrOEG6iyeIe9fUyWq8eqZTiLFpb1FBRcjR7Iu8OK",
+  "image": "fotoPerfil1617388667343.jpg"
+ },
+ {
+  "id": 5,
+  "name": "Veronica",
+  "lastName": "Flores",
+  "email": "flores-vg@gmail.com",
+  "age": "33",
+  "address": "Quilmes",
+  "password": "$2a$10$XmdBbqD8ZyB1ERI/5w7Sm.iNrgDenVHPir/Lku7KnKoKvlvBC1RXG",
+  "image": "fotoPerfil1617389743009.jpg"
  }
 ]

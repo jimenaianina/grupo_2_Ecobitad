@@ -29,9 +29,12 @@ const controller = {
 		return res.render('users/login', {
 			errors: {
 				email: {
-					msg: 'Las credenciales ingresadas son inválidas'
+					msg: 'Este mail no se halla registrado en nuestra base de datos'
 				}
-			}
+			},
+				title: "Login", 
+				css: "/css/login.css"
+			
 		});		
 	}
 	},

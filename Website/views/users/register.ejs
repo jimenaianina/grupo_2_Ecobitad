@@ -16,20 +16,33 @@
 
             
             <form action = "/usuario/registro" method="POST" enctype="multipart/form-data">
-                <label for="name"> Nombre </label>
-                <p><input type="text" name="name" id="box" ></p>
-                <label for="lastName"> Apellido </label>
-                <p><input type="text" name="lastName" id="box" ></p>
-                <label for="email"> E-mail </label>
-                <p><input type="email" name="email" id="box" ></p>
-                <label for="age"> Edad </label>
-                <p><input type="number" name="age" class="box" min="0" ></p>
-                <label for="address"> Direccion </label>
-                <p><input type="text" name="address" id="box" ></p>
-                <label for="password"> Contraseña </label>
-                <p><input type="password" name="password" id="box" ></p>
-                <label for="image"> Subí tu imagen </label>
-                <input type="file" name="image" id="file">
+                <div>
+                    <label for="name"> Nombre </label>
+                    <p><input type="text" name="name" class="box" ></p>
+                </div>
+                <div>
+                    <label for="lastName"> Apellido </label>
+                    <p><input type="text" name="lastName" class="box" ></p>
+                </div>
+                <div>
+                    <label for="email"> E-mail </label>
+                    <p><input type="email" name="email" class="box" ></p>
+                </div>
+                <div> 
+                    <label for="age"> Edad </label>
+                    <p><input type="number" name="age" class="box" min="0" ></p>
+                <div>
+                    <label for="address"> Direccion </label>
+                    <p><input type="text" name="address" class="box" ></p>
+                </div>
+                <div>
+                    <label for="password"> Contraseña </label>
+                    <p><input type="password" name="password" class="box" ></p>
+                </div>
+                <div>
+                    <label for="image" class="picture"> Subí tu imagen </label>
+                    <input type="file" name="image" id="file" class="picture">
+                </div>
                 <p><button type="submit" class="btn"> Registrarse </button></p>
             </form>
 

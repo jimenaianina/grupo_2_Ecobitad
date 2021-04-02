@@ -46,8 +46,8 @@ const User = {
 
     delete: function(id) {
         let allUsers = this.findAll();
-        let findAllUsers = allUsers.filter(oneUser => oneUser.id !== id);
-        fs.writeFileSync(this.filename, JSON.stringify(allUsers, null, ' '));
+        let filterAllUsers = allUsers.filter(oneUser => oneUser.id !== id);
+        fs.writeFileSync(this.filename, JSON.stringify(filterAllUsers, null, ' '));
         return true
     }
 }
