@@ -1,5 +1,5 @@
 module.exports = (sequelize, datatype)=> {
-    const Product  =sequelize.define("Product", 
+    const Product = sequelize.define("Product", 
         cols= {
             id:{
                 primaryKey: true,
@@ -50,16 +50,7 @@ module.exports = (sequelize, datatype)=> {
                 as:"category",
                 foreignKey: "category_id"
             },
-            Product.belongsTo(models.Size), {
-                as:"size",
-                foreignKey: "size_id"
-            },
-            Product.belongsTo(models.Color), {
-                as:"color",
-                foreignKey: "color_id"
-            },
-            Product.hasMany(models.ProductImage), {
-                as:"image",
-                foreignKey: "product_image"
-            }
+            Product.belongsToMany(models.Size, { through: 'ProductSize' }),
+            Product.belongsToMany(models.Product, { through: 'ColorProduct' }),
+            Product.belongsToMany(models.Image, { through: 'ImageProduct'})
         }

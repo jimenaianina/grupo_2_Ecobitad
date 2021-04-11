@@ -1,8 +1,7 @@
-
 module.exports = (sequelize, datatype)=> {
     const ProductImage  =sequelize.define("ProductImage", 
         cols= {
-            image_id:{
+            id:{
                 primaryKey: true,
                 autoIncrement: true,
                 type: dataTypes.INTEGER
@@ -10,10 +9,6 @@ module.exports = (sequelize, datatype)=> {
             image_path:{
                 allowNull: false,
                 type: dataTypes.VARCHAR(300)
-            },
-            product_id:{
-            allowNull: false,
-            type: dataTypes.INTEGER
             },
         },
             {

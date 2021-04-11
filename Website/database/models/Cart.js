@@ -1,8 +1,7 @@
-
 module.exports = (sequelize, datatype)=> {
     const Cart  =sequelize.define("Cart", 
         cols= {
-            cart_id:{
+            id:{
                 primaryKey: true,
                 autoIncrement: true,
                 type: dataTypes.INTEGER
