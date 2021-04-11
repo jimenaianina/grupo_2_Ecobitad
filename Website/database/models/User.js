@@ -1,10 +1,12 @@
 module.exports = (sequelize, datatype)=> {
-const Usuario =sequelize.deine(users, {
-    id:{
+const User =sequelize.define("User", 
+cols= {
+    user_id:{
         primaryKey: true,
-        type: dataTypes.INTERGER
+        autoIncrement: true,
+        type: dataTypes.INTEGER
     },
-    users_name:{
+    user_name:{
         allowNull: false,
         type: dataTypes.VARCHAR(25)
     },
@@ -18,7 +20,7 @@ const Usuario =sequelize.deine(users, {
     },
     age:{
         allowNull: false,
-        type: dataTypes.INT
+        type: dataTypes.INTEGER
     },
     city: {
         allowNull: false,
@@ -30,13 +32,26 @@ const Usuario =sequelize.deine(users, {
     },
     user_role_id:{
         allowNull: false,
-        type: dataTypes.INT
+        type: dataTypes.INTEGER
     },
-
-
-
-
+    createdAt: {
+        type: dataTypes.DATE
+    },
+    updatedAt: {
+        type: dataTypes.DATE
+    }
+});
+return User;
 };
-return Usuario;
+
+User.associate = function (models){
+    User.belongsTo(models.UsersRole, {
+        as:"role",
+        foreignKey: "user_role_id"
+    })
+}
+
+User.associate = function (models){
+    User.hasMany(models.Cart)
 }
     
