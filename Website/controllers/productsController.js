@@ -1,20 +1,26 @@
 const fs = require('fs');
 const path = require('path');
+const db = require('../database/models')
 
 const controller = {
 
 	index: (req, res) => {
-		let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/products.json")))
-		let categoria = products.filter(product => product.category == req.params.category);
-		let talles = products.filter(product => product.sizes == req.params.sizes);
-		let colores = products.filter(product => product.colors == req.params.colors);
-		return res.render("products/list", { title: "Productos", css: "/css/list.css", products, colores, categoria, talles })
+		let categoria = db.Category.findAll();
+		let talles = db.Size.findAll();
+		let colores = db.Color.findAll();
+		db.Product.findAll()
+			.then(function(products) {
+				return res.render("products/list", { products:products }, { title: "Productos", css: "/css/list.css", colores, categoria, talles })
+			})
 	},
 
 	detail: (req,res)=> { 
-		let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/products.json")))
-		let product = products.find(product => product.id == req.params.id)
-		return res.render("products/detail", { title: product.name , css: "/css/detail.css", product })
+		db.Product.findByPk(req.params.id, {
+			include: [{association: "category"}, {association: "color"}, {association: "size"},{association: "image"}]
+		})
+		.then(function(product){
+			return res.render("products/detail", { product:product }, { title: product.name , css: "/css/detail.css"})
+		})
 	},
 
 	cart: (req,res)=> {
@@ -22,35 +28,69 @@ const controller = {
 	},
 
 	create: (req,res)=> {
-		let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/categories.json")));
-		let colores = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/colors.json")));
-		let talles = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/sizes.json")));
-		return res.render("products/createForm", { title: "Crear", css: "/css/forms.css", categorias, colores, talles})
+		let categorias = db.Category.findAll();
+		let talles = db.Size.findAll();
+		let colores = db.Color.findAll();
+		
+		res.render("products/createForm", { title: "Crear", css: "/css/forms.css", categorias, colores, talles})
 	},
 
 	edit: (req,res)=> {
-		let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/products.json")))
-		let product = products.find(product => product.id == req.params.id)
-		let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/categories.json")));
-		let colores = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/colors.json")));
-		let talles = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/sizes.json")));
-		return res.render("products/editForm", { title: "Editar", css: "/css/forms.css", product })
+		let producto = db.Product.findByPk(req.params.id);
+
+		let categoria = db.Category.findAll();
+		let talles = db.Size.findAll();
+		let colores = db.Color.findAll();
+
+		Promise.all([producto, categoria, talles, colores])
+		.then (function([product, category, size, color]){
+			return res.render("products/editForm", { product: product, category: category, size: size, color: color}, { title: "Editar", css: "/css/forms.css" })
+		})
 	},
 
 	save: (req,res)=> {
-		let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/products.json")));
+
+		db.Product.create({
+			product_name: req.body.name, 
+			product_description: req.body.description,
+			category_id: req.body.category,
+			color: req.body.color,
+			price: req.body.price,
+			stock: req.body.stock,
+			size: req.body.size,
+			product_images: req.body.images
+		});
+		/*let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/products.json")));
 		req.body.id = products.length > 0 ? products[products.length-1].id+1 : 1;
 		req.body.image = [];
 		req.files.forEach(file => {
 			req.body.image.push(file.filename)
 		});
 		products.push(req.body);
-		fs.writeFileSync(path.resolve(__dirname,"../database/products.json"), JSON.stringify(products, null, 2));
-		return res.redirect("/producto")
+		fs.writeFileSync(path.resolve(__dirname,"../database/products.json"), JSON.stringify(products, null, 2));*/
+		res.redirect("/producto")
 		},
 
 	update: (req, res) => {
-		let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/products.json")));
+
+		db.Product.update({
+			product_name: req.body.name, 
+			product_description: req.body.description,
+			category_id: req.body.category,
+			color: req.body.color,
+			price: req.body.price,
+			stock: req.body.stock,
+			size: req.body.size,
+			product_images: req.body.images
+		}, {
+			where: {
+				product_id: req.params.id
+			}
+		});
+
+		res.redirect("/producto/detalle/" + req.params.id)
+
+		/*let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/products.json")));
 		let productSelected = products.find(product => product.id == req.params.id);
 		productSelected.images.forEach( image => fs.unlinkSync(path.resolve(__dirname,"../upload/products/"+image)))
 		req.body.images = [];
@@ -69,16 +109,16 @@ const controller = {
 				product.images = req.body.images;
 			} return product
 		})
-		fs.writeFileSync(path.resolve(__dirname,"../database/products.json"), JSON.stringify(products, null, 2));
-		return res.redirect("/producto")
+		fs.writeFileSync(path.resolve(__dirname,"../database/products.json"), JSON.stringify(products, null, 2));*/
 	},
 
 	destroy: (req, res) => {
-			let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/products.json")));
-			let productSelected = products.find(product => product.id == req.params.id);
-			products = products.filter(product => product.id != productSelected.id);
-			fs.writeFileSync(path.resolve(__dirname,"../database/products.json"), JSON.stringify(products, null, 2));
-			return res.redirect("/producto")
+			db.Product.destroy({
+				where: {
+					product_id: req.params.id
+				}
+			})
+			res.redirect("/producto")
 	}
 };
 

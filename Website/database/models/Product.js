@@ -63,7 +63,7 @@ module.exports = (sequelize, datatype)=> {
                 foreignKey: "color_id"
             },
             Product.hasMany(models.ProductImage), {
-                as:"",
+                as:"image",
                 foreignKey: "product_image"
             }
         }
