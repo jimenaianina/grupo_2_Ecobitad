@@ -1,7 +1,7 @@
 module.exports = (sequelize, datatype)=> {
     const Product  =sequelize.define("Product", 
         cols= {
-            product_id:{
+            id:{
                 primaryKey: true,
                 autoIncrement: true,
                 type: dataTypes.INTEGER
@@ -31,10 +31,6 @@ module.exports = (sequelize, datatype)=> {
                 type: dataTypes.INTEGER
             },
             stock:{
-                allowNull: false,
-                type: dataTypes.INTEGER
-            },
-            product_images:{
                 allowNull: false,
                 type: dataTypes.INTEGER
             },

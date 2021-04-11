@@ -1,7 +1,7 @@
 module.exports= {
   "development": {
     "username": "root",
-    "password": Clarita10,
+    "password": "Clarita10",
     "database": "INTEGRADOR",
     "host": "127.0.0.1",
     "dialect": "mysql"
