@@ -4,18 +4,22 @@ const db = require('../database/models')
 
 const controller = {
 
-	index: (req, res) => {
-		let categoria = db.Category.findAll();
-		let talles = db.Size.findAll();
-		let colores = db.Color.findAll();
-		db.Product.findAll()
-			.then(function(products) {
-				return res.render("products/list", { products:products }, { title: "Productos", css: "/css/list.css", colores, categoria, talles })
+	index: async (req, res) => {
+		let categoria = await db.Category.findAll();
+		let talles = await db.Size.findAll();
+		let colores = await db.Color.findAll();
+		let products = 
+		await db.Product.findAll({ 
+			include: [
+				{association: "category"},
+				{association: "color"}] 
 			})
+	return res.send(products);
+	return res.render("products/list", { products:products }, { title: "Productos", css: "/css/list.css", colores, categoria, talles })
 	},
 
-	detail: (req,res)=> { 
-		db.Product.findByPk(req.params.id, {
+	detail: async (req,res)=> { 
+		await db.Product.findByPk(req.params.id, {
 			include: [{association: "category"}, {association: "color"}, {association: "size"},{association: "image"}]
 		})
 		.then(function(product){
@@ -27,20 +31,20 @@ const controller = {
 		return res.render("products/cart", { title: "Carrito", css: "/css/cart.css" })
 	},
 
-	create: (req,res)=> {
-		let categorias = db.Category.findAll();
-		let talles = db.Size.findAll();
-		let colores = db.Color.findAll();
+	create: async (req,res)=> {
+		let categorias = await db.Category.findAll();
+		let talles = await db.Size.findAll();
+		let colores = await db.Color.findAll();
 		
 		res.render("products/createForm", { title: "Crear", css: "/css/forms.css", categorias, colores, talles})
 	},
 
-	edit: (req,res)=> {
-		let producto = db.Product.findByPk(req.params.id);
+	edit: async (req,res)=> {
+		let producto = await db.Product.findByPk(req.params.id);
 
-		let categoria = db.Category.findAll();
-		let talles = db.Size.findAll();
-		let colores = db.Color.findAll();
+		let categoria = await db.Category.findAll();
+		let talles = await db.Size.findAll();
+		let colores = await db.Color.findAll();
 
 		Promise.all([producto, categoria, talles, colores])
 		.then (function([product, category, size, color]){
@@ -48,9 +52,9 @@ const controller = {
 		})
 	},
 
-	save: (req,res)=> {
+	save: async (req,res)=> {
 
-		db.Product.create({
+		await db.Product.create({
 			product_name: req.body.name, 
 			product_description: req.body.description,
 			category_id: req.body.category,
@@ -71,9 +75,9 @@ const controller = {
 		res.redirect("/producto")
 		},
 
-	update: (req, res) => {
+	update: async (req, res) => {
 
-		db.Product.update({
+		await db.Product.update({
 			product_name: req.body.name, 
 			product_description: req.body.description,
 			category_id: req.body.category,
@@ -112,8 +116,8 @@ const controller = {
 		fs.writeFileSync(path.resolve(__dirname,"../database/products.json"), JSON.stringify(products, null, 2));*/
 	},
 
-	destroy: (req, res) => {
-			db.Product.destroy({
+	destroy: async (req, res) => {
+			await db.Product.destroy({
 				where: {
 					product_id: req.params.id
 				}

@@ -1,22 +1,24 @@
-module.exports = (sequelize, datatype)=> {
+module.exports = (sequelize, dataType)=> {
     const ProductSize = sequelize.define("ProductSize", 
-        cols= {
+        {
             id:{
+                primaryKey: true,
                 allowNull: false,
                 autoIncrement: true,
-                type: dataTypes.INTEGER
+                type: dataType.INTEGER
             },
             size_id: {
                 allowNull: false,
-                type: dataTypes.INTEGER
+                type: dataType.INTEGER
             },
             product_id:{
                 allowNull: false,
-                type: dataTypes.INTEGER
+                type: dataType.INTEGER
             }
         }, 
         {
-           tableName: 'products_sizes' 
+            timestamps: false,
+            tableName: 'products_sizes' 
         }
         );
         return ProductSize;

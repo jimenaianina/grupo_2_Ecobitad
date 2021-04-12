@@ -1,36 +1,32 @@
-module.exports = (sequelize, datatype)=> {
+module.exports = (sequelize, dataType)=> {
     const CartProduct  =sequelize.define("CartProduct", 
-        cols= {
+        {
             id:{
+                primaryKey: true,
                 allowNull: false,
                 autoIncrement: true,
-                type: dataTypes.INTEGER
+                type: dataType.INTEGER
             },
             cart_id: {
                 allowNull: false,
-                type: dataTypes.INTEGER
+                type: dataType.INTEGER
             },
             product_id:{
                 allowNull: false,
-                type: dataTypes.INTEGER
+                type: dataType.INTEGER
             },
             quantity:{
                 allowNull: false,
-                type: dataTypes.INTEGER
+                type: dataType.INTEGER
             },
             unit_price:{
                 allowNull: false,
-                type: dataTypes.INTEGER
-            },
-            createdAt: {
-                type: dataTypes.DATE
-            },
-            updatedAt: {
-                type: dataTypes.DATE
-            },
+                type: dataType.INTEGER
+            }
         }, 
         {
-           tableName: 'cart_products' 
+            timestamps: false,
+            tableName: 'cart_products' 
         }
         );
         return CartProduct;

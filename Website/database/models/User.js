@@ -1,57 +1,53 @@
-module.exports = (sequelize, datatype)=> {
+module.exports = (sequelize, dataType)=> {
 const User =sequelize.define("User", 
-cols= {
+{
     id:{
         primaryKey: true,
         autoIncrement: true,
-        type: dataTypes.INTEGER
+        type: dataType.INTEGER
     },
     user_name:{
         allowNull: false,
-        type: dataTypes.VARCHAR(25)
+        type: dataType.STRING
     },
     last_name: {
         allowNull: false,
-        type: dataTypes.VARCHAR(25)
+        type: dataType.STRING
     },
     email: {
         allowNull: false,
-        type: dataTypes.VARCHAR(50)
+        type: dataType.STRING
     },
     age:{
         allowNull: false,
-        type: dataTypes.INTEGER
+        type: dataType.INTEGER
     },
     city: {
         allowNull: false,
-        type: dataTypes.VARCHAR(50)
+        type: dataType.STRING
     },
     image:{
         allowNull: true,
-        type: dataTypes.VARCHAR(300)
+        type: dataType.STRING
     },
     user_role_id:{
         allowNull: false,
-        type: dataTypes.INTEGER
-    },
-    createdAt: {
-        type: dataTypes.DATE
-    },
-    updatedAt: {
-        type: dataTypes.DATE
+        type: dataType.INTEGER
     }
+}, { 
+    timestamps: false
 });
-return User;
-};
 
 User.associate = function (models){
-    User.belongsTo(models.UsersRole, {
+    User.belongsTo(models.Role, {
         as:"role",
         foreignKey: "user_role_id"
     })
-}
-
-User.associate = function (models){
     User.hasMany(models.Cart)
 }
+return User;
+};
+
+
+
     
