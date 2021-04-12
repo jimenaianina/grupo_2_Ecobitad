@@ -4,6 +4,7 @@ const User = require('../models/users');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const session = require('express-session');
+const db = require('../database/models');
 
 
 const controller = {
@@ -14,7 +15,11 @@ const controller = {
 
 	processLogin: (req,res)=> {
 		
-		let userToLogin = User.findByField('email', req.body.email);
+		let userToLogin = db.User.findOne({
+			where: { 
+				email: req.body.email
+			}
+		})
 		if (userToLogin) {
 			let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
 			if (isOkThePassword) {
@@ -66,7 +71,11 @@ const controller = {
 			})
 		};
 
-		let userinDB = User.findByField('email', req.body.email);
+		let userinDB = User.findOne({
+			where: {
+				email: req.body.email
+			}
+		})
 
 		if(userinDB) {
 			return res.render('users/register', { 
@@ -81,13 +90,15 @@ const controller = {
 			})
 		};
 
-		let userToCreate = {
-			...req.body,
+		db.User.create({
+			name: req.body.name,
+			lastName: req.body.lastName,
+			email: req.body.email,
+			age: req.body.age,
+			city: req.body.city,
 			password: bcrypt.hashSync(req.body.password, 10),
 			image: req.file.filename
-		};
-
-		let userCreated = User.create(userToCreate);
+		});
 
 			return res.redirect('/usuario/acceder')
 	 
@@ -96,9 +107,12 @@ const controller = {
 	destroy: (req, res) => {
 
 		let userToDelete = req.session.userLogged.id;
-		User.delete(userToDelete);
-		req.session.destroy();
+		db.User.destroy({
+			where: { 
+				id: userToDelete
+			}});
 
+		req.session.destroy();
 		return res.redirect('/');
 	}
 
