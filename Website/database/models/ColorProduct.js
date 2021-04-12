@@ -1,22 +1,24 @@
-module.exports = (sequelize, datatype)=> {
-    const ColorProduct  =sequelize.define("ColorProduct", 
-        cols= {
+module.exports = (sequelize, dataType)=> {
+    const ColorProduct = sequelize.define("ColorProduct", 
+        {
             id:{
+                primaryKey: true,
                 allowNull: false,
                 autoIncrement: true,
-                type: dataTypes.INTEGER
+                type: dataType.INTEGER
             },
             color_id: {
                 allowNull: false,
-                type: dataTypes.INTEGER
+                type: dataType.INTEGER
             },
             product_id:{
                 allowNull: false,
-                type: dataTypes.INTEGER
+                type: dataType.INTEGER
             }
         }, 
         {
-           tableName: 'color_products' 
+            timestamps: false,
+            tableName: 'colors_products' 
         }
         );
         return ColorProduct;

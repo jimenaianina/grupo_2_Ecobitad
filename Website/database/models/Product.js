@@ -1,56 +1,47 @@
-module.exports = (sequelize, datatype)=> {
+module.exports = (sequelize, dataType)=> {
     const Product = sequelize.define("Product", 
-        cols= {
+        {
             id:{
                 primaryKey: true,
                 autoIncrement: true,
-                type: dataTypes.INTEGER
+                type: dataType.INTEGER
             },
             product_name:{
                 allowNull: false,
-                type: dataTypes.VARCHAR(50)
+                type: dataType.STRING
             },
             product_description: {
                 allowNull: false,
-                type: dataTypes.VARCHAR(1000)
+                type: dataType.STRING
             },
             category_id: {
                 allowNull: false,
-                type: dataTypes.INTEGER
-            },
-            color_id:{
-                allowNull: true,
-                type: dataTypes.INTEGER
-            },
-            size_id: {
-                allowNull: true,
-                type: dataTypes.INTEGER
+                type: dataType.INTEGER
             },
             price:{
                 allowNull: false,
-                type: dataTypes.INTEGER
+                type: dataType.INTEGER
             },
             stock:{
                 allowNull: false,
-                type: dataTypes.INTEGER
+                type: dataType.INTEGER
             },
-            createdAt: {
-                type: dataTypes.DATE
-            },
-            updatedAt: {
-                type: dataTypes.DATE
-            },
-
+        }, { 
+            timestamps: false
         });
-        return Product;
-        }
 
         Product.associate = function (models){
-            Product.belongsTo(models.Category), {
+            Product.belongsTo(models.Category, {
                 as:"category",
                 foreignKey: "category_id"
-            },
-            Product.belongsToMany(models.Size, { through: 'ProductSize' }),
-            Product.belongsToMany(models.Product, { through: 'ColorProduct' }),
-            Product.belongsToMany(models.Image, { through: 'ImageProduct'})
+            })
+            Product.belongsToMany(models.Size, { as: "size", through: 'ProductSize' })
+            Product.belongsToMany(models.Color, { as:"color", through: 'colors_products', foreignKey: "product_id" })
+            Product.belongsToMany(models.Image, { as:"image", through: 'ImageProduct'})
         }
+
+        return Product;
+        
+        }
+
+       

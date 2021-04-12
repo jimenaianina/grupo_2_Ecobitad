@@ -1,19 +1,23 @@
-module.exports = (sequelize, datatype)=> {
+module.exports = (sequelize, dataType)=> {
     const Size  =sequelize.define("Size", 
-        cols= {
+        {
             id:{
                 primaryKey: true,
                 autoIncrement: true,
-                type: dataTypes.INTEGER
+                type: dataType.INTEGER
             },
             size_name:{
                 allowNull: false,
-                type: dataTypes.VARCHAR(25)
+                type: dataType.STRING
             }
+        }, 
+        {
+            timestamps: false
         });
+        Size.associate = function (models){
+            Size.belongsToMany(models.Product, { through: 'ProductSize' })
+        }
+        
         return Size;
         }
 
-Size.associate = function (models){
-    Size.belongsToMany(models.Product, { through: 'ProductSize' })
-}

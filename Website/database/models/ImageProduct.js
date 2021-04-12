@@ -1,28 +1,30 @@
-module.exports = (sequelize, datatype)=> {
+module.exports = (sequelize, dataType)=> {
     const ImageProduct = sequelize.define("ImageProduct", 
-        cols= {
+        {
             id:{
+                primaryKey: true,
                 allowNull: false,
                 autoIncrement: true,
-                type: dataTypes.INTEGER
+                type: dataType.INTEGER
             },
             image_id: {
                 allowNull: false,
-                type: dataTypes.INTEGER
+                type: dataType.INTEGER
             },
             product_id:{
                 allowNull: false,
-                type: dataTypes.INTEGER
+                type: dataType.INTEGER
             },
             createdAt: {
-                type: dataTypes.DATE
+                type: dataType.DATE
             },
             updatedAt: {
-                type: dataTypes.DATE
+                type: dataType.DATE
             },
         }, 
         {
-           tableName: 'image_products' 
+            timestamps: false,
+           tableName: 'images_products' 
         }
         );
         return ImageProduct;
