@@ -1,4 +1,4 @@
-RETRO SPRINT 1
+**RETRO SPRINT 1**
 
 Start Doing:
 - Realizar una meeting semanal fija, a modo de follow up, compartiendo los avances de cada integrante en relación al proyecto
@@ -18,8 +18,7 @@ Less of:
 Stop Doing: con la madurez del equipo a través de los sprints podremos identificar aquellas "cosas" que deberíamos dejar de hacer
 
 
-
-RETRO SPRINT 2
+**RETRO SPRINT 2**
 
 Start Doing:
 - Identificar las tareas a realizar de forma grupal para realizarlas de forma más efectiva. Como condición necesaria para esa iniciativa es requerido que cada uno de los integrantes esté al día con los conocimientos teóricos y prácticos requeridos para el sprint
@@ -42,8 +41,7 @@ Stop Doing:
 - Mala organización del tiempo en función de los entregables comprometidos (empezamos a trabajar pasados unos días del comienzo del sprint) con la madurez del equipo a través de los sprints podremos identificar aquellas "cosas" que deberíamos dejar de hacer.
 
 
-
-RETRO SPRINT 3
+**RETRO SPRINT 3**
 
 Start Doing:
 
@@ -60,10 +58,47 @@ Keep Doing:
 
 -	Comunicación fluída entre los miembros del equipo
 -	División equitativa de las tareas
+
 Stop Doing:
 -	Mala organización del tiempo en función de los entregables comprometidos (empezamos a trabajar pasados unos días del comienzo del sprint)
 
 
+**RETRO SPRINT 4**
+
+Start Doing:
+
+-	Realizar las tareas de forma paulatina y constante.
+-	Plasmar conclusiones de las daily en un archivo Daily.md
+
+More of:
+
+-	Realizar una meeting semanal fija, a modo de follow up, compartiendo los avances de cada integrante en relación al proyecto
+-	Daily más frecuentes
+
+Keep Doing:
+
+-	Comunicación fluída entre los miembros del equipo
+-	División equitativa de las tareas
+
+Stop Doing:
+-	Mala organización del tiempo en función de los entregables comprometidos (empezamos a trabajar pasados unos días del comienzo del sprint)
 
 
+**RETRO SPRINT 5**
 
+Start Doing:
+
+- Estudiar los temas previo al sprint para tener los conocimientos requeridos para llevar a cabo el delivery.
+-	Realizar las tareas de forma paulatina y constante.
+
+More of:
+
+-	Realizar una meeting semanal fija, a modo de follow up, compartiendo los avances de cada integrante en relación al proyecto
+
+Keep Doing:
+
+-	Comunicación fluída entre los miembros del equipo
+-	División equitativa de las tareas
+
+Stop Doing:
+-	Mala organización del tiempo en función de los entregables comprometidos (empezamos a trabajar pasados unos días del comienzo del sprint)
