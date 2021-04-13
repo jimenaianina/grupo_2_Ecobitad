@@ -35,9 +35,9 @@ module.exports = (sequelize, dataType)=> {
                 as:"category",
                 foreignKey: "category_id"
             })
-            Product.belongsToMany(models.Size, { as: "size", through: 'ProductSize' })
+            Product.belongsToMany(models.Size, { as: "size", through: 'ProductSize', foreignKey: "product_id" })
             Product.belongsToMany(models.Color, { as:"color", through: 'colors_products', foreignKey: "product_id" })
-            Product.belongsToMany(models.Image, { as:"image", through: 'ImageProduct'})
+            Product.belongsToMany(models.Image, { as:"image", through: 'ImageProduct', foreignKey: "product_id"})
         }
 
         return Product;

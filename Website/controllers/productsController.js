@@ -8,14 +8,16 @@ const controller = {
 		let categoria = await db.Category.findAll();
 		let talles = await db.Size.findAll();
 		let colores = await db.Color.findAll();
-		let products = 
-		await db.Product.findAll({ 
+		try {let products = 
+		await db.Product.findAll({
 			include: [
 				{association: "category"},
-				{association: "color"}] 
+				{association: "color"},
+				{association: "size"}] 
 			})
-	return res.send(products);
-	return res.render("products/list", { products:products }, { title: "Productos", css: "/css/list.css", colores, categoria, talles })
+			return res.render("products/list", { products:products, title: "Productos", css: "/css/list.css", colores, categoria, talles })
+		}
+		catch(error) {return error}
 	},
 
 	detail: async (req,res)=> { 
