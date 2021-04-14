@@ -126,6 +126,6 @@ const controller = {
 			})
 			res.redirect("/producto")
 	}
-};
+}
 
 module.exports = controller;

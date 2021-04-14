@@ -20,20 +20,20 @@
     <input type="file" name="fotoProducto" id="file" multiple required>
     <label for="category"> Categoría </label>
     <% categorias.forEach(categoria => { %>
-      <label for= "<%= categoria.id %>"><input type="radio" name="category" value="<%= categoria.name %>"> <%= categoria.name %> </label>
+      <label for= "<%= categoria.id %>"><input type="radio" name="category" value="<%= categoria.category_name %>"> <%= categoria.category_name %> </label>
     <% }) %>
     <label for="colors"> Colores </label>
     <select name="colors" class="box" multiple>
       <option value=""> -- Elegí un color --</option>
       <% colores.forEach(color => { %>
-      <option value="<%= color.name %>"> <%= color.name %></option>
+      <option value="<%= color.color_name %>"> <%= color.color_name %></option>
       <% }) %>
     </select>
     <label for="sizes"> Talles </label>
     <select name="sizes" class="box" multiple>
       <option value=""> -- Elegí un talle --</option>
       <% talles.forEach(talle => { %>
-      <option value="<%= talle.name %>"> <%= talle.name %></option>
+      <option value="<%= talle.size_name %>"> <%= talle.size_name %></option>
       <% }) %>
     </select>
     <label for="price"> Precio </label>
