@@ -37,8 +37,8 @@ const controller = {
 		let categorias = await db.Category.findAll();
 		let talles = await db.Size.findAll();
 		let colores = await db.Color.findAll();
-		
-		res.render("products/createForm", { title: "Crear", css: "/css/forms.css", categorias, colores, talles})
+		try {res.render("products/createForm", { title: "Crear", css: "/css/forms.css", categorias, colores, talles})}
+		catch(error){return error}
 	},
 
 	edit: async (req,res)=> {

@@ -23,21 +23,22 @@
       <label for= "<%= categoria.id %>"><input type="radio" name="category" value="<%= categoria.category_name %>"> <%= categoria.category_name %> </label>
     <% }) %>
     <label for="colors"> Colores </label>
-    <select name="colors" class="box" multiple>
+    <select name="colors" class="box select" multiple>
       <option value=""> -- Elegí un color --</option>
       <% colores.forEach(color => { %>
       <option value="<%= color.color_name %>"> <%= color.color_name %></option>
       <% }) %>
     </select>
     <label for="sizes"> Talles </label>
-    <select name="sizes" class="box" multiple>
+    <select name="sizes" class="box select" multiple>
       <option value=""> -- Elegí un talle --</option>
       <% talles.forEach(talle => { %>
       <option value="<%= talle.size_name %>"> <%= talle.size_name %></option>
       <% }) %>
     </select>
     <label for="price"> Precio </label>
-    <input type="range" name="price" class="box" min="0" step="100" max="10000" required>
+    <input type="range" name="price" class="box" min="0" step="1" max="10000" required value="0" oninput="this.nextElementSibling.value = this.value">
+    <output>0</output>
     <label for="stock"> Stock </label>
     <input type="number" name="stock" class="box" min="0" required>
     <div id="buttons">
