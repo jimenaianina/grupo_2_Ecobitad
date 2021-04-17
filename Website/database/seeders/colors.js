@@ -15,7 +15,20 @@ module.exports = {
     },
     {
       color_name: 'Amarillo'
-    }], {});
+    },
+    {
+      color_name: 'Azul'
+    },
+    {
+      color_name: 'Rojo'
+    },
+    {
+      color_name: 'Blanco'
+    },
+    {
+      color_name: 'Negro'
+    },
+  ], {});
     
   },
 

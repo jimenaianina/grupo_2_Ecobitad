@@ -3,8 +3,9 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     
-    await queryInterface.bulkInsert('sizes', [{
-    size_name: 'X-Small'
+    await queryInterface.bulkInsert('sizes', [
+    {
+      size_name: 'X-Small'
     },
     {
       size_name: 'Small'
@@ -17,7 +18,8 @@ module.exports = {
     },
     {
       size_name: 'X-Large'
-    }], {});
+    }
+  ], {});
     
   },
 
