@@ -11,8 +11,8 @@ module.exports = {
         color_id: [
         ],
         size_id: [],
-        price: "350",
-        stock: "100"
+        price: 350,
+        stock: 100
       },
       {
         product_name: 'Acondicionador solido',
@@ -21,8 +21,8 @@ module.exports = {
         color_id: [
         ],
         size_id: [],
-        price: "600",
-        stock: "150"
+        price: 600,
+        stock: 150
       },
       {
         product_name: 'Jabonera',
@@ -31,8 +31,8 @@ module.exports = {
         color_id: [
         ],
         size_id: [],
-        price: "450",
-        stock: "80"
+        price: 450,
+        stock: 80
       },
     ], {});
     
