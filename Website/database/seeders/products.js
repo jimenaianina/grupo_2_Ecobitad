@@ -10,6 +10,7 @@ module.exports = {
         category_id: "",
         color_id: [],
         size_id: [],
+        image_id: [],
         price: 350,
         stock: 100
       },
@@ -19,6 +20,7 @@ module.exports = {
         category_id: '',
         color_id: [],
         size_id: [],
+        image_id: [],
         price: 600,
         stock: 150
       },
@@ -28,6 +30,7 @@ module.exports = {
         category_id: "",
         color_id: [],
         size_id: [],
+        image_id: [],
         price: 450,
         stock: 80
       },
@@ -37,6 +40,7 @@ module.exports = {
         category_id: "",
         color_id: [],
         size_id: [],
+        image_id: [],
         price: 500,
         stock: 100
       },
@@ -46,6 +50,7 @@ module.exports = {
         category_id: "",
         color_id: [],
         size_id: [],
+        image_id: [],
         price: 2450,
         stock: 50
       },
@@ -55,6 +60,7 @@ module.exports = {
         category_id: "",
         color_id: [],
         size_id: [],
+        image_id: [],
         price: 280,
         stock: 200
       },
@@ -64,6 +70,7 @@ module.exports = {
         category_id: "",
         color_id: [],
         size_id: [],
+        image_id: [],
         price: 270,
         stock: 90
       },
@@ -73,6 +80,7 @@ module.exports = {
         category_id: "",
         color_id: [],
         size_id: [],
+        image_id: [],
         price: 150,
         stock: 300
       },
@@ -82,6 +90,7 @@ module.exports = {
         category_id: "",
         color_id: [],
         size_id: [],
+        image_id: [],
         price: 400,
         stock: 50
       },
@@ -91,6 +100,7 @@ module.exports = {
         category_id: "",
         color_id: [],
         size_id: [],
+        image_id: [],
         price: 900,
         stock: 20
       },
@@ -100,6 +110,7 @@ module.exports = {
         category_id: "",
         color_id: [],
         size_id: [],
+        image_id: [],
         price: 70,
         stock: 200
       },
@@ -109,6 +120,7 @@ module.exports = {
         category_id: "",
         color_id: [],
         size_id: [],
+        image_id: [],
         price: 90,
         stock: 350
       },
@@ -118,6 +130,7 @@ module.exports = {
         category_id: "",
         color_id: [],
         size_id: [],
+        image_id: [],
         price: 1700,
         stock: 50
       }

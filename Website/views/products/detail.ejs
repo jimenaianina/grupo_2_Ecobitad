@@ -10,9 +10,9 @@
 <nav class="izquierda">
         <a href="/">Inicio</a></li>
         <span> / </span>
-        <a href=""> <%= product.category %> </a></li>
+        <a href=""> <%= product.category_id %> </a></li>
         <span> / </span>
-        <a href=""> <%= product.name %> </a></li>
+        <a href=""> <%= product.product_name %> </a></li>
     </nav>
 
     
@@ -22,18 +22,18 @@
 
 
         <section id="miniaturas">
-            <% product.images.forEach(image => { %>
+            <% product.image_id.forEach(image => { %>
                 <img src="/products/<%= image %> " >
             <% }) %>
         </section>
 
         <section id="destacada">
-            <img src= "/products/<%= product.images[0] %> " >
+            <img src= "/products/<%= product.image_id[0] %> " >
         </section>
 
         <section class="contenedor-chico-2">
             <article class="detalles">
-                <p><%= product.name %> </p>
+                <p><%= product.product_name %> </p>
             </article>
                 <p class="precio">$<%= product.price %></p>
        
@@ -49,10 +49,10 @@
          
             <section class="delivery">
                 
-                <% if (product.colors.length > 0) { %>
+                <% if (product.color_id.length > 0) { %>
                 <P>COLOR:</P>
                 <div class="colores">
-                    <% product.colors.forEach(color => { %>
+                    <% product.color_id.forEach(color => { %>
                         <button class="<%= color %> btn-color" name="<%= color %> "></button>
                     <% }) %>
                 </div>
@@ -94,7 +94,7 @@
     <section class="descripcion">
     <h1 class="titulo">Descripción:</h1>
     <br>
-    <p class="explicacion"> <%= product.name %>:  </p>
+    <p class="explicacion"> <%= product.product_description %>:  </p>
     <br>
     <p>
         <%= product.description %>
