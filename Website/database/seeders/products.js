@@ -10,10 +10,7 @@ module.exports = {
         category_id: "",
         color_id: [1 , 2, 3],
         size_id: [],
-<<<<<<< HEAD
-=======
         image_id: [4, 5, 6],
->>>>>>> 8d528a30ee7a9bbd5d9dfbe21e284fba85ff7623
         price: 350,
         stock: 100
       },
@@ -23,10 +20,7 @@ module.exports = {
         category_id: '',
         color_id: [],
         size_id: [],
-<<<<<<< HEAD
-=======
         image_id: [1, 2, 3],
->>>>>>> 8d528a30ee7a9bbd5d9dfbe21e284fba85ff7623
         price: 600,
         stock: 150
       },
@@ -86,14 +80,9 @@ module.exports = {
         category_id: "",
         color_id: [],
         size_id: [],
-<<<<<<< HEAD
-        price: 450,
-        stock: 80
-=======
         image_id: [19, 20, 21],
         price: 150,
         stock: 300
->>>>>>> 8d528a30ee7a9bbd5d9dfbe21e284fba85ff7623
       },
       {
         product_name: 'Shampoo Sólido',
