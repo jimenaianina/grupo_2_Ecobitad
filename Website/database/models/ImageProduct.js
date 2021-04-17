@@ -14,13 +14,7 @@ module.exports = (sequelize, dataType)=> {
             product_id:{
                 allowNull: false,
                 type: dataType.INTEGER
-            },
-            createdAt: {
-                type: dataType.DATE
-            },
-            updatedAt: {
-                type: dataType.DATE
-            },
+            }
         }, 
         {
             timestamps: false,
