@@ -8,9 +8,9 @@ module.exports = {
         product_name: "Cepillo de dientes ecológico",
         product_description: "Este es un cepillo de dientes ecológico",
         category_id: "",
-        color_id: [],
+        color_id: [1 , 2, 3],
         size_id: [],
-        image_id: [],
+        image_id: [4, 5, 6],
         price: 350,
         stock: 100
       },
@@ -20,7 +20,7 @@ module.exports = {
         category_id: '',
         color_id: [],
         size_id: [],
-        image_id: [],
+        image_id: [1, 2, 3],
         price: 600,
         stock: 150
       },
@@ -29,8 +29,8 @@ module.exports = {
         product_description: "Esta jabonera es clave para apoyar cualquier jabon o producto sólido que felizmente no lleva packaging. Para que tus jabones y productos sólidos no se pongan blandos y duren más tiempo en buenas condiciones, es importante que las pastillas se sequen al aire. De esta manera, evitemos que acumulen agua y se desperdicie producto. Materiales: 100% Madera.",
         category_id: "",
         color_id: [],
-        size_id: [],
-        image_id: [],
+        size_id: [3, 4],
+        image_id: [7, 8, 9],
         price: 450,
         stock: 80
       },
@@ -38,9 +38,9 @@ module.exports = {
         product_name: 'Bolsas biodegradables',
         product_description: "Estas son bolsas ecológicas reutilizables. Se hacen pocket, en una dimension de 8x10 cuando estan plegadas. Extendidas son de 42x38 cm. Dale a tus bolsas el uso que quieras, para llevarlas siempre en la mochila, cartera y que nunca te falte una bolsa extra. Materiales: 100% Poliester",
         category_id: "",
-        color_id: [],
+        color_id: [4, 5, 6, 7, 8],
         size_id: [],
-        image_id: [],
+        image_id: [10],
         price: 500,
         stock: 100
       },
@@ -50,7 +50,7 @@ module.exports = {
         category_id: "",
         color_id: [],
         size_id: [],
-        image_id: [],
+        image_id: [11, 12],
         price: 2450,
         stock: 50
       },
@@ -60,7 +60,7 @@ module.exports = {
         category_id: "",
         color_id: [],
         size_id: [],
-        image_id: [],
+        image_id: [13, 14, 15],
         price: 280,
         stock: 200
       },
@@ -70,7 +70,7 @@ module.exports = {
         category_id: "",
         color_id: [],
         size_id: [],
-        image_id: [],
+        image_id: [16, 17, 18],
         price: 270,
         stock: 90
       },
@@ -80,7 +80,7 @@ module.exports = {
         category_id: "",
         color_id: [],
         size_id: [],
-        image_id: [],
+        image_id: [19, 20, 21],
         price: 150,
         stock: 300
       },
@@ -90,7 +90,7 @@ module.exports = {
         category_id: "",
         color_id: [],
         size_id: [],
-        image_id: [],
+        image_id: [22, 23, 24],
         price: 400,
         stock: 50
       },
@@ -100,7 +100,7 @@ module.exports = {
         category_id: "",
         color_id: [],
         size_id: [],
-        image_id: [],
+        image_id: [25, 26, 27],
         price: 900,
         stock: 20
       },
@@ -110,7 +110,7 @@ module.exports = {
         category_id: "",
         color_id: [],
         size_id: [],
-        image_id: [],
+        image_id: [28, 29, 30],
         price: 70,
         stock: 200
       },
@@ -120,7 +120,7 @@ module.exports = {
         category_id: "",
         color_id: [],
         size_id: [],
-        image_id: [],
+        image_id: [31, 32, 33],
         price: 90,
         stock: 350
       },
@@ -129,8 +129,8 @@ module.exports = {
         product_description: "Copita = (L).",
         category_id: "",
         color_id: [],
-        size_id: [],
-        image_id: [],
+        size_id: [2, 3, 4],
+        image_id: [34, 35, 36],
         price: 1700,
         stock: 50
       }
