@@ -16,6 +16,10 @@ body {
 }
 
 #contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 260px;
     margin: 60px;
 }
 
