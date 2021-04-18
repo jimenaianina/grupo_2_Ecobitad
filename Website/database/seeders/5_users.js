@@ -11,7 +11,7 @@ module.exports = {
       age: 27,
       city: 'Quilmes',
       image: 'Jimena.jpg',
-      user_role_id: 1
+      role_id: 1
     },
     {
       user_name: 'Mateo',
@@ -20,7 +20,7 @@ module.exports = {
       age: 23,
       city: 'Escobar',
       image: 'Mateo.jpg',
-      user_role_id: 1
+      role_id: 1
     },
     {
       user_name: 'Clara',
@@ -29,7 +29,7 @@ module.exports = {
       age: 36,
       city: 'Vicente Lopez',
       image: 'fotoPerfil1617314645047.jpg',
-      user_role_id: 1
+      role_id: 1
     }
   ], {});
     

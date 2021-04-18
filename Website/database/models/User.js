@@ -30,7 +30,7 @@ const User =sequelize.define("User",
         allowNull: true,
         type: dataType.STRING
     },
-    user_role_id:{
+     role_id:{
         allowNull: false,
         type: dataType.INTEGER
     }
