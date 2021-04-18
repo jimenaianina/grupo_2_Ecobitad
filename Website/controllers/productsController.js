@@ -21,12 +21,14 @@ const controller = {
 	},
 
 	detail: async (req,res)=> { 
+		try { 
 		await db.Product.findByPk(req.params.id, {
 			include: [{association: "category"}, {association: "color"}, {association: "size"},{association: "image"}]
 		})
 		.then(function(product){
 			return res.render("products/detail", { product:product }, { title: product.name , css: "/css/detail.css"})
-		})
+		}) }
+		catch(error) {return error}
 	},
 
 	cart: (req,res)=> {
