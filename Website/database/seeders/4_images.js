@@ -23,13 +23,13 @@ module.exports = {
       image_path: 'fotoProducto1615251940324.jpg'
     },
     {
-      image_path: 'jabonera-1.jpg'
+      image_path: 'jabonera-1.png'
     },
     {
-      image_path: 'jabonera-2.jpg'
+      image_path: 'jabonera-2.png'
     },
     {
-      image_path: 'jabonera-3.jpg'
+      image_path: 'jabonera-3.png'
     },
     {
       image_path: 'fotoProducto1615245202140.png'

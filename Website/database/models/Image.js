@@ -13,7 +13,9 @@ module.exports = (sequelize, dataType)=> {
         }, { 
             timestamps: false
         })
-
+        Image.associate = function (models){
+            Image.belongsToMany(models.Product, { through: 'images_products', foreignKey: "image_id", as: "products" })
+        }
         return Image;
         
         }

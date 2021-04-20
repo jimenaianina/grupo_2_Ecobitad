@@ -4,7 +4,9 @@ module.exports= {
     "password": "Clarita10",
     "database": "integrador",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "timestamps": false
+
   },
   "test": {
     "username": "root",

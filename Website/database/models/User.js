@@ -41,7 +41,7 @@ const User =sequelize.define("User",
 User.associate = function (models){
     User.belongsTo(models.Role, {
         as:"role",
-        foreignKey: "user_role_id"
+        foreignKey: "role_id"
     })
     User.hasMany(models.Cart)
 }
