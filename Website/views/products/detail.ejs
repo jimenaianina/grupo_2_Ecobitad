@@ -10,7 +10,7 @@
 <nav class="izquierda">
         <a href="/">Inicio</a></li>
         <span> / </span>
-        <a href=""> <%= product.category_id %> </a></li>
+        <a href=""> <%= product.category_ %> </a></li>
         <span> / </span>
         <a href=""> <%= product.product_name %> </a></li>
     </nav>
@@ -22,8 +22,8 @@
 
 
         <section id="miniaturas">
-            <% product.image_id.forEach(image => { %>
-                <img src="/products/<%= image %> " >
+            <% product.image.forEach(image => { %>
+                <img src="/products/<%= product.image[1].image_path%> " >
             <% }) %>
         </section>
 
@@ -49,18 +49,18 @@
          
             <section class="delivery">
                 
-                <% if (product.color_id.length > 0) { %>
+                <% if (product.color.length > 0) { %>
                 <P>COLOR:</P>
                 <div class="colores">
-                    <% product.color_id.forEach(color => { %>
+                    <% product.color.forEach(color => { %>
                         <button class="<%= color %> btn-color" name="<%= color %> "></button>
                     <% }) %>
                 </div>
                 <% } %> 
-                <% if (product.sizes.length > 0) { %>
+                <% if (product.size.length > 0) { %>
                     <p>TALLE:</p>
                     <div class="tallles">
-                        <% product.sizes.forEach(size => { %>
+                        <% product.size.forEach(size => { %>
                             <button class="<%= size %> " name="<%= size %> "> <%= size %> </button>
                         <% }) %>
                     </div>
@@ -94,10 +94,10 @@
     <section class="descripcion">
     <h1 class="titulo">Descripción:</h1>
     <br>
-    <p class="explicacion"> <%= product.product_description %>:  </p>
+   
     <br>
     <p>
-        <%= product.description %>
+        <%= product.product_description %>
     </p>
 </section>
 

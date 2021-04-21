@@ -17,12 +17,16 @@ const controller = {
 	},
 
 	detail: async (req,res)=> { 
+		let categoria = await db.Category.findAll();
+		let talles = await db.Size.findAll();
+		let colores = await db.Color.findAll();
+		try { let product = 
 		await db.Product.findByPk(req.params.id, {
 			include: [{association: "category"}, {association: "color"}, {association: "size"},{association: "image"}]
 		})
-		.then(function(product){
-			return res.render("products/detail", { product:product }, { title: product.name , css: "/css/detail.css"})
-		})
+		return res.render("products/detail", { product:product , title: product.name , css: "/css/detail.css",colores, categoria, talles})
+	}
+	catch(error) {return error}
 	},
 
 	cart: (req,res)=> {
