@@ -3,6 +3,7 @@
 <html lang = "es">
     
     <%- include ('../partials/head') %>
+
     <body>
     
         <%- include ('../partials/header') %>
@@ -57,10 +58,10 @@
                     <% }) %>
                 </div>
                 <% } %> 
-                <% if (product.sizes.length > 0) { %>
+                <% if (product.size.length > 0) { %>
                     <p>TALLE:</p>
                     <div class="tallles">
-                        <% product.sizes.forEach(size => { %>
+                        <% product.size.forEach(size => { %>
                             <button class="<%= size %> " name="<%= size %> "> <%= size %> </button>
                         <% }) %>
                     </div>
