@@ -10,21 +10,23 @@ const controller = {
 		let colores = await db.Color.findAll();
 		try {let products = 
 		await db.Product.findAll({include:["size","image","color","category"]})
-		//return res.send({products})	
+			
 	return res.render("products/list", { products:products, title: "Productos", css: "/css/list.css", colores, categoria, talles })
 		}
 		catch(error) {return error}
 	},
 
 	detail: async (req,res)=> { 
-		try { 
+		let categoria = await db.Category.findAll();
+		let talles = await db.Size.findAll();
+		let colores = await db.Color.findAll();
+		try { let product = 
 		await db.Product.findByPk(req.params.id, {
 			include: [{association: "category"}, {association: "color"}, {association: "size"},{association: "image"}]
 		})
-		.then(function(product){
-			return res.render("products/detail", { product:product }, { title: product.name , css: "/css/detail.css"})
-		}) }
-		catch(error) {return error}
+		return res.render("products/detail", { product:product , title: product.name , css: "/css/detail.css",colores, categoria, talles})
+	}
+	catch(error) {return error}
 	},
 
 	cart: (req,res)=> {
