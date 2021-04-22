@@ -43,15 +43,19 @@ const controller = {
 
 	edit: async (req,res)=> {
 		let producto = await db.Product.findByPk(req.params.id);
-
 		let categoria = await db.Category.findAll();
 		let talles = await db.Size.findAll();
 		let colores = await db.Color.findAll();
 
-		Promise.all([producto, categoria, talles, colores])
+		/*Promise.all([producto, categoria, talles, colores])
 		.then (function([product, category, size, color]){
-			return res.render("products/editForm", { product: product, category: category, size: size, color: color}, { title: "Editar", css: "/css/forms.css" })
-		})
+			return res.render("products/editForm", { product: product, category, size, color, title: "Editar", css: "/css/forms.css" })
+		})*/
+
+			return res.render("products/detail", { product:product , title: product.name , css: "/css/detail.css",colores, categoria, talles})
+		}
+		catch(error) {return error}
+		},
 	},
 
 	save: async (req,res)=> {
@@ -119,13 +123,15 @@ const controller = {
 	},
 
 	destroy: async (req, res) => {
+		try { let productToDelete =
 			await db.Product.destroy({
 				where: {
-					product_id: req.params.id
+					id: req.params.id
 				}
 			})
-			res.redirect("/producto")
-	}
+			res.redirect("/producto")}
+			catch(error){return error}
+}
 }
 
 module.exports = controller;
