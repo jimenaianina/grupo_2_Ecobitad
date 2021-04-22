@@ -42,24 +42,25 @@ const controller = {
 	},
 
 	edit: async (req,res)=> {
-		let producto = await db.Product.findByPk(req.params.id);
 		let categoria = await db.Category.findAll();
 		let talles = await db.Size.findAll();
 		let colores = await db.Color.findAll();
-
-		/*Promise.all([producto, categoria, talles, colores])
-		.then (function([product, category, size, color]){
-			return res.render("products/editForm", { product: product, category, size, color, title: "Editar", css: "/css/forms.css" })
-		})*/
-
-			return res.render("products/detail", { product:product , title: product.name , css: "/css/detail.css",colores, categoria, talles})
-		}
-		catch(error) {return error}
-		},
+		try {
+			let producto = await db.Product.findByPk(req.params.id, {
+				include: [{association: "category"}, {association: "color"}, {association: "size"},{association: "image"}]
+			});	
+		return res.render("products/editForm", { product: product, category: category, size: size, color: color}, { title: "Editar", css: "/css/forms.css" })
+	}
+		catch(error){return error}
 	},
 
-	save: async (req,res)=> {
+	
 
+	save: async (req,res)=> {
+		let categoria = await db.Category.findAll();
+		let talles = await db.Size.findAll();
+		let colores = await db.Color.findAll();
+		try {let productToCreate = 
 		await db.Product.create({
 			product_name: req.body.name, 
 			product_description: req.body.description,
@@ -69,7 +70,12 @@ const controller = {
 			stock: req.body.stock,
 			size: req.body.size,
 			product_images: req.body.images
-		});
+		},
+		{include:["size","image","color","category"]})
+		res.redirect("/producto")
+		}	
+			catch(error) {return error}
+		},
 		/*let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/products.json")));
 		req.body.id = products.length > 0 ? products[products.length-1].id+1 : 1;
 		req.body.image = [];
@@ -78,8 +84,7 @@ const controller = {
 		});
 		products.push(req.body);
 		fs.writeFileSync(path.resolve(__dirname,"../database/products.json"), JSON.stringify(products, null, 2));*/
-		res.redirect("/producto")
-		},
+		
 
 	update: async (req, res) => {
 

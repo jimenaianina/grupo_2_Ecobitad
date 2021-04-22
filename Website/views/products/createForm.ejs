@@ -13,34 +13,34 @@
 
 <form action = "/producto/guardar" method="POST" enctype="multipart/form-data">
     <label for="name"> Nombre del producto </label>
-    <input type="text" placeholder="nombre del producto" id="name" name="name" class="box" required>
-    <label for="description"> Descripción </label>
-    <textarea name="description" class="box" required></textarea>
+    <input type="text" placeholder="nombre del producto" name="name" id="name" class="box" required>
+    <label for="description" > Descripción </label>
+    <textarea name="description" class="box" required id="description" ></textarea>
     <label for="images"> Fotos del producto </label>
     <input type="file" name="fotoProducto" id="file" multiple required>
     <label for="category"> Categoría </label>
     <% categorias.forEach(categoria => { %>
-      <label for= "<%= categoria.id %>"><input type="radio" name="category" value="<%= categoria.category_name %>"> <%= categoria.category_name %> </label>
+      <label for= "<%= categoria.id %>"><input type="radio" id="category" name="category" value="<%= categoria.category_name %> "> <%= categoria.category_name %> </label>
     <% }) %>
     <label for="colors"> Colores </label>
-    <select name="colors" class="box select" multiple>
+    <select name="colors" class="box select" multiple id="color">
       <option value=""> -- Elegí un color --</option>
       <% colores.forEach(color => { %>
       <option value="<%= color.color_name %>"> <%= color.color_name %></option>
       <% }) %>
     </select>
     <label for="sizes"> Talles </label>
-    <select name="sizes" class="box select" multiple>
+    <select name="sizes" class="box select" multiple id="size">
       <option value=""> -- Elegí un talle --</option>
       <% talles.forEach(talle => { %>
       <option value="<%= talle.size_name %>"> <%= talle.size_name %></option>
       <% }) %>
     </select>
     <label for="price"> Precio </label>
-    <input type="range" name="price" class="box" min="0" step="10" max="4000" required value="0" oninput="this.nextElementSibling.value = this.value">
+    <input type="range" name="price" class="box" min="0" step="10" max="4000" required value="0" oninput="this.nextElementSibling.value = this.value" id="price">
     <output>0</output>
     <label for="stock"> Stock </label>
-    <input type="number" name="stock" class="box" min="0" required>
+    <input type="number" name="stock" class="box" min="0" id="stock"required>
     <div id="buttons">
     <button type="reset"> Borrar  </button>
     <button type="submit"> Crear producto </button>
