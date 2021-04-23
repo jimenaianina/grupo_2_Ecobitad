@@ -55,24 +55,61 @@ const controller = {
 	},
 
 	save: async (req,res)=> {
-		let categoria = await db.Category.findAll();
-		let talles = await db.Size.findAll();
-		let colores = await db.Color.findAll();
-		try {let productToCreate = 
-		await db.Product.create({
-			product_name: req.body.name, 
-			product_description: req.body.description,
-			category_id: req.body.category,
-			color: req.body.color,
-			price: req.body.price,
+		//return res.send(Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)})));
+		let talles = Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)}));
+		let tallesToSave = [];
+		for(let talle of talles) {
+			const talleToAddOnSave = await db.Size.findByPk(talle.size_id);
+			tallesToSave.push(talleToAddOnSave)
+			}
+		
+		let colores = Array.from(req.body.colors).map(color=> new Object ({color_id: parseInt(color)}));
+		let coloresToSave = [];
+		for(let color of colores) {
+			const colorToAddOnSave = await db.Color.findByPk(color.color_id);
+			coloresToSave.push(colorToAddOnSave)
+			}
+		
+		let imagenes = Array.from(req.files.images).map(image => new Object ({image_id: parseInt(image)}));
+		let imagesToSave = [];
+		for(let imagen of imagenes) {
+			const imagenToAddOnSave = await db.Image.findByPk(imagen.image_id);
+			imagesToSave.push(imagenToAddOnSave)
+			}
+
+		try {
+			const productToCreate = await db.Product.create({
+			product_name: req.body.name ,
+			product_description: req.body.description,		
+			category_id: req.body.category,						
+			price: req.body.price, 
 			stock: req.body.stock,
-			size: req.body.size,
-			product_images: req.body.images
-		}
-		res.redirect("/producto")
+			})
+			
+			
+			await productToCreate.addSizes(tallesToSave);
+			await productToCreate.addColors(coloresToSave);
+
+			return res.send(productToCreate)
+			
+
+	res.redirect("/producto")
 		}	
-			catch(error) {return error}
+		catch(error) {return error}
 		},
+
+	//	await db.Product.create({
+	//		product_name: req.body.name, 
+	//		product_description: req.body.description,
+	//		category_id: req.body.category,
+	//		price: req.body.price,
+	//		stock: req.body.stock,
+	//		size: req.body.size
+	//		},
+	//	{include:[{association: db.ProductSize}]})
+		
+		
+	
 		/*let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/products.json")));
 		req.body.id = products.length > 0 ? products[products.length-1].id+1 : 1;
 		req.body.image = [];
