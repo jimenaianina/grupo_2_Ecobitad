@@ -71,6 +71,13 @@ const controller = {
 			const colorToAddOnSave = await db.Color.findByPk(color.color_id);
 			coloresToSave.push(colorToAddOnSave)
 			}
+		
+		let imagenes = Array.from(req.files.images).map(image => new Object ({image_id: parseInt(image)}));
+		let imagesToSave = [];
+		for(let imagen of imagenes) {
+			const imagenToAddOnSave = await db.Image.findByPk(imagen.image_id);
+			imagesToSave.push(imagenToAddOnSave)
+			}
 
 		try {
 			const productToCreate = await db.Product.create({
