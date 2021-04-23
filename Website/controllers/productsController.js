@@ -54,8 +54,6 @@ const controller = {
 		catch(error){return error}
 	},
 
-	
-
 	save: async (req,res)=> {
 		let categoria = await db.Category.findAll();
 		let talles = await db.Size.findAll();
@@ -70,8 +68,7 @@ const controller = {
 			stock: req.body.stock,
 			size: req.body.size,
 			product_images: req.body.images
-		},
-		{include:["size","image","color","category"]})
+		}
 		res.redirect("/producto")
 		}	
 			catch(error) {return error}
