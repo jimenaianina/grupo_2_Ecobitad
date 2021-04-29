@@ -32,6 +32,6 @@ const validaciones = [
         }
         return true;
         })
-]
+    })]
 
 module.exports = validaciones
