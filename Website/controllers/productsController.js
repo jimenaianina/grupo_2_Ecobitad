@@ -54,8 +54,6 @@ const controller = {
 		catch(error){return error}
 	},
 
-	
-
 	save: async (req,res)=> {
 		//return res.send(Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)})));
 		let talles = Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)}));

@@ -10,7 +10,7 @@ module.exports= {
   },
   "test": {
     "username": "root",
-    "password": "Clarita10",
+    "password": "Jimena1234",
     "database": "integrador",
     "host": "127.0.0.1",
     "dialect": "mysql"
