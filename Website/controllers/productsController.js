@@ -9,9 +9,6 @@ const controller = {
 		let talles = await db.Size.findAll();
 		let colores = await db.Color.findAll();
 		try {let products = 
-<<<<<<< HEAD
-		await db.Product.findAll({include:[	,"image","color","category"]})
-=======
 		await db.Product.findAll({include:[
 			{ 
 				model: Size
@@ -26,7 +23,6 @@ const controller = {
 				model: Category
 			}
 		]})
->>>>>>> 4eca6dee726b8b688322bfb894d17eef54de5f54
 			
 	return res.render("products/list", { products:products, title: "Productos", css: "/css/list.css", colores, categoria, talles })
 		}
