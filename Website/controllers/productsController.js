@@ -9,7 +9,7 @@ const controller = {
 		let talles = await db.Size.findAll();
 		let colores = await db.Color.findAll();
 		try {let products = 
-		await db.Product.findAll({include:["size","image","color","category"]})
+		await db.Product.findAll({include:[	,"image","color","category"]})
 			
 	return res.render("products/list", { products:products, title: "Productos", css: "/css/list.css", colores, categoria, talles })
 		}
@@ -53,6 +53,8 @@ const controller = {
 	}
 		catch(error){return error}
 	},
+
+	
 
 	save: async (req,res)=> {
 		//return res.send(Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)})));
