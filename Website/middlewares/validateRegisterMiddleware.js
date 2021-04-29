@@ -1,8 +1,9 @@
 const path = require('path');
 const { body } = require('express-validator');
 
-const validaciones = [
-    body('name').notEmpty().isLength({ min: 5 }).withMessage('Por favor escribir un nombre'), 
+const validacionRegistro = [
+    body('name').notEmpty().isLength({ min: 2 }).withMessage('Por favor escribir un nombre'), 
+    body('lastName').notEmpty().isLength({ min: 2 }).withMessage('Por favor escribir un apellido'), 
     body('email')
     .notEmpty().withMessage('Por favor escribir un correo electrónico')
     .isEmail().withMessage('Por favor escribir un formato de correo válido')
@@ -14,11 +15,10 @@ const validaciones = [
         }),
     body('password')
     .notEmpty().withMessage('Por favor escribir una contraseña')
-    .isLength({ min: 5 }).withMessage('La contraseña debe tener al menos 8 caracteres')
+    .isLength({ min: 8 }).withMessage('La contraseña debe tener al menos 8 caracteres')
     .matches('[0-9]').withMessage('Password Must Contain a Number')
     .matches('[A-Z]').withMessage('Password Must Contain an Uppercase Letter')
     .matches('[a-z]').withMessage('Password Must Contain a Lowercase Letter'),
-    body('lastName').notEmpty().withMessage('Por favor escribir un apellido'), 
     body('image').custom((value, {req}) => {
         let file = req.file;
         let acceptedExtensions = ['.jpg', '.png', '.gif'];
@@ -34,4 +34,4 @@ const validaciones = [
         })
     ];
 
-module.exports = validaciones
+module.exports = validacionRegistro

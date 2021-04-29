@@ -12,6 +12,8 @@ const storage = multer.diskStorage({
         cb(null, 'fotoProducto' + Date.now() + path.extname(file.originalname))}
 });
 
+const validacionProducto = require('../middlewares/validateProductsMiddleware'); 
+
 router.get('/', productsController.index); 
 
 router.get('/detalle/:id', productsController.detail); 
@@ -22,11 +24,11 @@ const upload = multer( { storage: storage});
 
 router.get('/crear', productsController.create);
 
-router.post('/guardar', upload.any('fotoProducto'), productsController.save);
+router.post('/guardar', upload.any('image'), validacionProducto, productsController.save);
 
 router.get('/editar/:id', productsController.edit);
 
-router.put('/actualizar/:id', upload.array('fotoProducto'), productsController.update);
+router.put('/actualizar/:id', upload.array('fotoProducto'), validacionProducto, productsController.update);
 
 router.delete('/eliminar/:id', productsController.destroy); 
 
