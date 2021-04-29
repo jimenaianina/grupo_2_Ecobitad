@@ -10,7 +10,7 @@ const validaciones = [
         return User.findOne(value).then(user => {
           if (user) {
             return Promise.reject('Este correo electrónico ya se encuentra registrado');
-          }
+          }})
         }),
     body('password')
     .notEmpty().withMessage('Por favor escribir una contraseña')
@@ -32,6 +32,6 @@ const validaciones = [
         }
         return true;
         })
-]
+    ];
 
 module.exports = validaciones
