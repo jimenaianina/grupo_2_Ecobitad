@@ -16,8 +16,8 @@
     <input type="text" placeholder="nombre del producto" name="name" id="name" class="box" required>
     <label for="description" > Descripción </label>
     <textarea name="description" class="box" required id="description" ></textarea>
-    <label for="images"> Fotos del producto </label>
-    <input type="file" name="fotoProducto" id="file" multiple required>
+    <label for="image"> Fotos del producto </label>
+    <input type="file" name="image" id="file" multiple required>
     <label for="category"> Categoría </label>
     <% categorias.forEach(categoria => { %>
       <label for= "<%= categoria.id %>"><input type="radio" id="category" name="category" value="<%= categoria.id %> "> <%= categoria.category_name %> </label>
@@ -40,7 +40,7 @@
     <input type="range" name="price" class="box" min="0" step="10" max="4000" required value="0" oninput="this.nextElementSibling.value = this.value" id="price">
     <output>0</output>
     <label for="stock"> Stock </label>
-    <input type="number" name="stock" class="box" min="0" id="stock"required>
+    <input type="number" name="stock" class="box" min="0" id="stock" required>
     <div id="buttons">
     <button type="reset"> Borrar  </button>
     <button type="submit"> Crear producto </button>
