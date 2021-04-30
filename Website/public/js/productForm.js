@@ -8,6 +8,8 @@ window.addEventListener('load', function() {
         let name = document.querySelector("#name");
         let description = document.querySelector("#description");
         let image = document.querySelector("#file");
+        let acceptedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
+
       if(name.value == "") {
         errors.push("El nombre del producto no puede estar vacío")
       } else if(name.value.length < 5) {
@@ -16,8 +18,8 @@ window.addEventListener('load', function() {
       else if(description.value.length < 20) {
         errors.push("La descripción del producto debe tener al menos 20 caracteres")
       }
-      else if(image) {
-        errors.push("El formato de la imagen debe ser .JPG, .JPEG, .PNG o .GIF")
+      else if(!acceptedExtensions.exec(image.value)) {
+    errors.push("El formato de la imagen debe ser .JPG, .JPEG, .PNG o .GIF")
       }
 
       if(errors.length > 0) {

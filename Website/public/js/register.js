@@ -10,6 +10,7 @@ window.addEventListener('load', function() {
     let email = document.querySelector("#email");
     let password = document.querySelector("#password");
     let image = document.querySelector("#file");
+    let acceptedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
 
   if(name.value == "") {
     errors.push("El nombre del usuario no puede estar vacío")
@@ -30,9 +31,9 @@ window.addEventListener('load', function() {
     errors.push("La contraseña del usuario no puede estar vacía")
   }
   else if(password.value.length < 8) {
-    errors.push("La contraseña del usuario no puede estar vacía")
+    errors.push("La contraseña del usuario debe tener al menos 8 caracteres")
   }
-  else if(image /* BIS EMAIL, CÓMO PONER QUE SEA FORMATO VÁLIDO */) {
+  else if(!acceptedExtensions.exec(image.value)) {
     errors.push("El formato de la imagen debe ser .JPG, .JPEG, .PNG o .GIF")
   }
 
