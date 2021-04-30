@@ -1,7 +1,5 @@
 window.addEventListener('load', function() {
 
-    window.addEventListener('load', function() {
-
         let formulario = document.querySelector("form");
         
         formulario.addEventListener("submit", function(evento){
@@ -29,5 +27,5 @@ window.addEventListener('load', function() {
             ulErrors.innerHTML += <li>${error}</li>)
         }}
         
-        });
+        })
    });
