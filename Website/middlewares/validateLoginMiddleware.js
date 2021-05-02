@@ -6,8 +6,8 @@ const db = require('../database/models');
 
 const validacionLogin = [
     body('email')
-    .notEmpty().withMessage('Por favor escribir un correo electrónico')
-    .isEmail().withMessage('Por favor escribir un formato de correo válido')
+    .notEmpty()
+    .isEmail()
     .custom(value => {
         return User.findOne(value).then(user => {
           if (!user) {
@@ -15,7 +15,7 @@ const validacionLogin = [
           }})
         }),
     body('password')
-    .notEmpty().withMessage('Por favor escribir una contraseña')
+    .notEmpty()
     .custom(value => {
         return User.findOne(req.body.email)
         .then( user => {

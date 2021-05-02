@@ -2,8 +2,8 @@ const path = require('path');
 const { body } = require('express-validator');
 
 const validacionProducto = [
-    body('name').notEmpty().isLength({ min: 5 }).withMessage('Por favor escribir un nombre'), 
-    body('description').notEmpty().isLength({ min: 20 }).withMessage('Por favor escribir una descripción'), 
+    body('name').notEmpty().isLength({ min: 5 }), 
+    body('description').notEmpty().isLength({ min: 20 }), 
     body('image').custom((value, {req}) => {
         let file = req.file;
         let acceptedExtensions = ['.jpg', '.png', '.gif'];

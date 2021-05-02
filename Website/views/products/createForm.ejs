@@ -5,19 +5,26 @@
   <%- include ('../partials/head') %>
   
     <body>
-        <%- include ('../partials/header') %>  
+        <%- include ('../partials/header') %>
+        <script src="/js/productForm.js"></script>
 
 <h1> Crear producto </h1>
+
+<section class="errors">
+  <ul>
+
+  </ul>
+</section>
 
 <div id="formulario">
 
 <form action = "/producto/guardar" method="POST" enctype="multipart/form-data">
     <label for="name"> Nombre del producto </label>
-    <input type="text" placeholder="nombre del producto" name="name" id="name" class="box" required>
+    <input type="text" placeholder="nombre del producto" name="name" id="name" class="box">
     <label for="description" > Descripción </label>
-    <textarea name="description" class="box" required id="description" ></textarea>
+    <textarea name="description" class="box" id="description" ></textarea>
     <label for="image"> Fotos del producto </label>
-    <input type="file" name="image" id="file" multiple required>
+    <input type="file" name="image" id="file" multiple>
     <label for="category"> Categoría </label>
     <% categorias.forEach(categoria => { %>
       <label for= "<%= categoria.id %>"><input type="radio" id="category" name="category" value="<%= categoria.id %> "> <%= categoria.category_name %> </label>
@@ -37,10 +44,10 @@
       <% }) %>
     </select>
     <label for="price"> Precio </label>
-    <input type="range" name="price" class="box" min="0" step="10" max="4000" required value="0" oninput="this.nextElementSibling.value = this.value" id="price">
+    <input type="range" name="price" class="box" min="0" step="10" max="4000" value="0" oninput="this.nextElementSibling.value = this.value" id="price">
     <output>0</output>
     <label for="stock"> Stock </label>
-    <input type="number" name="stock" class="box" min="0" id="stock" required>
+    <input type="number" name="stock" class="box" min="0" id="stock">
     <div id="buttons">
     <button type="reset"> Borrar  </button>
     <button type="submit"> Crear producto </button>
