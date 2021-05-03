@@ -22,13 +22,13 @@
 <section class="contenedor">
 
     <section id="miniaturas">
-        <% product.images.forEach(image => { %>
-            <img src="/products/<%= product.images[1].image_path%> " >
+        <% product.images.forEach( product => { %>
+            <img src="/products/<%= product.images.image_path %> " >
         <% }) %>
     </section>
 
     <section id="destacada">
-        <img src= "/products/<%= product.images[0].image_path %> " >
+        <img src= "/products/<%= product.images.image_path %> " >
     </section>
 
         <section class="contenedor-chico-2">

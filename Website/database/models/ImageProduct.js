@@ -28,7 +28,7 @@ module.exports = (sequelize, dataType)=> {
                 timestamps: false
         })
         ImageProduct.belongsTo(models.Image, {
-                as:"Image",
+                as:"image",
                 foreignKey: "image_id", 
                 timestamps: false
         })

@@ -176,6 +176,7 @@ const controller = {
 	},
 
 	destroy: async (req, res) => {
+
 		try { let productToDelete =
 			await db.Product.destroy({
 				where: {
