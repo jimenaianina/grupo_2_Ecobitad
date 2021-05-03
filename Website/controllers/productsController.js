@@ -10,11 +10,12 @@ const controller = {
 		let colores = await db.Color.findAll();
 		try {let products = 
 		await db.Product.findAll({include: [
-		{association: "images"}],
+			{association: "images"}],
 			raw: true,
 			nest: true
 			})
-		return res.render("products/list", { products:products, title: "Productos", css: "/css/list.css", colores, categoria, talles })
+			
+		return res.render("products/list", { products:products, title: "Productos", css: "/css/list.css" })
 		}
 		catch(error) {return res.send(error)}
 	},
@@ -66,7 +67,6 @@ const controller = {
 	
 
 	save: async (req,res)=> {
-		//return res.send(Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)})));
 		let talles = Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)}));
 		let tallesToSave = [];
 		for(let talle of talles) {
@@ -107,29 +107,7 @@ const controller = {
 	res.redirect("/producto")
 		}	
 		catch(error) {return error}
-		},
-
-	//	await db.Product.create({
-	//		product_name: req.body.name, 
-	//		product_description: req.body.description,
-	//		category_id: req.body.category,
-	//		price: req.body.price,
-	//		stock: req.body.stock,
-	//		size: req.body.size
-	//		},
-	//	{include:[{association: db.ProductSize}]})
-		
-		
-	
-		/*let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/products.json")));
-		req.body.id = products.length > 0 ? products[products.length-1].id+1 : 1;
-		req.body.image = [];
-		req.files.forEach(file => {
-			req.body.image.push(file.filename)
-		});
-		products.push(req.body);
-		fs.writeFileSync(path.resolve(__dirname,"../database/products.json"), JSON.stringify(products, null, 2));*/
-		
+		},		
 
 	update: async (req, res) => {
 
@@ -149,32 +127,29 @@ const controller = {
 		});
 
 		res.redirect("/producto/detalle/" + req.params.id)
-
-		/*let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,"../database/products.json")));
-		let productSelected = products.find(product => product.id == req.params.id);
-		productSelected.images.forEach( image => fs.unlinkSync(path.resolve(__dirname,"../upload/products/"+image)))
-		req.body.images = [];
-		req.files.forEach(file => {
-			req.body.images.push(file.filename)
-		});
-		products.map(product => { 
-			if (product.id == productSelected.id) {
-				product.name = req.body.name;
-				product.description = req.body.description;
-				product.category = req.body.category;
-				product.stock = req.body.stock;
-				product.colors = req.body.colors;
-				product.sizes = req.body.sizes;
-				product.price = req.body.price;
-				product.images = req.body.images;
-			} return product
-		})
-		fs.writeFileSync(path.resolve(__dirname,"../database/products.json"), JSON.stringify(products, null, 2));*/
 	},
 
 	destroy: async (req, res) => {
 
 		try { let productToDelete =
+			await db.ProductSize.destroy({
+				where: {
+					product_id: req.params.id
+				}
+			});
+
+			await db.ColorProduct.destroy({
+				where: {
+					product_id: req.params.id
+				}
+			});
+
+			await db.ImageProduct.destroy({
+				where: {
+					product_id: req.params.id
+				}
+			});
+			
 			await db.Product.destroy({
 				where: {
 					id: req.params.id
@@ -186,3 +161,6 @@ const controller = {
 }
 
 module.exports = controller;
+
+
+  
