@@ -10,10 +10,7 @@ const controller = {
 		let colores = await db.Color.findAll();
 		try {let products = 
 		await db.Product.findAll({include: [
-			{association: "category"}, 
-			{association: "sizes"}, 
-			{association: "colors"}, 
-			{association: "images"}],
+		{association: "images"}],
 			raw: true,
 			nest: true
 			})
