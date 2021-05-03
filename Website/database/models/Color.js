@@ -15,7 +15,7 @@ module.exports = (sequelize, dataType)=> {
         });
 
         Color.associate = function (models){
-            Color.belongsToMany(models.Product, { through: 'colors_products', foreignKey: "color_id", as: "products" })
+            Color.belongsToMany(models.Product, { through: 'colors_products', foreignKey: "color_id", otherKey: "product_id", as: "products", timestamps: false })
         }
         
         return Color;

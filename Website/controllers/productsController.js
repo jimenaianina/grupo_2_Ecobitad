@@ -9,24 +9,17 @@ const controller = {
 		let talles = await db.Size.findAll();
 		let colores = await db.Color.findAll();
 		try {let products = 
-		await db.Product.findAll({include:[
-			{ 
-				model: Size
-			},
-			{
-				model: Color
-			},
-			{
-				model: Image
-			},
-			{
-				model: Category
-			}
-		]})
-			
-	return res.render("products/list", { products:products, title: "Productos", css: "/css/list.css", colores, categoria, talles })
+		await db.Product.findAll({include: [
+			{association: "category"}, 
+			{association: "sizes"}, 
+			{association: "colors"}, 
+			{association: "images"}],
+			raw: true,
+			nest: true
+			})
+		return res.render("products/list", { products:products, title: "Productos", css: "/css/list.css", colores, categoria, talles })
 		}
-		catch(error) {return error}
+		catch(error) {return res.send(error)}
 	},
 
 	detail: async (req,res)=> { 
@@ -35,11 +28,17 @@ const controller = {
 		let colores = await db.Color.findAll();
 		try { let product = 
 		await db.Product.findByPk(req.params.id, {
-			include: [{association: "category"}, {association: "color"}, {association: "size"},{association: "image"}]
+			include: [
+				{association: "category"}, 
+				{association: "sizes"}, 
+				{association: "colors"}, 
+				{association: "images"}],
+				raw: true,
+				nest: true
 		})
 		return res.render("products/detail", { product:product , title: product.name , css: "/css/detail.css",colores, categoria, talles})
 	}
-	catch(error) {return error}
+	catch(error) {return res.send(error)}
 	},
 
 	cart: (req,res)=> {

@@ -14,7 +14,7 @@ module.exports = (sequelize, dataType)=> {
             timestamps: false
         })
         Image.associate = function (models){
-            Image.belongsToMany(models.Product, { through: 'images_products', foreignKey: "image_id", as: "products" })
+            Image.belongsToMany(models.Product, { through: 'images_products', foreignKey: "image_id", otherKey: "product_id", as: "products", timestamps: false})
         }
         return Image;
         
