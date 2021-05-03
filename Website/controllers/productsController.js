@@ -10,14 +10,15 @@ const controller = {
 		let colores = await db.Color.findAll();
 		try {let products = 
 		await db.Product.findAll({include: [
-			{association: "category"}, 
-			{association: "sizes"}, 
-			{association: "colors"}, 
+			//{association: "category"}, 
+			//{association: "sizes"}, 
+			//{association: "colors"}, 
 			{association: "images"}],
 			raw: true,
 			nest: true
 			})
-		return res.render("products/list", { products:products, title: "Productos", css: "/css/list.css", colores, categoria, talles })
+			
+		return res.render("products/list", { products:products, title: "Productos", css: "/css/list.css" })
 		}
 		catch(error) {return res.send(error)}
 	},
@@ -178,6 +179,24 @@ const controller = {
 	destroy: async (req, res) => {
 
 		try { let productToDelete =
+			await db.ProductSize.destroy({
+				where: {
+					product_id: req.params.id
+				}
+			});
+
+			await db.ColorProduct.destroy({
+				where: {
+					product_id: req.params.id
+				}
+			});
+
+			await db.ImageProduct.destroy({
+				where: {
+					product_id: req.params.id
+				}
+			});
+			
 			await db.Product.destroy({
 				where: {
 					id: req.params.id
@@ -189,3 +208,6 @@ const controller = {
 }
 
 module.exports = controller;
+
+
+  

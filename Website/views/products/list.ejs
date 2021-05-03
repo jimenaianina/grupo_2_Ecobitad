@@ -12,6 +12,7 @@
             <section id= "products">
             <% products.forEach(product => { %>
                 <article class="product_container">
+                  
                     <a href="/producto/detalle/<%= product.id %>" class="image_product">
                       <figure>
                         <img src="/products/<%= product.images.image_path %> " alt="">
