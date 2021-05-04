@@ -29,7 +29,8 @@ module.exports = {
       age: 36,
       city: 'Vicente Lopez',
       image: 'fotoPerfil1617314645047.jpg',
-      role_id: 1
+      role_id: 1,
+      
     }
   ], {});
     

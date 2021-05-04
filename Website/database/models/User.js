@@ -33,6 +33,10 @@ const User =sequelize.define("User",
      role_id:{
         allowNull: false,
         type: dataType.INTEGER
+    },
+    password: {
+        allowNull: false,
+        type: dataType.STRING
     }
 }, { 
     timestamps: false

@@ -156,7 +156,7 @@ const controller = {
 				}
 			})
 			res.redirect("/producto")}
-			catch(error){return error}
+			catch(error){return res.send(error)}
 }
 }
 

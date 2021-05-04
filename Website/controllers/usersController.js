@@ -1,5 +1,3 @@
-const fs = require('fs');
-const path = require('path');
 const User = require('../models/users');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
@@ -71,7 +69,7 @@ const controller = {
 			})
 		};
 
-		let userinDB = User.findOne({
+		let userinDB = db.User.findOne({
 			where: {
 				email: req.body.email
 			}
@@ -89,15 +87,16 @@ const controller = {
 				css: "/css/register.css"
 			})
 		};
-
-		db.User.create({
+		
+		let userToCreate = db.User.create({
 			name: req.body.name,
 			lastName: req.body.lastName,
 			email: req.body.email,
 			age: req.body.age,
 			city: req.body.city,
-			password: bcrypt.hashSync(req.body.password, 10),
-			image: req.file.filename
+			image: req.file.filename, 
+			role: 1,
+			password: bcrypt.hashSync(req.body.password, 10)
 		});
 
 			return res.redirect('/usuario/acceder')
