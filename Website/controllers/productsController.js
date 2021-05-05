@@ -26,7 +26,7 @@ const controller = {
 		await db.Product.findByPk(req.params.id, {
 			include: ["category", "sizes", "colors", "images"],
 		})
-		return res.render("products/detail", { product:product , title: product.name , css: "/css/detail.css", colores, categoria, talles})
+		return res.render("products/detail", { product:product , title: product.product_name , css: "/css/detail.css", colores, categoria, talles})
 	}
 	catch(error) {return res.send(error)}
 	},
