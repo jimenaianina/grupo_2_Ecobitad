@@ -10,11 +10,7 @@ const controller = {
 		let colores = await db.Color.findAll();
 		try {let products = 
 		await db.Product.findAll({include: [
-<<<<<<< HEAD
-			{association: "images"}]
-=======
-			"images"],
->>>>>>> dbdfd4d65bc134034765226a12a13b6965cf1803
+			"images"]
 			})
 			
 		return res.render("products/list", { products:products, title: "Productos", css: "/css/list.css" })
