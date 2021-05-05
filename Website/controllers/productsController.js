@@ -11,7 +11,6 @@ const controller = {
 		try {let products = 
 		await db.Product.findAll({include: [
 			{association: "images"}]
-	
 			})
 			
 		return res.render("products/list", { products:products, title: "Productos", css: "/css/list.css" })
