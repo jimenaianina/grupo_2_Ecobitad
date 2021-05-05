@@ -10,7 +10,11 @@ const controller = {
 		let colores = await db.Color.findAll();
 		try {let products = 
 		await db.Product.findAll({include: [
+<<<<<<< HEAD
 			{association: "images"}]
+=======
+			"images"],
+>>>>>>> dbdfd4d65bc134034765226a12a13b6965cf1803
 			})
 			
 		return res.render("products/list", { products:products, title: "Productos", css: "/css/list.css" })
@@ -24,15 +28,9 @@ const controller = {
 		let colores = await db.Color.findAll();
 		try { let product = 
 		await db.Product.findByPk(req.params.id, {
-			include: [
-				{association: "category"}, 
-				{association: "sizes"}, 
-				{association: "colors"}, 
-				{association: "images"}],
-				raw: true,
-				nest: true
+			include: ["category", "sizes", "colors", "images"],
 		})
-		return res.render("products/detail", { product:product , title: product.name , css: "/css/detail.css",colores, categoria, talles})
+		return res.render("products/detail", { product:product , title: product.name , css: "/css/detail.css", colores, categoria, talles})
 	}
 	catch(error) {return res.send(error)}
 	},
@@ -46,20 +44,20 @@ const controller = {
 		let talles = await db.Size.findAll();
 		let colores = await db.Color.findAll();
 		try {res.render("products/createForm", { title: "Crear", css: "/css/forms.css", categorias, colores, talles})}
-		catch(error){return error}
+		catch(error){return res.send(error)}
 	},
 
 	edit: async (req,res)=> {
 		let categoria = await db.Category.findAll();
 		let talles = await db.Size.findAll();
 		let colores = await db.Color.findAll();
-		try {
-			let producto = await db.Product.findByPk(req.params.id, {
-				include: [{association: "category"}, {association: "color"}, {association: "size"},{association: "image"}]
-			});	
-		return res.render("products/editForm", { product: product, category: category, size: size, color: color}, { title: "Editar", css: "/css/forms.css" })
+		try { let product = 
+			await db.Product.findByPk(req.params.id, {
+				include: ["category", "sizes", "colors", "images"],
+			})
+		return res.render("products/editForm", { product:product , title: "Editar", css: "/css/forms.css", categoria, colores, talles})
 	}
-		catch(error){return error}
+		catch(error){return res.send(error)}
 	},
 
 	
@@ -98,11 +96,9 @@ const controller = {
 			
 			await productToCreate.addSizes(tallesToSave);
 			await productToCreate.addColors(coloresToSave);
-
-			return res.send(productToCreate)
 			
+		return res.redirect("/producto")
 
-	res.redirect("/producto")
 		}	
 		catch(error) {return error}
 		},		
