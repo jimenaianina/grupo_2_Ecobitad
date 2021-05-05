@@ -106,6 +106,7 @@ const controller = {
 	destroy: (req, res) => {
 
 		let userToDelete = req.session.userLogged.id;
+	
 		db.User.destroy({
 			where: { 
 				id: userToDelete

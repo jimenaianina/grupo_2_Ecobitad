@@ -16,12 +16,17 @@
         <a href=""> <%= product.product_name %> </a></li>
     </nav>
 
-    
-    
-
 <section class="contenedor">
 
-  
+        <section id= "miniaturas">
+        <% product.images.forEach( image => { %> 
+            <img src="/products/<%= image.image_path %>">
+        <% }) %>
+        </section>
+    
+        <section id= "destacada">
+            <img src="/products/<%= product.images[0].image_path %>">
+        </section>
         <section class="contenedor-chico-2">
             <article class="detalles">
                 <p><%= product.product_name %> </p>
