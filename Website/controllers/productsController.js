@@ -135,7 +135,7 @@ const controller = {
 					product_id: req.params.id
 				}
 			})
-			
+
 			await productToUpdate.addImages(imagesToSave);
 			await productToUpdate.addSizes(tallesToSave);
 			await productToUpdate.addColors(coloresToSave);

@@ -20,9 +20,9 @@
 
 <form action = "/producto/actualizar/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
     <label for="name"> Nombre del producto </label>
-    <input type="text" value="<%= product.name %>" name="name" class="box">
+    <input type="text" value="<%= product.product_name %>" name="name" class="box">
     <label for="description"> Descripción </label>
-    <textarea name="description" class="box"> <%= product.description %> </textarea>
+    <textarea name="description" class="box"> <%= product.product_description %> </textarea>
     <label for="images"> Fotos del producto </label>
     <input type="file" name="fotoProducto" id="file" multiple>
     <label for="category"> Categoría </label>
