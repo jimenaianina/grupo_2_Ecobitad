@@ -10,7 +10,7 @@ const controller = {
 		let colores = await db.Color.findAll();
 		try {let products = 
 		await db.Product.findAll({include: [
-			"images"],
+			"images"]
 			})
 			
 		return res.render("products/list", { products:products, title: "Productos", css: "/css/list.css" })
