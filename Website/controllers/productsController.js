@@ -98,23 +98,53 @@ const controller = {
 
 	update: async (req, res) => {
 
-		await db.Product.update({
-			product_name: req.body.name, 
-			product_description: req.body.description,
-			category_id: req.body.category,
+		let talles = Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)}));
+		let tallesToSave = [];
+		for(let talle of talles) {
+			const talleToAddOnSave = await db.Size.findByPk(talle.size_id);
+			tallesToSave.push(talleToAddOnSave)
+			}
+		
+		let colores = Array.from(req.body.colors).map(color=> new Object ({color_id: parseInt(color)}));
+		let coloresToSave = [];
+		for(let color of colores) {
+			const colorToAddOnSave = await db.Color.findByPk(color.color_id);
+			coloresToSave.push(colorToAddOnSave)
+			}
+		
+		let imagenes = Array.from(req.files.images).map(image => new Object ({image_id: parseInt(image)}));
+		let imagesToSave = [];
+		for(let imagen of imagenes) {
+			const imagenToAddOnSave = await db.Image.findByPk(imagen.image_id);
+			imagesToSave.push(imagenToAddOnSave)
+			}
+
+		try {
+			const productToUpdate = await db.Product.update({
+			product_name: req.body.name ,
+			product_description: req.body.description,		
+			category_id: req.body.category,						
+			price: req.body.price, 
+			stock: req.body.stock,
 			color: req.body.color,
 			price: req.body.price,
-			stock: req.body.stock,
 			size: req.body.size,
 			product_images: req.body.images
-		}, {
-			where: {
-				product_id: req.params.id
-			}
-		});
-
-		res.redirect("/producto/detalle/" + req.params.id)
-	},
+			}, {
+				where: {
+					product_id: req.params.id
+				}
+			})
+			
+			await productToUpdate.addImages(imagesToSave);
+			await productToUpdate.addSizes(tallesToSave);
+			await productToUpdate.addColors(coloresToSave);
+			
+		return res.redirect("/producto/detalle/" + req.params.id);
+		
+	}
+	catch(error) {return error}
+},
 
 	destroy: async (req, res) => {
 
