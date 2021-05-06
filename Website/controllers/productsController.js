@@ -9,10 +9,7 @@ const controller = {
 		let talles = await db.Size.findAll();
 		let colores = await db.Color.findAll();
 		try {let products = 
-		await db.Product.findAll({include: [
-			"images"]
-			})
-			
+		await db.Product.findAll({include: ["images"]})
 		return res.render("products/list", { products:products, title: "Productos", css: "/css/list.css" })
 		}
 		catch(error) {return res.send(error)}
