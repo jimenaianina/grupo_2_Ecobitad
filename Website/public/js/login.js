@@ -7,10 +7,11 @@ window.addEventListener('load', function() {
     let errors = [];
     let email = document.querySelector("#email");
     let password = document.querySelector("#password");
+    let emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
   if(email.value == "") {
     errors.push("El email del usuario no puede estar vacío")
-  } else if(email.type == "email"/* CÓMO VERGA SE PONE QUE SEA TIPO EMAIL*/) {
+  }  else if(!emailRegex.exec(email.value)) {
     errors.push("El email del usuario debe ser un formato válido")
   }
   else if(password.value == "") {
@@ -21,8 +22,8 @@ window.addEventListener('load', function() {
     evento.preventDefault();
     let ulErrors = document.querySelectorAll('.errors ul');
     errors.forEach(error => {
-        ulErrors.innerHTML += <li>${error}</li>)
-    }}
+        ulErrors.innerHTML += <li>${error}</li>})
+    }
     
     })
 });

@@ -26,8 +26,8 @@ window.addEventListener('load', function() {
         evento.preventDefault();
         let ulErrors = document.querySelectorAll('.errors ul');
         errors.forEach(error => {
-            ulErrors.innerHTML += <li>${error}</li>)
-        }}
+            ulErrors.innerHTML += <li>${error}</li>})
+        }
         
         })
    });

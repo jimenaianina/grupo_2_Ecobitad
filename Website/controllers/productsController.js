@@ -114,26 +114,33 @@ const controller = {
 		let imagesToSave = [];
 		let imagenes = req.files.map( 
 			async (image) => { 
-				const createdImage = await Image.create({
+				const createdImage = await db.Image.create({
 					image_path: image.path
 				})
 				return createdImage});
+		
 		for(let imagen of imagenes) {
 			const imagenToAddOnSave = await db.Image.findByPk(imagen.id);
-			imagesToSave.push(imagenToAddOnSave)
-			}
+			imagesToSave.push(imagenToAddOnSave)}
 
+		
 		try {
 			const productToUpdate = await db.Product.update({
 			product_name: req.body.name ,
 			product_description: req.body.description,		
-			category_id: req.body.category,						
+			category_id: {
+				category_name: req.body.category
+							},						
 			price: req.body.price, 
 			stock: req.body.stock,
 			price: req.body.price,
-			}, {
+			}, 
+			{
+				include: category 
+			  },
+			  {
 				where: {
-					product_id: req.params.id
+					id: req.params.id
 				}
 			})
 
