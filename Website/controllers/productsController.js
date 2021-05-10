@@ -111,11 +111,15 @@ const controller = {
 			const colorToAddOnSave = await db.Color.findByPk(color.color_id);
 			coloresToSave.push(colorToAddOnSave)
 			}
-		
-		let imagenes = Array.from(req.files.images).map(image => new Object ({image_id: parseInt(image)}));
 		let imagesToSave = [];
+		let imagenes = req.files.map( 
+			async (image) => { 
+				const createdImage = await Image.create({
+					image_path: image.path
+				})
+				return createdImage});
 		for(let imagen of imagenes) {
-			const imagenToAddOnSave = await db.Image.findByPk(imagen.image_id);
+			const imagenToAddOnSave = await db.Image.findByPk(imagen.id);
 			imagesToSave.push(imagenToAddOnSave)
 			}
 
@@ -143,7 +147,7 @@ const controller = {
 		return res.redirect("/producto/detalle/" + req.params.id);
 		
 	}
-	catch(error) {return error}
+	catch(error) {return res.send(error)}
 },
 
 	destroy: async (req, res) => {
