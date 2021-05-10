@@ -130,10 +130,7 @@ const controller = {
 			category_id: req.body.category,						
 			price: req.body.price, 
 			stock: req.body.stock,
-			color: req.body.color,
 			price: req.body.price,
-			size: req.body.size,
-			product_images: req.body.images
 			}, {
 				where: {
 					product_id: req.params.id
