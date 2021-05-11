@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-const db = require('../database/models')
+const db = require('../database/models');
+const { validationResult } = require('express-validator');
 
 const controller = {
 
@@ -56,6 +57,18 @@ const controller = {
 	
 
 	save: async (req,res)=> {
+
+		let errors = validationResult(req);
+
+		if (!errors.isEmpty()) {
+			return res.render('users/register', {
+				errors: errors.mapped(),
+				oldData: req.body,
+				title: "Crear producto", 
+				css: "/css/forms.css"
+			})
+		};
+
 		let talles = Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)}));
 		let tallesToSave = [];
 		for(let talle of talles) {
@@ -97,6 +110,17 @@ const controller = {
 		},		
 
 	update: async (req, res) => {
+
+		let errors = validationResult(req);
+
+		if (!errors.isEmpty()) {
+			return res.render('users/register', {
+				errors: errors.mapped(),
+				oldData: req.body,
+				title: "Crear producto", 
+				css: "/css/forms.css"
+			})
+		};
 
 		let talles = Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)}));
 		let tallesToSave = [];

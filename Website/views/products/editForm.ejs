@@ -12,48 +12,54 @@
 
 <section class="errors">
   <ul>
-
+    <% if (locals.errors && errors.name) { %>
+      <p class="errores"> <%= errors.name %>  </p>
+      <% } %>
+    <% if (locals.errors && errors.description) { %>
+      <p class="errores"> <%= errors.description %>  </p>
+      <% } %>
+    <% if (locals.errors && errors.image) { %>
+    <p class="errores"> <%= errors.image %>  </p>
+    <% } %>
   </ul>
 </section>
 
 <div id="formulario">
 
 <form action = "/producto/actualizar/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-    <label for="name"> Nombre del producto </label>
-    <input type="text" value="<%= product.product_name %>" name="name" class="box">
-    <label for="description"> Descripción </label>
-    <textarea name="description" class="box"> <%= product.product_description %> </textarea>
-    <label for="images"> Fotos del producto </label>
-    <input type="file" name="fotoProducto" id="file" multiple>
-    <label for="category"> Categoría </label>
-    <label for="on-the-go"> <input type="radio" name="category" value="on-the-go"> On the Go </label>
-    <label for="baño"> <input type="radio" name="category" value="baño"> Baño</label>
-    <label for="cocina"> <input type="radio" name="category" value="cocina"> Cocina </label>
-    <label for="colors"> Colores </label>
-    <select name="colors" class="box">
-      <option value=""> -- Elegí un color --</option>
-      <option value="rojo"> Rojo </option>
-      <option value="verde"> Verde </option>
-      <option value="azul"> Azul </option>
-      <option value="blanco"> Blanco </option>
-    </select>
-    <label for="sizes"> Talles </label>
-    <select name="sizes" class="box">
-      <option value=""> -- Elegí un talle --</option>
-      <option value="Small"> Small </option>
-      <option value="Medium"> Medium </option>
-      <option value="Large"> Large </option>
-    </select>
-    <label for="price"> Precio </label>
-    <input type="range" name="price" class="box" min="0" step="10" max="4000" value="0" oninput="this.nextElementSibling.value = this.value" id="price">
-    <output>0</output>
-    <label for="stock"> Stock </label>
-    <input type="number" name="stock" class="box" placeholder="<%= product.stock %>">
-
-    <div id="buttons">
-    <button type="reset"> Borrar todo </button>
-    <button type="submit"> Guardar </button>
-    </div>
+  <label for="name"> Nombre del producto </label>
+  <input type="text" placeholder="nombre del producto" name="name" id="name" class="box">
+  <label for="description" > Descripción </label>
+  <textarea name="description" class="box" id="description" ></textarea>
+  <label for="image"> Fotos del producto </label>
+  <input type="file" name="image" id="file" multiple>
+  <label for="category"> Categoría </label>
+  <% categorias.forEach(categoria => { %>
+    <label for= "<%= categoria.id %>"><input type="radio" id="category" name="category" value="<%= categoria.id %> "> <%= categoria.category_name %> </label>
+  <% }) %>
+  <label for="colors"> Colores </label>
+  <select name="colors[]" class="box select" multiple id="color">
+    <option value=""> -- Elegí un color --</option>
+    <% colores.forEach(color => { %>
+    <option value="<%= color.id %>"> <%= color.color_name %></option>
+    <% }) %>
+  </select>
+  <label for="sizes"> Talles </label>
+  <select name="sizes[]" class="box select" multiple id="size">
+    <option value=""> -- Elegí un talle --</option>
+    <% talles.forEach(talle => { %>
+    <option value="<%= talle.id %>"> <%= talle.size_name %></option>
+    <% }) %>
+  </select>
+  <label for="price"> Precio </label>
+  <input type="range" name="price" class="box" min="0" step="10" max="4000" value="0" oninput="this.nextElementSibling.value = this.value" id="price">
+  <output>0</output>
+  <label for="stock"> Stock </label>
+  <input type="number" name="stock" class="box" min="0" id="stock">
+  <div id="buttons">
+  <button type="reset"> Borrar  </button>
+  <button type="submit"> Crear producto </button>
+  </div>
 </form>
 
 </div>

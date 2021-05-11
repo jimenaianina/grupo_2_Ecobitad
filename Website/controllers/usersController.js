@@ -58,12 +58,12 @@ const controller = {
 	},
 
 	processRegister: (req,res) => {
-		let resultValidation = validationResult(req);
 
-		if (resultValidation.errors.length > 0) {
-			
+		let errors = validationResult(req);
+
+		if (!errors.isEmpty()) {
 			return res.render('users/register', {
-				errors: resultValidation.mapped(),
+				errors: errors.mapped(),
 				oldData: req.body,
 				title: "Registro", 
 				css: "/css/register.css"
