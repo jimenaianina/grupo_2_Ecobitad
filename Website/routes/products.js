@@ -28,7 +28,7 @@ router.post('/guardar', upload.any('image'), validacionProducto, productsControl
 
 router.get('/editar/:id', productsController.edit);
 
-router.put('/actualizar/:id', upload.array('fotoProducto'), validacionProducto, productsController.update);
+router.put('/actualizar/:id', upload.any('fotoProducto'), validacionProducto, productsController.update);
 
 router.delete('/eliminar/:id', productsController.destroy); 
 

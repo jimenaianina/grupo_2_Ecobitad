@@ -1,14 +1,16 @@
 const path = require('path');
 const { body } = require('express-validator');
+const db = require('../database/models');
+const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,20}$/;
 
 const validacionRegistro = [
-    body('name').notEmpty().isLength({ min: 2 }), 
-    body('lastName').notEmpty().isLength({ min: 2 }), 
+    body('name').notEmpty().isLength({ min: 2 }).withMessage('El nombre debe tener al menos 2 caracteres'), 
+    body('lastName').notEmpty().isLength({ min: 2 }).withMessage('El apellido debe tener al menos 2 caracteres'), 
     body('email')
     .notEmpty()
     .isEmail()
-    .custom(value => {
-        return User.findOne(value).then(user => {
+    .custom(value => { db.User.findOne(value)
+        .then(user => {
           if (user) {
             return Promise.reject('Este correo electrónico ya se encuentra registrado');
           }})
@@ -16,9 +18,7 @@ const validacionRegistro = [
     body('password')
     .notEmpty()
     .isLength({ min: 8 })
-    .matches('[0-9]')
-    .matches('[A-Z]')
-    .matches('[a-z]'),
+    .matches(regex),
     body('image').custom((value, {req}) => {
         let file = req.file;
         let acceptedExtensions = ['.jpg', '.png', '.gif'];

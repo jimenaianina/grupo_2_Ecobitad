@@ -12,7 +12,15 @@
 
 <section class="errors">
   <ul>
-
+    <% if (locals.errors && errors.name) { %>
+      <p> <%= errors.name %>  </p>
+      <% } %>
+    <% if (locals.errors && errors.description) { %>
+      <p> <%= errors.description %>  </p>
+      <% } %>
+    <% if (locals.errors && errors.image) { %>
+    <p> <%= errors.image %>  </p>
+    <% } %>
   </ul>
 </section>
 

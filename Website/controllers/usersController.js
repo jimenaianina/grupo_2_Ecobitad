@@ -58,30 +58,12 @@ const controller = {
 	},
 
 	processRegister: (req,res) => {
-		let resultValidation = validationResult(req);
-		if (resultValidation.errors.length > 0) {
-			
+
+		let errors = validationResult(req);
+
+		if (!errors.isEmpty()) {
 			return res.render('users/register', {
-				errors: resultValidation.mapped(),
-				oldData: req.body,
-				title: "Registro", 
-				css: "/css/register.css"
-			})
-		};
-
-		let userinDB = db.User.findOne({
-			where: {
-				email: req.body.email
-			}
-		})
-
-		if(userinDB) {
-			return res.render('users/register', { 
-				errors: {
-					email: { 
-						msg: 'Este email ya se encuentra registrado'
-					}
-				},
+				errors: errors.mapped(),
 				oldData: req.body,
 				title: "Registro", 
 				css: "/css/register.css"
@@ -103,11 +85,11 @@ const controller = {
 	 
 	},
 
-	destroy: (req, res) => {
+	destroy: async (req, res) => {
 
 		let userToDelete = req.session.userLogged.id;
 	
-		db.User.destroy({
+		await db.User.destroy({
 			where: { 
 				id: userToDelete
 			}});
@@ -115,7 +97,6 @@ const controller = {
 		req.session.destroy();
 		return res.redirect('/');
 	}
-
 };
 
 module.exports = controller;
