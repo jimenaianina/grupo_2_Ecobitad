@@ -42,14 +42,14 @@ const controller = {
 	},
 
 	edit: async (req,res)=> {
-		let categoria = await db.Category.findAll();
+		let categorias = await db.Category.findAll();
 		let talles = await db.Size.findAll();
 		let colores = await db.Color.findAll();
 		try { let product = 
 			await db.Product.findByPk(req.params.id, {
 				include: ["category", "sizes", "colors", "images"],
 			})
-		return res.render("products/editForm", { product:product , title: "Editar", css: "/css/forms.css", categoria, colores, talles})
+		return res.render("products/editForm", { product:product , title: "Editar", css: "/css/forms.css", categorias, colores, talles})
 	}
 		catch(error){return res.send(error)}
 	},

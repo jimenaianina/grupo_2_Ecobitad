@@ -74,6 +74,10 @@ form input, form label, select, textarea, #buttons, output {
     font-weight: 500;
  }
 
+ #stock {
+     text-align:center;
+ }
+
  #buttons {
      display: flex;
      justify-content: space-around;
