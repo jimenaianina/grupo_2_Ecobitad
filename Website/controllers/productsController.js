@@ -6,25 +6,25 @@ const { validationResult } = require('express-validator');
 const controller = {
 
 	index: async (req, res) => {
-		let categoria = await db.Category.findAll();
+		let categorias = await db.Category.findAll();
 		let talles = await db.Size.findAll();
 		let colores = await db.Color.findAll();
 		try {let products = 
-		await db.Product.findAll({include: ["images"]})
-		return res.render("products/list", { products:products, title: "Productos", css: "/css/list.css" })
+			await db.Product.findAll({include: ["category", "sizes", "colors", "images"]})
+		return res.render("products/list", { products:products, title: "Productos", css: "/css/list.css", colores, categorias, talles })
 		}
 		catch(error) {return res.send(error)}
 	},
 
 	detail: async (req,res)=> { 
-		let categoria = await db.Category.findAll();
+		let categorias = await db.Category.findAll();
 		let talles = await db.Size.findAll();
 		let colores = await db.Color.findAll();
 		try { let product = 
 		await db.Product.findByPk(req.params.id, {
 			include: ["category", "sizes", "colors", "images"],
 		})
-		return res.render("products/detail", { product:product , title: product.product_name , css: "/css/detail.css", colores, categoria, talles})
+		return res.render("products/detail", { product:product , title: product.product_name , css: "/css/detail.css", colores, categorias, talles})
 	}
 	catch(error) {return res.send(error)}
 	},
@@ -58,17 +58,17 @@ const controller = {
 
 	save: async (req,res)=> {
 
-		let errors = validationResult(req);
+		/*let errors = validationResult(req);
 
 		if (!errors.isEmpty()) {
-			return res.render('users/register', {
+			return res.render('products/createForm', {
 				errors: errors.mapped(),
 				oldData: req.body,
 				title: "Crear producto", 
 				css: "/css/forms.css"
 			})
-		};
-
+		};*/
+		
 		let talles = Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)}));
 		let tallesToSave = [];
 		for(let talle of talles) {
@@ -83,12 +83,21 @@ const controller = {
 			coloresToSave.push(colorToAddOnSave)
 			}
 		
-		let imagenes = Array.from(req.files.images).map(image => new Object ({image_id: parseInt(image)}));
 		let imagesToSave = [];
+		let imagenes = req.files.map( 
+			async (image) => { 
+				const createdImage = await db.Image.create({
+					image_path: image.path
+				})
+				return createdImage});
+		
+		
 		for(let imagen of imagenes) {
-			const imagenToAddOnSave = await db.Image.findByPk(imagen.image_id);
-			imagesToSave.push(imagenToAddOnSave)
-			}
+			const imagenToAddOnSave = await db.Image.findByPk(imagen.id);
+			imagesToSave.push(imagenToAddOnSave)}
+
+
+		return res.send(imagesToSave)
 
 		try {
 			const productToCreate = await db.Product.create({
