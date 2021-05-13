@@ -53,13 +53,30 @@ const controller = {
 		catch(error){return res.send(error)}
 	},
 
-	
+	/*guardarImagen: async (req)=> {
+		let imagesToSave = [];
+		let imagesToSaveId = [];
+		let imagenes = req.files.map( 
+			async (image) => { 
+		   
+		   const createdImage = await db.Image.create({
+				   image_path: image.path
+			   })
+		   
+			   console.log(createdImage.dataValues.id);
+		   imagesToSaveId.push(createdImage.dataValues.id);
+	   
+		   return createdImage});
+
+		  
+           return imagesToSaveId
+		},*/
 
 	save: async (req,res)=> {
 
-		/*let errors = validationResult(req);
+		let errors = validationResult(req);
 
-		if (!errors.isEmpty()) {
+	/*	if (!errors.isEmpty()) {
 			return res.render('products/createForm', {
 				errors: errors.mapped(),
 				oldData: req.body,
@@ -67,7 +84,8 @@ const controller = {
 				css: "/css/forms.css"
 			})
 		};*/
-		
+
+		 
 		let talles = Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)}));
 		let tallesToSave = [];
 		for(let talle of talles) {
@@ -82,21 +100,32 @@ const controller = {
 			coloresToSave.push(colorToAddOnSave)
 			}
 		
-		let imagesToSave = [];
-		let imagenes = req.files.map( 
-			async (image) => { 
-				const createdImage = await db.Image.create({
-					image_path: image.path
-				})
-				return createdImage});
+
+			let imagesToSave = [];
+			let imagesToSaveId = [];
+		
+ 
+			for(let image of req.files) { 
+		 
+			const  createdImage = await db.Image.create({
+				image_path: image.filename
+			})
+			imagesToSaveId.push(createdImage.dataValues.id);
+		}
+			for(let imagen of imagesToSaveId) {
+			
+				const imagenToAddOnSave = await db.Image.findByPk(imagen);
+				 
+				imagesToSave.push(imagenToAddOnSave)
+		
+			}
+
+		 
+
 		
 		
-		for(let imagen of imagenes) {
-			const imagenToAddOnSave = await db.Image.findByPk(imagen.id);
-			imagesToSave.push(imagenToAddOnSave)}
-
-
-		return res.send(imagesToSave)
+		 
+		
 
 		try {
 			const productToCreate = await db.Product.create({
@@ -110,7 +139,8 @@ const controller = {
 			
 			await productToCreate.addSizes(tallesToSave);
 			await productToCreate.addColors(coloresToSave);
-			
+			await productToCreate.addImages(imagesToSave);
+
 		return res.redirect("/producto")
 
 		}	
