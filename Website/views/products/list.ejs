@@ -15,7 +15,10 @@
 
                     <a href="/producto/detalle/<%= product.id %>" class="image_product">
                       <figure>
+                        <% if (product.images[0]) { %>
                         <img src="/products/<%= product.images[0].image_path%> " alt="">
+                        <% } %>
+
                       </figure>
                     </a>
                     <section class="description_product">
