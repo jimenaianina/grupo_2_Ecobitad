@@ -9,11 +9,10 @@ const controller = {
 		let categorias = await db.Category.findAll();
 		let talles = await db.Size.findAll();
 		let colores = await db.Color.findAll();
-		try {let products = 
-			await db.Product.findAll({include: ["category", "sizes", "colors", "images"]})
-		return res.render("products/list", { products:products, title: "Productos", css: "/css/list.css", colores, categorias, talles })
-		}
-		catch(error) {return res.send(error)}
+		try {
+			let products = await db.Product.findAll({include: ["category", "sizes", "colors", "images"]});
+			res.render("products/list", { products:products, title: "Productos", css: "/css/list.css", categorias, colores, talles})}
+		catch(error){return res.send(error)}
 	},
 
 	detail: async (req,res)=> { 
