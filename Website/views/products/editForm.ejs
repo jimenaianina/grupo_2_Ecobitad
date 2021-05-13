@@ -12,15 +12,10 @@
 
 <section class="errors">
   <ul>
-    <% if (locals.errors && errors.name) { %>
-      <p class="errores"> <%= errors.name %>  </p>
-      <% } %>
-    <% if (locals.errors && errors.description) { %>
-      <p class="errores"> <%= errors.description %>  </p>
-      <% } %>
-    <% if (locals.errors && errors.image) { %>
-    <p class="errores"> <%= errors.image %>  </p>
-    <% } %>
+    <% if (locals.errors) { %>
+      <% errors.forEach( error => { %>
+       <p class= "errores"> <% error.msg %> </p>
+    <% })} %>
   </ul>
 </section>
 

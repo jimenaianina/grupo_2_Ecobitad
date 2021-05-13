@@ -11,6 +11,17 @@ const controller = {
 	},
 
 	processLogin: async (req,res)=> {
+
+		let errors = validationResult(req);
+
+		if (!errors.isEmpty()) {
+			return res.render('users/register', {
+				errors: errors.array(),
+				oldData: req.body,
+				title: "Registro", 
+				css: "/css/register.css"
+			})
+		};
 		
 		let userToLogin = await db.User.findOne({
 			where: { 
@@ -59,16 +70,16 @@ const controller = {
 
 	processRegister: async (req,res) => {
 
-		/*let errors = validationResult(req);
+		let errors = validationResult(req);
 
 		if (!errors.isEmpty()) {
 			return res.render('users/register', {
-				errors: errors.mapped(),
+				errors: errors.array(),
 				oldData: req.body,
 				title: "Registro", 
 				css: "/css/register.css"
 			})
-		};*/
+		};
 
 		const userToCreate = await db.User.create({
 			user_name: req.body.name,

@@ -53,37 +53,18 @@ const controller = {
 		catch(error){return res.send(error)}
 	},
 
-	/*guardarImagen: async (req)=> {
-		let imagesToSave = [];
-		let imagesToSaveId = [];
-		let imagenes = req.files.map( 
-			async (image) => { 
-		   
-		   const createdImage = await db.Image.create({
-				   image_path: image.path
-			   })
-		   
-			   console.log(createdImage.dataValues.id);
-		   imagesToSaveId.push(createdImage.dataValues.id);
-	   
-		   return createdImage});
-
-		  
-           return imagesToSaveId
-		},*/
-
 	save: async (req,res)=> {
 
-		/*let errors = validationResult(req);
+		let errors = validationResult(req);
 
 		if (!errors.isEmpty()) {
 			return res.render('products/createForm', {
-				errors: errors.mapped(),
+				errors: errors.array(),
 				oldData: req.body,
 				title: "Crear producto", 
 				css: "/css/forms.css"
 			})
-		};*/
+		};
 
 		 
 		let talles = Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)}));
@@ -141,14 +122,14 @@ const controller = {
 
 		let errors = validationResult(req);
 
-		/*if (!errors.isEmpty()) {
+		if (!errors.isEmpty()) {
 			return res.render('users/register', {
-				errors: errors.mapped(),
+				errors: errors.array(),
 				oldData: req.body,
 				title: "Crear producto", 
 				css: "/css/forms.css"
 			})
-		};*/
+		};
 
 		let talles = Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)}));
 		let tallesToSave = [];
