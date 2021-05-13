@@ -11,24 +11,26 @@ const controller = {
 		res.render("users/login", { title: "Login", css: "/css/login.css" })
 	},
 
-	processLogin: (req,res)=> {
+	processLogin: async (req,res)=> {
 		
-		let userToLogin = db.User.findOne({
+		let userToLogin = await db.User.findOne({
 			where: { 
 				email: req.body.email
 			}
 		})
-		if (userToLogin) {
+		try { 
+			if (userToLogin) {
 			let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
 			if (isOkThePassword) {
 				delete userToLogin.password;
 				req.session.userLogged = userToLogin;
 				return res.redirect('/')
-			} 
+			}}
 
-		if(req.body.rememberUser) {
+			if(req.body.rememberUser) {
 			res.cookies('userCookie', req.body.email, { maxAge: (1000 * 60) * 2})
 		}
+
 		return res.render('users/login', {
 			errors: {
 				email: {
@@ -38,8 +40,7 @@ const controller = {
 				title: "Login", 
 				css: "/css/login.css"
 			
-		});		
-	}
+		})} catch(error) {return res.send(error)}
 	},
 
 	logout: (req, res) => {
@@ -57,9 +58,9 @@ const controller = {
 		res.render("users/register", { title: "Registro", css: "/css/register.css"})
 	},
 
-	processRegister: (req,res) => {
+	processRegister: async (req,res) => {
 
-		let errors = validationResult(req);
+		/*let errors = validationResult(req);
 
 		if (!errors.isEmpty()) {
 			return res.render('users/register', {
@@ -68,16 +69,16 @@ const controller = {
 				title: "Registro", 
 				css: "/css/register.css"
 			})
-		};
-		
-		let userToCreate = db.User.create({
-			name: req.body.name,
-			lastName: req.body.lastName,
+		};*/
+
+		const userToCreate = await db.User.create({
+			user_name: req.body.name,
+			last_name: req.body.lastName,
 			email: req.body.email,
 			age: req.body.age,
 			city: req.body.city,
 			image: req.file.filename, 
-			role: 1,
+			role_id: 1,
 			password: bcrypt.hashSync(req.body.password, 10)
 		});
 
@@ -88,15 +89,24 @@ const controller = {
 	destroy: async (req, res) => {
 
 		let userToDelete = req.session.userLogged.id;
-	
-		await db.User.destroy({
-			where: { 
-				id: userToDelete
-			}});
+
+		try { 
+			await db.Cart.destroy({
+				where: {
+					user_id: req.params.id
+				}
+			});
+
+			await db.User.destroy({
+				where: { 
+					id: req.params.id
+				}})
 
 		req.session.destroy();
 		return res.redirect('/');
-	}
+
+	} catch(error) {return res.send(error)}
+}
 };
 
 module.exports = controller;
