@@ -26,6 +26,9 @@
             <form action = "/usuario/salir" method="POST">
                 <button type="submit" class="btn"> Logout </button>
             </form>
+            <% if(locals.userLogged.role_id != 3) {%>
+                <a href="/producto/crear"><button type="button" class="btn"> Crear producto </button></a>
+            <% } %>
         </div>
     </div>
 </main>
