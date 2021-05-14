@@ -18,7 +18,7 @@
         </div>
 
         <div id="datos">
-            <p><%= locals.userLogged.name + " " + locals.userLogged.lastName%> </p>
+            <p><%= locals.userLogged.user_name + " " + locals.userLogged.last_name%> </p>
             <p><%= locals.userLogged.email %></p>
             <form action = "/usuario/eliminar/<%= locals.userLogged.id %>?_method=DELETE" method="POST">
                 <button type="submit" class="btn"> Eliminar usuario </button>
@@ -26,6 +26,9 @@
             <form action = "/usuario/salir" method="POST">
                 <button type="submit" class="btn"> Logout </button>
             </form>
+            <% if(locals.userLogged.role_id != 3) {%>
+                <a href="/producto/crear"><button type="button" class="btn"> Crear producto </button></a>
+            <% } %>
         </div>
     </div>
 </main>

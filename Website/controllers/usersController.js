@@ -38,7 +38,7 @@ const controller = {
 			}}
 
 			if(req.body.rememberUser) {
-			res.cookies('userCookie', req.body.email, { maxAge: (1000 * 60) * 2})
+			res.cookies('userEmail', req.body.email, { maxAge: 60000 * 2})
 		}
 
 		return res.render('users/login', {
@@ -70,7 +70,7 @@ const controller = {
 
 	processRegister: async (req,res) => {
 
-		let errors = validationResult(req);
+		/*let errors = validationResult(req);
 
 		if (!errors.isEmpty()) {
 			return res.render('users/register', {
@@ -79,7 +79,7 @@ const controller = {
 				title: "Registro", 
 				css: "/css/register.css"
 			})
-		};
+		};*/
 
 		const userToCreate = await db.User.create({
 			user_name: req.body.name,
