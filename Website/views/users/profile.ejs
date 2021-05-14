@@ -18,7 +18,7 @@
         </div>
 
         <div id="datos">
-            <p><%= locals.userLogged.name + " " + locals.userLogged.lastName%> </p>
+            <p><%= locals.userLogged.user_name + " " + locals.userLogged.last_name%> </p>
             <p><%= locals.userLogged.email %></p>
             <form action = "/usuario/eliminar/<%= locals.userLogged.id %>?_method=DELETE" method="POST">
                 <button type="submit" class="btn"> Eliminar usuario </button>
