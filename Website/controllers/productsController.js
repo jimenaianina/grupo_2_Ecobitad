@@ -55,6 +55,10 @@ const controller = {
 
 	save: async (req,res)=> {
 
+		let categorias = await db.Category.findAll();
+		let talles = await db.Size.findAll();
+		let colores = await db.Color.findAll();
+
 		let errors = validationResult(req);
 
 		if (!errors.isEmpty()) {
@@ -62,22 +66,23 @@ const controller = {
 				errors: errors.array(),
 				oldData: req.body,
 				title: "Crear producto", 
-				css: "/css/forms.css"
+				css: "/css/forms.css",
+				categorias, colores, talles				
 			})
 		};
 
 		 
-		let talles = Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)}));
+		let sizes = Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)}));
 		let tallesToSave = [];
-		for(let talle of talles) {
+		for(let talle of sizes) {
 			const talleToAddOnSave = await db.Size.findByPk(talle.size_id);
 			tallesToSave.push(talleToAddOnSave)
 			}
 		
 
-		let colores = Array.from(req.body.colors).map(color=> new Object ({color_id: parseInt(color)}));
+		let colors = Array.from(req.body.colors).map(color=> new Object ({color_id: parseInt(color)}));
 		let coloresToSave = [];
-		for(let color of colores) {
+		for(let color of colors) {
 			const colorToAddOnSave = await db.Color.findByPk(color.color_id);
 			coloresToSave.push(colorToAddOnSave)
 			}
@@ -120,6 +125,10 @@ const controller = {
 
 	update: async (req, res) => {
 
+		let categorias = await db.Category.findAll();
+		let talles = await db.Size.findAll();
+		let colores = await db.Color.findAll();
+
 		let errors = validationResult(req);
 
 		if (!errors.isEmpty()) {
@@ -127,20 +136,21 @@ const controller = {
 				errors: errors.array(),
 				oldData: req.body,
 				title: "Crear producto", 
-				css: "/css/forms.css"
+				css: "/css/forms.css", 
+				categorias, colores, talles
 			})
 		};
 
-		let talles = Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)}));
+		let sizes = Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)}));
 		let tallesToSave = [];
-		for(let talle of talles) {
+		for(let talle of sizes) {
 			const talleToAddOnSave = await db.Size.findByPk(talle.size_id);
 			tallesToSave.push(talleToAddOnSave)
 			}
 		
-		let colores = Array.from(req.body.colors).map(color=> new Object ({color_id: parseInt(color)}));
+		let colors = Array.from(req.body.colors).map(color=> new Object ({color_id: parseInt(color)}));
 		let coloresToSave = [];
-		for(let color of colores) {
+		for(let color of colors) {
 			const colorToAddOnSave = await db.Color.findByPk(color.color_id);
 			coloresToSave.push(colorToAddOnSave)
 			}
