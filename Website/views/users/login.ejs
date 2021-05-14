@@ -19,7 +19,7 @@
 
     <section class="errors">
         <ul>
-          <% if (locals.errors) { %>
+          <% if (locals && locals.errors && locals.errors.length) { %>
             <% errors.forEach( error => { %>
              <p class= "errores"> <% error.msg %> </p>
           <% })} %>
