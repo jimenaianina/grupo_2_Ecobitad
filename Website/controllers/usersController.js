@@ -14,12 +14,13 @@ const controller = {
 
 		let errors = validationResult(req);
 
-		if (!errors.isEmpty()) {
-			return res.render('users/register', {
-				errors: errors.array(),
+
+		if (errors.errors.length > 0) {
+			return res.render('users/login', {
+				errors: errors.mapped(),
 				oldData: req.body,
-				title: "Registro", 
-				css: "/css/register.css"
+				title: "Login", 
+				css: "/css/login.css"
 			})
 		};
 		
@@ -71,9 +72,10 @@ const controller = {
 
 		let errors = validationResult(req);
 
-		if (!errors.isEmpty()) {
+
+		if (errors.errors.length > 0) {
 			return res.render('users/register', {
-				errors: errors.array(),
+				errors: errors.mapped(),
 				oldData: req.body,
 				title: "Registro", 
 				css: "/css/register.css"

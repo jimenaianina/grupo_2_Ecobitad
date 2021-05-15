@@ -11,7 +11,7 @@ const authMiddleware = require('../middlewares/authMiddleware');
 
 router.get('/acceder', usersController.login);
 
-router.post('/acceder', usersController.processLogin);
+router.post('/acceder', validacionLogin, usersController.processLogin);
 
 router.get('/salir', usersController.logout);
 

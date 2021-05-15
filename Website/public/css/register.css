@@ -81,6 +81,13 @@ body form {
     text-align: left;
 }
 
+.errors {
+  color: rgb(206, 0, 0);
+  font-size: 10px;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
 .btn {
     width: 300px;
     text-shadow: 1px #9daef5;

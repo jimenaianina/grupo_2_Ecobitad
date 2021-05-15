@@ -33,6 +33,12 @@ form {
     margin-bottom: 40px;
 }
 
+.errors {
+    color: rgb(206, 0, 0);
+    font-size: 10px;
+    margin-bottom: 16px;
+}
+
 form input, form label, select, textarea, #buttons, output {
     margin: 10px;
 }

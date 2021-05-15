@@ -1,13 +1,11 @@
-const path = require('path');
 const { body } = require('express-validator');
 const bcrypt = require('bcryptjs');
-const User = require('../models/users');
 const db = require('../database/models');
 
 const validacionLogin = [
     body('email')
-    .notEmpty()
-    .isEmail()
+    .notEmpty().withMessage("El campo de email no puede estar vacío")
+    .isEmail().withMessage('El formato de correo debe ser válido')
     .custom(async value => {
       
       const existentUser = await db.User.findOne({ where: { email: value } });
@@ -18,9 +16,10 @@ const validacionLogin = [
     return true;
     
         }),
+
     body('password')
-    .notEmpty()
-    .custom(value => {
+      .notEmpty().withMessage("El campo de contraseña no puede estar vacío")
+      .custom(value => {
         return User.findOne(req.body.email)
         .then( user => {
           let passwordToMatch = bcrypt.compareSync(value, user.password);

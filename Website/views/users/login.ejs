@@ -17,14 +17,13 @@
 
 <div id= "formularios">
 
-    <section class="errors">
-        <ul>
-          <% if (locals && locals.errors && locals.errors.length) { %>
-            <% errors.forEach( error => { %>
-             <p class= "errores"> <% error.msg %> </p>
-          <% })} %>
-        </ul>
-      </section>
+    <div class="errors">
+            <% if (locals.errors) { %>
+                <% for (let error in errors ) { %>
+                <p> <%= errors[error].msg %> </p>
+             <% } %>
+            <% } %>
+        </div>
 
     <form action= "/usuario/acceder" method="POST">
         <label for="email"> E-mail </label>

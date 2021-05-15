@@ -1,29 +1,27 @@
-const fs = require('fs');
-const path = require('path');
 const db = require('../database/models');
 const { validationResult } = require('express-validator');
 
 const controller = {
 
 	index: async (req, res) => {
-		let categorias = await db.Category.findAll();
-		let talles = await db.Size.findAll();
-		let colores = await db.Color.findAll();
+		let categories = await db.Category.findAll();
+		let sizes = await db.Size.findAll();
+		let colors = await db.Color.findAll();
 		try {
 			let products = await db.Product.findAll({include: ["category", "sizes", "colors", "images"]});
-			res.render("products/list", { products:products, title: "Productos", css: "/css/list.css", categorias, colores, talles})}
+			res.render("products/list", { products:products, title: "Productos", css: "/css/list.css", categories, colors, sizes})}
 		catch(error){return res.send(error)}
 	},
 
 	detail: async (req,res)=> { 
-		let categorias = await db.Category.findAll();
-		let talles = await db.Size.findAll();
-		let colores = await db.Color.findAll();
+		let categories = await db.Category.findAll();
+		let sizes = await db.Size.findAll();
+		let colors = await db.Color.findAll();
 		try { let product = 
 		await db.Product.findByPk(req.params.id, {
 			include: ["category", "sizes", "colors", "images"],
 		})
-		return res.render("products/detail", { product:product , title: product.product_name , css: "/css/detail.css", colores, categorias, talles})
+		return res.render("products/detail", { product:product , title: product.product_name , css: "/css/detail.css", colors, categories, sizes})
 	}
 	catch(error) {return res.send(error)}
 	},
@@ -33,43 +31,45 @@ const controller = {
 	},
 
 	create: async (req,res)=> {
-		let categorias = await db.Category.findAll();
-		let talles = await db.Size.findAll();
-		let colores = await db.Color.findAll();
-		try {res.render("products/createForm", { title: "Crear", css: "/css/forms.css", categorias, colores, talles})}
+		let categories = await db.Category.findAll();
+		let sizes = await db.Size.findAll();
+		let colors = await db.Color.findAll();
+		try {res.render("products/createForm", { title: "Crear", css: "/css/forms.css", categories, colors, sizes})}
 		catch(error){return res.send(error)}
 	},
 
 	edit: async (req,res)=> {
-		let categorias = await db.Category.findAll();
-		let talles = await db.Size.findAll();
-		let colores = await db.Color.findAll();
+		let categories = await db.Category.findAll();
+		let sizes = await db.Size.findAll();
+		let colors = await db.Color.findAll();
 		try { let product = 
 			await db.Product.findByPk(req.params.id, {
 				include: ["category", "sizes", "colors", "images"],
 			})
-		return res.render("products/editForm", { product:product , title: "Editar", css: "/css/forms.css", categorias, colores, talles})
+		return res.render("products/editForm", { product:product , title: "Editar", css: "/css/forms.css", categories, colors, sizes})
 	}
 		catch(error){return res.send(error)}
 	},
 
 	save: async (req,res)=> {
 
-		/*let categorias = await db.Category.findAll();
+		let categories = await db.Category.findAll();
 		let sizes = await db.Size.findAll();
 		let colors = await db.Color.findAll();
 
 		let errors = validationResult(req);
 
-		if (!errors.isEmpty()) {
+
+		if (errors.errors.length > 0) {
 			return res.render('products/createForm', {
-				errors: errors.array(),
+				errors: errors.mapped(),
 				oldData: req.body,
 				title: "Crear producto", 
 				css: "/css/forms.css",
-				categorias, colors, sizes				
+				categories, colors, sizes	
 			})
-		};*/
+		};
+		
 		let tallesToSave;
 		let coloresToSave;
 
@@ -129,21 +129,22 @@ const controller = {
 
 	update: async (req, res) => {
 
-		/*let categorias = await db.Category.findAll();
-		let talles = await db.Size.findAll();
-		let colores = await db.Color.findAll();
+		let categories = await db.Category.findAll();
+		let sizes = await db.Size.findAll();
+		let colors = await db.Color.findAll();
 
 		let errors = validationResult(req);
 
-		if (!errors.isEmpty()) {
-			return res.render('users/register', {
-				errors: errors.array(),
+
+		if (errors.errors.length > 0) {
+			return res.render('products/createForm', {
+				errors: errors.mapped(),
 				oldData: req.body,
-				title: "Crear producto", 
-				css: "/css/forms.css", 
-				categorias, colores, talles
+				title: "Editar producto", 
+				css: "/css/forms.css",
+				categories, colors, sizes	
 			})
-		};*/
+		};
 
 		let tallesToSave;
 		let coloresToSave;

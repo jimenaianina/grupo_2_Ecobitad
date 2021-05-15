@@ -10,14 +10,13 @@
 
 <h1> Crear producto </h1>
 
-<section class="errors">
-  <ul>
-    <% if (locals.errors) { %>
-      <% errors.forEach( error => { %>
-       <p class= "errores"> <% error.msg %> </p>
-    <% })} %>
-  </ul>
-</section>
+<div class="errors">
+  <% if (locals.errors) { %>
+      <% for (let error in errors ) { %>
+      <p> <%= errors[error].msg %> </p>
+   <% } %>
+  <% } %>
+</div>
 
 <div id="formulario">
 
@@ -29,20 +28,20 @@
     <label for="image"> Fotos del producto </label>
     <input type="file" name="image" id="file" multiple>
     <label for="category"> Categoría </label>
-    <% categorias.forEach(categoria => { %>
+    <% categories.forEach(categoria => { %>
       <label for= "<%= categoria.id %>"><input type="radio" id="category" name="category" value="<%= categoria.id %> "> <%= categoria.category_name %> </label>
     <% }) %>
     <label for="colors"> Colores </label>
     <select name="colors[]" class="box select" multiple id="color">
       <option value=""> -- Elegí un color --</option>
-      <% colores.forEach(color => { %>
+      <% colors.forEach(color => { %>
       <option value="<%= color.id %>"> <%= color.color_name %></option>
       <% }) %>
     </select>
     <label for="sizes"> Talles </label>
     <select name="sizes[]" class="box select" multiple id="size">
       <option value=""> -- Elegí un talle --</option>
-      <% talles.forEach(talle => { %>
+      <% sizes.forEach(talle => { %>
       <option value="<%= talle.id %>"> <%= talle.size_name %></option>
       <% }) %>
     </select>
