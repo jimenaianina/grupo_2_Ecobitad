@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang = "es">
+    
+    <%- include ('../partials/head') %>
+    
+    <body>
+    
+        <%- include ('../partials/header') %>
+        <main>
+
+            <h1> Carrito de compras </h1>
+
+            <div id="cart">
+
+                <% if (!cart) { %>
+                    <h4 id="empty"> Tu carrito de compras está vacío </h4>
+                <% } %>
+                
+
+            </div>
+
+
+        </main>
+        
+
+        <%- include ('../partials/footer') %>
+
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* Mobile */
+
+body {
+    background-color:white;
+    font-family: "Spartan";
+    font-weight: 500;
+    font-size: 16px;
+    font-style: normal;
+    text-align: center;
+}
+
+main {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+#cart {
+    display: flex;
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: whitesmoke;
+    padding: 20px;
+    height: 300px;
+    justify-content: center;
+}
+
+#empty {
+    display: flex;
+    align-self: center;
+}
+
+button {
+    width: 154px;
+    height: 40px;
+    text-shadow: 1px #9daef5;
+      -webkit-box-shadow: 24px whitesmoke;
+      -moz-box-shadow: 24px whitesmoke;
+      box-shadow: 3px 2px 5px whitesmoke;
+    font-family: "Spartan";
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: black;
+    font-size: 12px;
+    padding: 12px;
+    text-decoration: none;
+    border: rgb(0, 0, 0);
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+    font-size: 12px;
+    font-family: "Spartan";
+    font-weight: 500;
+ }
+ 
+ :-moz-placeholder { 
+    text-align: center;  
+    font-size: 12px;
+    font-family: "Spartan";
+    font-weight: 500;
+ }
+ 
+ ::-moz-placeholder {  
+    text-align: center;
+    font-size: 12px;
+    font-family: "Spartan";
+    font-weight: 500;
+ }
+ 
+ :-ms-input-placeholder {  
+    text-align: center; 
+    font-size: 12px;
+    font-family: "Spartan";
+    font-weight: 500;
+ }
+
+ h4 {
+     font-size: 14px;
+     font-weight:400;
+ }
+
+
+
+/* Desktop */
+
+@media screen and (min-width: 768px) {
+
+      ::-webkit-input-placeholder {
+        text-align: left;
+        font-size: 12px;
+        font-family: "Spartan";
+        font-weight: 500;
+     }
+     
+     :-moz-placeholder { 
+        text-align: left;  
+        font-size: 12px;
+        font-family: "Spartan";
+        font-weight: 500;
+     }
+     
+     ::-moz-placeholder {  
+        text-align: left;
+        font-size: 12px;
+        font-family: "Spartan";
+        font-weight: 500;
+     }
+     
+     :-ms-input-placeholder {  
+        text-align: left; 
+        font-size: 12px;
+        font-family: "Spartan";
+        font-weight: 500;
+     }
+    
+
+}

@@ -115,6 +115,55 @@ const controller = {
 		return res.redirect('/');
 
 	} catch(error) {return res.send(error)}
+},
+
+cart: async (req,res) => {
+	
+	let userLogged = req.session.userLogged
+	
+	if(userLogged) {
+
+	let cart = await db.Cart.findOne({
+		where: { 
+			user_id: userLogged.id
+		}
+	});
+
+	let cartProducts = await db.CartProduct.findOne({ 
+		where: {
+			cart_id: cart.id
+		}
+	})
+
+	return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css", cart, cartProducts,})
+} else { return res.redirect("/usuario/acceder")}
+},
+
+addCart: async (req,res)=> {
+	let categories = await db.Category.findAll();
+	let sizes = await db.Size.findAll();
+	let colors = await db.Color.findAll();
+
+	let productToAdd = await db.Product.findByPk(req.params.id, {
+		include: ["category", "sizes", "colors", "images"],
+	});
+
+	if (req.session.userLogged) {
+ 
+	const cartToCreate = await db.Cart.create({
+		user_id: req.session.userLogged.id,
+		cart_total: productToAdd.price,
+	});
+
+	const cartProductToCreate = await db.CartProduct.create({
+		cart_id: cartToCreate.id,
+		product_id: productToAdd.id,
+		quantity: 1,
+		unit_price: productToAdd.price,
+	})
+
+	return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css", colors, categories, sizes })
+} else { return res.redirect("/usuario/acceder")}
 }
 };
 

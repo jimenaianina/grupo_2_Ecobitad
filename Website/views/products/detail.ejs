@@ -64,7 +64,10 @@
             </section>
 
           <br>
+          <form action="/usuario/carrito/<%= product.id %>" method="POST" enctype="multipart/form-data">
             <input type="submit" class="agregar" value="Agregar al carrito" style="display: inline-block;">
+            </form>
+
             <section class="pago">
                 <i class="fas fa-truck"></i>
                 <span class="mediosFrase"> Medios de envío</span>

@@ -7,6 +7,7 @@ window.addEventListener('load', function() {
         let errors = [];
         let name = document.querySelector("#name");
         let description = document.querySelector("#description");
+        let category = document.querySelector("#category");
         let image = document.querySelector("#file");
         let acceptedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
 
@@ -18,6 +19,9 @@ window.addEventListener('load', function() {
       else if(description.value.length < 20) {
         errors.push("La descripción del producto debe tener al menos 20 caracteres")
       }
+      else if(category.value == 0) {
+        errors.push("Debes seleccionar una categoría para el producto")
+      }
       else if(!acceptedExtensions.exec(image.value)) {
     errors.push("El formato de la imagen debe ser .JPG, .JPEG, .PNG o .GIF")
       }
@@ -26,7 +30,7 @@ window.addEventListener('load', function() {
         evento.preventDefault();
         let ulErrors = document.querySelectorAll('.errors ul');
         errors.forEach(error => {
-            ulErrors.innerHTML += <li>${error}</li>})
+            ulErrors.innerHTML += <li> + ${error} + </li>})
         }
         
         })

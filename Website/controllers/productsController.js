@@ -27,7 +27,7 @@ const controller = {
 	},
 
 	cart: (req,res)=> {
-		return res.render("products/cart", { title: "Carrito", css: "/css/cart.css" })
+		return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css" })
 	},
 
 	create: async (req,res)=> {

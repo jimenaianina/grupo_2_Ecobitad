@@ -18,8 +18,6 @@ router.get('/', productsController.index);
 
 router.get('/detalle/:id', productsController.detail); 
 
-router.get('/carrito', productsController.cart)
-
 const upload = multer( { storage: storage});
 
 router.get('/crear', productsController.create);
