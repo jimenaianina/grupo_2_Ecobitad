@@ -8,11 +8,15 @@ const validacionLogin = [
     body('email')
     .notEmpty()
     .isEmail()
-    .custom(value => {
-        return User.findOne(value).then(user => {
-          if (!user) {
-            return Promise.reject('Este correo electrónico no se encuentra registrado');
-          }})
+    .custom(async value => {
+      
+      const existentUser = await db.User.findOne({ where: { email: value } });
+
+      if (existentUser) {
+        throw new Error('Este correo electrónico ya se encuentra registrado');
+    }
+    return true;
+    
         }),
     body('password')
     .notEmpty()

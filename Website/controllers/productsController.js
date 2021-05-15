@@ -55,9 +55,9 @@ const controller = {
 
 	save: async (req,res)=> {
 
-		let categorias = await db.Category.findAll();
-		let talles = await db.Size.findAll();
-		let colores = await db.Color.findAll();
+		/*let categorias = await db.Category.findAll();
+		let sizes = await db.Size.findAll();
+		let colors = await db.Color.findAll();
 
 		let errors = validationResult(req);
 
@@ -67,26 +67,28 @@ const controller = {
 				oldData: req.body,
 				title: "Crear producto", 
 				css: "/css/forms.css",
-				categorias, colores, talles				
+				categorias, colors, sizes				
 			})
-		};
+		};*/
+		let tallesToSave;
+		let coloresToSave;
 
-		 
-		let sizes = Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)}));
-		let tallesToSave = [];
-		for(let talle of sizes) {
+		if (req.body.sizes) {
+		let talles = Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)}));
+		tallesToSave = [];
+		for(let talle of talles) {
 			const talleToAddOnSave = await db.Size.findByPk(talle.size_id);
 			tallesToSave.push(talleToAddOnSave)
-			}
-		
+			}}
 
-		let colors = Array.from(req.body.colors).map(color=> new Object ({color_id: parseInt(color)}));
-		let coloresToSave = [];
-		for(let color of colors) {
+		if (req.body.colors) { 
+		let colores = Array.from(req.body.colors).map(color=> new Object ({color_id: parseInt(color)}));
+		coloresToSave = [];
+		for(let color of colores) {
 			const colorToAddOnSave = await db.Color.findByPk(color.color_id);
 			coloresToSave.push(colorToAddOnSave)
-			}
-
+		}}
+		
 			let imagesToSave = [];
 			let imagesToSaveId = [];
 		
@@ -101,7 +103,6 @@ const controller = {
 				const imagenToAddOnSave = await db.Image.findByPk(imagen);	 
 				imagesToSave.push(imagenToAddOnSave)
 			}		 
-		
 
 		try {
 			const productToCreate = await db.Product.create({
@@ -111,10 +112,13 @@ const controller = {
 			price: req.body.price, 
 			stock: req.body.stock,
 			})
-			
+		
+		if (tallesToSave) {
+		await productToCreate.addSizes(tallesToSave)}
+		
+		if (coloresToSave) {
+		await productToCreate.addColors(coloresToSave)}
 
-		await productToCreate.addSizes(tallesToSave);
-		await productToCreate.addColors(coloresToSave);
 		await productToCreate.addImages(imagesToSave);
 
 		return res.redirect("/producto")
@@ -125,7 +129,7 @@ const controller = {
 
 	update: async (req, res) => {
 
-		let categorias = await db.Category.findAll();
+		/*let categorias = await db.Category.findAll();
 		let talles = await db.Size.findAll();
 		let colores = await db.Color.findAll();
 
@@ -139,18 +143,18 @@ const controller = {
 				css: "/css/forms.css", 
 				categorias, colores, talles
 			})
-		};
+		};*/
 
-		let sizes = Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)}));
+		let talles = Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)}));
 		let tallesToSave = [];
-		for(let talle of sizes) {
+		for(let talle of talles) {
 			const talleToAddOnSave = await db.Size.findByPk(talle.size_id);
 			tallesToSave.push(talleToAddOnSave)
 			}
 		
-		let colors = Array.from(req.body.colors).map(color=> new Object ({color_id: parseInt(color)}));
+		let colores = Array.from(req.body.colors).map(color=> new Object ({color_id: parseInt(color)}));
 		let coloresToSave = [];
-		for(let color of colors) {
+		for(let color of colores) {
 			const colorToAddOnSave = await db.Color.findByPk(color.color_id);
 			coloresToSave.push(colorToAddOnSave)
 			}

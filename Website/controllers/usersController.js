@@ -31,16 +31,15 @@ const controller = {
 		try { 
 			if (userToLogin) {
 			let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
+			if(req.body.rememberUser) {
+				res.cookies('userEmail', req.body.email, { maxAge: 60000 * 2})
+				}
 			if (isOkThePassword) {
 				delete userToLogin.password;
 				req.session.userLogged = userToLogin;
 				return res.redirect('/')
 			}}
-
-			if(req.body.rememberUser) {
-			res.cookies('userEmail', req.body.email, { maxAge: 60000 * 2})
-		}
-
+		
 		return res.render('users/login', {
 			errors: {
 				email: {
@@ -70,7 +69,7 @@ const controller = {
 
 	processRegister: async (req,res) => {
 
-		/*let errors = validationResult(req);
+		let errors = validationResult(req);
 
 		if (!errors.isEmpty()) {
 			return res.render('users/register', {
@@ -79,7 +78,7 @@ const controller = {
 				title: "Registro", 
 				css: "/css/register.css"
 			})
-		};*/
+		};
 
 		const userToCreate = await db.User.create({
 			user_name: req.body.name,
