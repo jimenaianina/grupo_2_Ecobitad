@@ -14,12 +14,17 @@
     
         <div class = "formularios">
 
-            <div class="errors">
+            <div class="errorsEV">
                 <% if (locals.errors) { %>
                     <% for (let error in errors ) { %>
                     <p> <%= errors[error].msg %> </p>
                  <% } %>
                 <% } %>
+            </div>
+
+            <div class="errors">
+                <ul>
+                </ul>
             </div>
             
             <form action = "/usuario/registro" method="POST" enctype="multipart/form-data">

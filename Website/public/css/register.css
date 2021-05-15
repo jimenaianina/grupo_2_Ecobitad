@@ -81,7 +81,7 @@ body form {
     text-align: left;
 }
 
-.errors {
+.errorsEV {
   color: rgb(206, 0, 0);
   font-size: 10px;
   text-align: left;

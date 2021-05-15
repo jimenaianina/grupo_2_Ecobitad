@@ -10,12 +10,17 @@
 
 <h1> Crear producto </h1>
 
-<div class="errors">
+<div class="errorsEV">
   <% if (locals.errors) { %>
       <% for (let error in errors ) { %>
       <p> <%= errors[error].msg %> </p>
    <% } %>
   <% } %>
+</div>
+
+<div class="errors">
+  <ul>
+  </ul>
 </div>
 
 <div id="formulario">

@@ -2,7 +2,7 @@ window.addEventListener('load', function() {
 
     let formulario = document.querySelector("form");
     
-    formulario.addEventListener("submit", function(evento){
+    formulario.addEventListener("submit", function(event){
 
     let errors = [];
     let email = document.querySelector("#email");
@@ -19,7 +19,7 @@ window.addEventListener('load', function() {
   }
 
   if(errors.length > 0) {
-    evento.preventDefault();
+    event.preventDefault();
     let ulErrors = document.querySelectorAll('.errors ul');
     errors.forEach(error => {
         ulErrors.innerHTML += <li>${error}</li>})

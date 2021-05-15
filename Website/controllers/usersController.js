@@ -14,7 +14,6 @@ const controller = {
 
 		let errors = validationResult(req);
 
-
 		if (errors.errors.length > 0) {
 			return res.render('users/login', {
 				errors: errors.mapped(),
@@ -71,7 +70,6 @@ const controller = {
 	processRegister: async (req,res) => {
 
 		let errors = validationResult(req);
-
 
 		if (errors.errors.length > 0) {
 			return res.render('users/register', {
