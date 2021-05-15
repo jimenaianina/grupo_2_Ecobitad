@@ -38,7 +38,7 @@ const controller = {
 				delete userToLogin.password;
 				req.session.userLogged = userToLogin;
 				return res.redirect('/')
-			}}
+			} else { return res.render('users/login', {errors: {password: { msg: "Contraseña inválida"}}, title: "Login", css: "/css/login.css"})}}
 		
 		return res.render('users/login', {
 			errors: {
