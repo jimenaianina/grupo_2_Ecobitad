@@ -145,15 +145,18 @@ const controller = {
 			})
 		};*/
 
+		let tallesToSave;
+		let coloresToSave;
+
 		let talles = Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)}));
-		let tallesToSave = [];
+		tallesToSave = [];
 		for(let talle of talles) {
 			const talleToAddOnSave = await db.Size.findByPk(talle.size_id);
 			tallesToSave.push(talleToAddOnSave)
 			}
 		
 		let colores = Array.from(req.body.colors).map(color=> new Object ({color_id: parseInt(color)}));
-		let coloresToSave = [];
+		coloresToSave = [];
 		for(let color of colores) {
 			const colorToAddOnSave = await db.Color.findByPk(color.color_id);
 			coloresToSave.push(colorToAddOnSave)
