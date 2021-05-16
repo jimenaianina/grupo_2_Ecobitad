@@ -34,10 +34,13 @@ form {
 }
 
 .errorsJV{
-    list-style: none;
     color: rgb(206, 0, 0);
     font-size: 10px;
     margin-bottom: 16px;
+}
+
+.errorsJV ul li {
+    list-style: none;
 }
 
 .errorsEV {

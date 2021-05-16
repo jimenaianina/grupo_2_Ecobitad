@@ -16,13 +16,16 @@ window.addEventListener('load', function() {
       } else if(name.value.length < 5) {
         errorsJV.push("El nombre del producto debe tener al menos 5 caracteres")
       }
-      else if(description.value.length < 20) {
+      
+      if(description.value.length < 20) {
         errorsJV.push("La descripción del producto debe tener al menos 20 caracteres")
       }
-      else if(category.value == 0) {
+
+      if(!category.value) {
         errorsJV.push("Debes seleccionar una categoría para el producto")
       }
-      else if(!acceptedExtensions.exec(image.value)) {
+      
+      if(!acceptedExtensions.exec(image.value)) {
         errorsJV.push("El formato de la imagen debe ser .JPG, .JPEG, .PNG o .GIF")
       }
 

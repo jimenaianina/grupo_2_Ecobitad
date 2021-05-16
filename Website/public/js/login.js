@@ -11,12 +11,12 @@ window.addEventListener('load', function() {
 
       if(email.value == "") {
         errorsJV.push("El email del usuario no puede estar vacío")
-      } 
-      else if(password.value == "") {
-        errorsJV.push("La contraseña del usuario no puede estar vacía")
-      }
-      else if(!emailRegex.exec(email.value)) {
+      } else if(!emailRegex.exec(email.value)) {
         errorsJV.push("El email del usuario debe ser un formato válido")
+      }
+      
+      if(password.value == "") {
+        errorsJV.push("La contraseña del usuario no puede estar vacía")
       }
 
   if(errorsJV.length > 0) {
