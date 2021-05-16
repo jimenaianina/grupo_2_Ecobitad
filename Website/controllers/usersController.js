@@ -150,7 +150,7 @@ addCart: async (req,res)=> {
 	let cartUser;
 
 	try {
-	if (userLogged) {
+	if (req.session.userLogged) {
 	cartUser = await db.Cart.findOne({ where: { user_id : req.session.userLogged.id} })}
     
 	return res.send(cartUser)
