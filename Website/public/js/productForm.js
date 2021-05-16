@@ -2,9 +2,9 @@ window.addEventListener('load', function() {
 
         let formulario = document.querySelector("form");
         
-        formulario.addEventListener("submit", function(evento){
+        formulario.addEventListener("submit", function(event){
 
-        let errors = [];
+        let errorsJV = [];
         let name = document.querySelector("#name");
         let description = document.querySelector("#description");
         let category = document.querySelector("#category");
@@ -12,26 +12,26 @@ window.addEventListener('load', function() {
         let acceptedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
 
       if(name.value == "") {
-        errors.push("El nombre del producto no puede estar vacío")
+        errorsJV.push("El nombre del producto no puede estar vacío")
       } else if(name.value.length < 5) {
-        errors.push("El nombre del producto debe tener al menos 5 caracteres")
+        errorsJV.push("El nombre del producto debe tener al menos 5 caracteres")
       }
       else if(description.value.length < 20) {
-        errors.push("La descripción del producto debe tener al menos 20 caracteres")
+        errorsJV.push("La descripción del producto debe tener al menos 20 caracteres")
       }
       else if(category.value == 0) {
-        errors.push("Debes seleccionar una categoría para el producto")
+        errorsJV.push("Debes seleccionar una categoría para el producto")
       }
       else if(!acceptedExtensions.exec(image.value)) {
-    errors.push("El formato de la imagen debe ser .JPG, .JPEG, .PNG o .GIF")
+        errorsJV.push("El formato de la imagen debe ser .JPG, .JPEG, .PNG o .GIF")
       }
 
-      if(errors.length > 0) {
-        evento.preventDefault();
-        let ulErrors = document.querySelectorAll('.errors ul');
-        errors.forEach(error => {
-            ulErrors.innerHTML += <li> + ${error} + </li>})
-        }
+      if(errorsJV.length > 0) {
+        event.preventDefault();
+        let ulErrors = document.querySelector('div.errorsJV ul');
+        for (let i = 0; i < errorsJV.length; i++) {
+          ulErrors.innerHTML += '<li>' + errorsJV[i] + '</li>'
+        }}
         
         })
    });

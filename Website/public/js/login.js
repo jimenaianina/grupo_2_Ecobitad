@@ -2,7 +2,7 @@ window.addEventListener('load', function() {
 
     let formulario = document.querySelector("form");
     
-    formulario.addEventListener("submit", function(event){
+      formulario.addEventListener("submit", function(event){
       
       let errorsJV = [];
       let email = document.querySelector("input#email");

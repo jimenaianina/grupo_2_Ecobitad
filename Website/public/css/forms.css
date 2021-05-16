@@ -33,6 +33,13 @@ form {
     margin-bottom: 40px;
 }
 
+.errorsJV{
+    list-style: none;
+    color: rgb(206, 0, 0);
+    font-size: 10px;
+    margin-bottom: 16px;
+}
+
 .errorsEV {
     color: rgb(206, 0, 0);
     font-size: 10px;
