@@ -8,19 +8,25 @@ const { use } = require('../routes/users');
 const controller = {
 
 	allUsersAPI: async (req, res) => {
-    await db.User
-	.findAll()
-	.then(users => {
-		return res.status(200).json({
-			count: users.length,
-			users: {
-				id: users.user.id,
-                name: users.user.user_name,
-				email: users.user.email,
-				detail: "localhost:3030/usuario/api/users/:" + users.id
-			},
-			status: 200
-		})})
+		let users = await db.User.findAll()
+
+		let usersUpdate = users.map( user => {
+			const userData = {};
+			userData[user.id] = user.id;
+			userData[user.user_name] = user.user_name;
+			userData[user.last_name] = user.last_name;
+			userData[user.email] = user.email;
+			userData[user.image] = user.image;
+			return userData
+		})
+
+		.then(users => {
+			return res.status(200).json({
+				count: users.length,
+				users: usersUpdate,
+				status: 200
+			})
+		})
 	},
 
 	oneUserAPI: async (req,res) => {
@@ -153,15 +159,18 @@ const controller = {
 cart: async (req,res) => {
 	
 	let userLogged = req.session.userLogged
+	let cartUser;
 	
 	try {
-	if(userLogged) {
-
-	const cart = await db.Cart.findOne({
-		where: { 
-			user_id: userLogged.id
-		}
-	});
+		if (userLogged) {
+			cartUser = await db.Cart.findOrCreate({ 
+				where: 
+				{ user_id : userLogged.id}
+				, defaults: {
+					cart_total: 0
+				},
+				include: user
+			})
 
 	const cartProducts = await db.CartProduct.findAll({ 
 		where: {
@@ -169,7 +178,7 @@ cart: async (req,res) => {
 		}
 	})
 
-	return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css", cart, cartProducts,})
+	return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css"})
 } else { return res.redirect("/usuario/acceder")}
 } catch (error) {return res.send(error)}
 },
