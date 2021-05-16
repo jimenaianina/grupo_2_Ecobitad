@@ -8,40 +8,28 @@ const { use } = require('../routes/users');
 const controller = {
 
 	allUsersAPI: async (req, res) => {
-		let users = await db.User.findAll()
-
-		let usersUpdate = users.map( user => {
-			const userData = {};
-			userData[user.id] = user.id;
-			userData[user.user_name] = user.user_name;
-			userData[user.last_name] = user.last_name;
-			userData[user.email] = user.email;
-			userData[user.image] = user.image;
-			return userData
-		})
+		await db.User.findAll({attributes: {exclude: [ 'city','age', 'role_id', 'password']}})
 
 		.then(users => {
-			return res.status(200).json({
+			return res.json({
 				count: users.length,
-				users: usersUpdate,
-				status: 200
+				users: users
 			})
 		})
 	},
 
 	oneUserAPI: async (req,res) => {
 		await db.User
-		.findByPk(req.params.id)
+		.findByPk(req.params.id, {attributes: {exclude: [ 'role_id', 'password']}})
 		.then(oneUser => {
-			return res.status(200).json({
+			return res.json({
 				id: oneUser.id,
 				name: oneUser.user_name,
 				lastName: oneUser.last_name,
 				age: oneUser.age,
 				email: oneUser.email,
 				city: oneUser.city,
-				image: oneUser.image,
-				status: 200
+				image: oneUser.image
 			})})
 	},
 

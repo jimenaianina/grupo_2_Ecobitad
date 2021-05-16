@@ -15,42 +15,26 @@ const controller = {
 
 	allProductsAPI: async (req, res) => { 
 		await db.Product
-		.findAll({include: ["category", "sizes", "colors", "images"]})
+		.findAll({include: ["category", "colors"], attributes: {exclude: ['price', 'stock', 'category_id']}})
 		.then(products => {
-			return res.status(200).json({
+			return res.json({
 				count: products.length,
 				countByCategory: {
 					Baño: "ACÁ VA UN NÚMERO",
 					OnTheGo: "OTRO NUMERO",
 					Cocina: "OTRO"
 				},
-				products: {
-					id: products.product.id,
-					name: products.product.product_name,
-					description: products.product.product_description,
-					colores: products.colors.color_name ,
-					detail: "localhost:3030/producto/api/products/:" + products.id
-				},
-				status: 200
+				products: products, 
+				detail: "http://localhost:3030/producto/api/products/ACÁ IRÍA CADA ID" 
 			})})
 		},
 	
 		oneProductAPI: async (req,res) => {
 			await db.Product
-			.findByPk(req.params.id, {
-				include: ["category", "sizes", "colors", "images"]})
+			.findByPk(req.params.id, {include: ["category", "sizes", "colors", "images"]})
 			.then(oneProduct => {
-				return res.status(200).json({
-					id: oneProduct.id,
-					name: oneProduct.product_name,
-					description: oneProduct.product_description,
-					category: oneProduct.category.category_name,
-					colors: oneProduct.colors.color_name,
-					sizes: oneProduct.sizes.size_name,
-					price: oneProduct.price,
-					stock: oneProduct.stock,
-					image: oneProduct.images[0].image_path,
-					status: 200
+				return res.json({
+					oneProduct
 				})})
 		},
 	
