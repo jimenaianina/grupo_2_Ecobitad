@@ -148,19 +148,35 @@ addCart: async (req,res)=> {
 		include: ["category", "sizes", "colors", "images"],
 	});
 
-	if (req.session.userLogged) {
+	let userLogged = req.session.userLogged
+	let cartUser = await db.Cart.findOne({ where: { user_id : userLogged.id} })
+
+	if (userLogged && !cartUser ) {
  
 	const cartToCreate = await db.Cart.create({
-		user_id: req.session.userLogged.id,
-		cart_total: productToAdd.price,
-	});
+		user_id: userLogged.id,
+		cart_total: productToAdd.price * productToAdd.quantity
+	})	
 
-	const cartProductToCreate = await db.CartProduct.create({
+	if (!cartUser) {
+		const cartProductToCreate = await db.CartProduct.create({
 		cart_id: cartToCreate.id,
 		product_id: productToAdd.id,
 		quantity: 1,
+		unit_price: productToAdd.price
+	})} else if (cartUser) {
+		const cartProductToAdd = await db.CartProduct.create({
+		cart_id: cartUser,
+		product_id: productToAdd.id,
+		quantity: 1,
 		unit_price: productToAdd.price,
-	})
+		})
+
+		let productsOnCart = await db.CartProduct.findAll({ where: { cart_id : cartUser.id } })
+		let cartTotal = productsOnCart.reduce((a, b) => a + b, 0)
+		cartUser.cart_total = CartTotal
+		await cartUser.save()
+	}
 
 	return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css", colors, categories, sizes })
 } else { return res.redirect("/usuario/acceder")}
