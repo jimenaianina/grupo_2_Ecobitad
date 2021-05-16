@@ -12,17 +12,17 @@ window.addEventListener('load', function() {
       if(email.value == "") {
         errorsJV.push("El email del usuario no puede estar vacío")
       } 
-      else if(!emailRegex.exec(email.value)) {
-        errorsJV.push("El email del usuario debe ser un formato válido")
-      }
       else if(password.value == "") {
         errorsJV.push("La contraseña del usuario no puede estar vacía")
+      }
+      else if(!emailRegex.exec(email.value)) {
+        errorsJV.push("El email del usuario debe ser un formato válido")
       }
 
   if(errorsJV.length > 0) {
     event.preventDefault();
     let ulErrors = document.querySelector('div.errorsJV ul');
     for (let i = 0; i < errorsJV.length; i++) {
-      ulErrors.innerHTML += '<li>' + errores[i] + '</li>'
+      ulErrors.innerHTML += '<li>' + errorsJV[i] + '</li>'
     }}
 })});
