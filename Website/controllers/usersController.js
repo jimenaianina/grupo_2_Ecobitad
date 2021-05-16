@@ -147,11 +147,15 @@ addCart: async (req,res)=> {
 	let productToAdd = await db.Product.findByPk(req.params.id, {
 		include: ["category", "sizes", "colors", "images"],
 	});
+	let cartUser;
 
-	let userLogged = req.session.userLogged
-	let cartUser = await db.Cart.findOne({ where: { user_id : userLogged.id} })
+	try {
+	if (userLogged) {
+	cartUser = await db.Cart.findOne({ where: { user_id : req.session.userLogged.id} })}
+    
+	return res.send(cartUser)
 
-	if (userLogged && !cartUser ) {
+	if (!cartUser) {
  
 	const cartToCreate = await db.Cart.create({
 		user_id: userLogged.id,
@@ -159,7 +163,7 @@ addCart: async (req,res)=> {
 	})	
 
 	if (!cartUser) {
-		const cartProductToCreate = await db.CartProduct.create({
+		let cartProductToCreate = await db.CartProduct.create({
 		cart_id: cartToCreate.id,
 		product_id: productToAdd.id,
 		quantity: 1,
@@ -180,7 +184,8 @@ addCart: async (req,res)=> {
 
 	return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css", colors, categories, sizes })
 } else { return res.redirect("/usuario/acceder")}
-}
+} catch (error) {return res.send(error)}
+} 
 };
 
 module.exports = controller;

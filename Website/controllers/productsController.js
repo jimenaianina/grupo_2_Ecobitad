@@ -148,20 +148,22 @@ const controller = {
 
 		let tallesToSave;
 		let coloresToSave;
-
+        
+		if (req.body.sizes) {
 		let talles = Array.from(req.body.sizes).map(size=> new Object ({size_id: parseInt(size)}));
 		tallesToSave = [];
 		for(let talle of talles) {
 			const talleToAddOnSave = await db.Size.findByPk(talle.size_id);
 			tallesToSave.push(talleToAddOnSave)
-			}
+			}}
 		
+		if (req.body.colors) {
 		let colores = Array.from(req.body.colors).map(color=> new Object ({color_id: parseInt(color)}));
 		coloresToSave = [];
 		for(let color of colores) {
 			const colorToAddOnSave = await db.Color.findByPk(color.color_id);
 			coloresToSave.push(colorToAddOnSave)
-			}
+			}}
 			
 			let imagesToSave = [];
 			let imagesToSaveId = [];
@@ -191,8 +193,12 @@ const controller = {
 		
 		await productToUpdate.save();
 
-		await productToUpdate.setSizes(tallesToSave);
-		await productToUpdate.setColors(coloresToSave);
+		if (tallesToSave) {
+			await productToCreate.addSizes(tallesToSave)}
+			
+			if (coloresToSave) {
+			await productToCreate.addColors(coloresToSave)}
+			
 		await productToUpdate.setImages(imagesToSave);
 			
 		return res.redirect("/producto/detalle/" + req.params.id);
