@@ -15,7 +15,7 @@ const controller = {
 
 	allProductsAPI: async (req, res) => { 
 		await db.Product
-		.findAll()
+		.findAll({include: ["category", "sizes", "colors", "images"]})
 		.then(products => {
 			return res.status(200).json({
 				count: products.length,
@@ -28,8 +28,8 @@ const controller = {
 					id: products.product.id,
 					name: products.product.product_name,
 					description: products.product.product_description,
-					colores: "ACÁ VA UN ARRAY CON LOS COLORES DEL PRODUCTO" ,
-					detail: "localhost:3030/producto/api/products/:" + users.id
+					colores: products.colors.color_name ,
+					detail: "localhost:3030/producto/api/products/:" + products.id
 				},
 				status: 200
 			})})
@@ -37,14 +37,19 @@ const controller = {
 	
 		oneProductAPI: async (req,res) => {
 			await db.Product
-			.findByPk(req.params.id)
+			.findByPk(req.params.id, {
+				include: ["category", "sizes", "colors", "images"]})
 			.then(oneProduct => {
 				return res.status(200).json({
 					id: oneProduct.id,
 					name: oneProduct.product_name,
 					description: oneProduct.product_description,
+					category: oneProduct.category.category_name,
+					colors: oneProduct.colors.color_name,
+					sizes: oneProduct.sizes.size_name,
 					price: oneProduct.price,
 					stock: oneProduct.stock,
+					image: oneProduct.images[0].image_path,
 					status: 200
 				})})
 		},
