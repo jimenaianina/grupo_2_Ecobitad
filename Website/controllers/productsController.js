@@ -13,6 +13,43 @@ const controller = {
 		catch(error){return res.send(error)}
 	},
 
+	allProductsAPI: async (req, res) => { 
+		await db.Product
+		.findAll()
+		.then(products => {
+			return res.status(200).json({
+				count: products.length,
+				countByCategory: {
+					Baño: "ACÁ VA UN NÚMERO",
+					OnTheGo: "OTRO NUMERO",
+					Cocina: "OTRO"
+				},
+				products: {
+					id: products.product.id,
+					name: products.product.product_name,
+					description: products.product.product_description,
+					colores: "ACÁ VA UN ARRAY CON LOS COLORES DEL PRODUCTO" ,
+					detail: "localhost:3030/producto/api/products/:" + users.id
+				},
+				status: 200
+			})})
+		},
+	
+		oneProductAPI: async (req,res) => {
+			await db.Product
+			.findByPk(req.params.id)
+			.then(oneProduct => {
+				return res.status(200).json({
+					id: oneProduct.id,
+					name: oneProduct.product_name,
+					description: oneProduct.product_description,
+					price: oneProduct.price,
+					stock: oneProduct.stock,
+					status: 200
+				})})
+		},
+	
+
 	detail: async (req,res)=> { 
 		let categories = await db.Category.findAll();
 		let sizes = await db.Size.findAll();

@@ -16,6 +16,10 @@ const validacionProducto = require('../middlewares/validateProductsMiddleware');
 
 router.get('/', productsController.index); 
 
+router.get('/api/products', productsController.allProductsAPI); 
+
+router.get('/api/products/:id', productsController.oneProductAPI); 
+
 router.get('/detalle/:id', productsController.detail); 
 
 const upload = multer( { storage: storage});

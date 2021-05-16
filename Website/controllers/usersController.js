@@ -2,9 +2,42 @@ const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const session = require('express-session');
 const db = require('../database/models');
+const { use } = require('../routes/users');
 
 
 const controller = {
+
+	allUsersAPI: async (req, res) => {
+    await db.User
+	.findAll()
+	.then(users => {
+		return res.status(200).json({
+			count: users.length,
+			users: {
+				id: users.user.id,
+                name: users.user.user_name,
+				email: users.user.email,
+				detail: "localhost:3030/usuario/api/users/:" + users.id
+			},
+			status: 200
+		})})
+	},
+
+	oneUserAPI: async (req,res) => {
+		await db.User
+		.findByPk(req.params.id)
+		.then(oneUser => {
+			return res.status(200).json({
+				id: oneUser.id,
+				name: oneUser.user_name,
+				lastName: oneUser.last_name,
+				age: oneUser.age,
+				email: oneUser.email,
+				city: oneUser.city,
+				image: oneUser.image,
+				status: 200
+			})})
+	},
 
 	login: (req,res)=> {
 		res.render("users/login", { title: "Login", css: "/css/login.css" })
@@ -121,15 +154,16 @@ cart: async (req,res) => {
 	
 	let userLogged = req.session.userLogged
 	
+	try {
 	if(userLogged) {
 
-	let cart = await db.Cart.findOne({
+	const cart = await db.Cart.findOne({
 		where: { 
 			user_id: userLogged.id
 		}
 	});
 
-	let cartProducts = await db.CartProduct.findOne({ 
+	const cartProducts = await db.CartProduct.findAll({ 
 		where: {
 			cart_id: cart.id
 		}
@@ -137,6 +171,7 @@ cart: async (req,res) => {
 
 	return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css", cart, cartProducts,})
 } else { return res.redirect("/usuario/acceder")}
+} catch (error) {return res.send(error)}
 },
 
 addCart: async (req,res)=> {
@@ -147,40 +182,33 @@ addCart: async (req,res)=> {
 	let productToAdd = await db.Product.findByPk(req.params.id, {
 		include: ["category", "sizes", "colors", "images"],
 	});
+	let userLogged = req.session.userLogged;
 	let cartUser;
 
-	try {
-	if (req.session.userLogged) {
-	cartUser = await db.Cart.findOne({ where: { user_id : req.session.userLogged.id} })}
-    
+try {
+	if (userLogged) {
+	cartUser = await db.Cart.findOrCreate({ 
+		where: 
+		{ user_id : userLogged.id}
+		, defaults: {
+			cart_total: 0
+		}
+	})
+
 	return res.send(cartUser)
+    //no está encontrando el cart (me tira que userId no existe, e igual no lo estoy llamando así)
 
-	if (!cartUser) {
- 
-	const cartToCreate = await db.Cart.create({
-		user_id: userLogged.id,
-		cart_total: productToAdd.price * productToAdd.quantity
-	})	
-
-	if (!cartUser) {
-		let cartProductToCreate = await db.CartProduct.create({
-		cart_id: cartToCreate.id,
+	let cartProductToCreate = await db.CartProduct.create({
+		cart_id: cartUser.id,
 		product_id: productToAdd.id,
 		quantity: 1,
 		unit_price: productToAdd.price
-	})} else if (cartUser) {
-		const cartProductToAdd = await db.CartProduct.create({
-		cart_id: cartUser,
-		product_id: productToAdd.id,
-		quantity: 1,
-		unit_price: productToAdd.price,
 		})
-
-		let productsOnCart = await db.CartProduct.findAll({ where: { cart_id : cartUser.id } })
-		let cartTotal = productsOnCart.reduce((a, b) => a + b, 0)
-		cartUser.cart_total = CartTotal
-		await cartUser.save()
-	}
+	
+	let productsOnCart = await db.CartProduct.findAll({ where: { cart_id : cartUser.id } })
+	let cartTotal = productsOnCart.unit_price.reduce((a, b) => a + b, 0)
+	cartUser.cart_total = cartTotal
+	await cartUser.save()
 
 	return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css", colors, categories, sizes })
 } else { return res.redirect("/usuario/acceder")}
