@@ -9,10 +9,6 @@ const validacionLogin = require('../middlewares/validateLoginMiddleware');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 
-router.get('/api/users', usersController.allUsersAPI);
-
-router.get('/api/users/:id', usersController.oneUserAPI);
-
 router.get('/acceder', usersController.login);
 
 router.post('/acceder', validacionLogin, usersController.processLogin);

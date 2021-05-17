@@ -7,32 +7,6 @@ const { use } = require('../routes/users');
 
 const controller = {
 
-	allUsersAPI: async (req, res) => {
-		await db.User.findAll({attributes: {exclude: [ 'city','age', 'role_id', 'password']}})
-
-		.then(users => {
-			return res.json({
-				count: users.length,
-				users: users
-			})
-		})
-	},
-
-	oneUserAPI: async (req,res) => {
-		await db.User
-		.findByPk(req.params.id, {attributes: {exclude: [ 'role_id', 'password']}})
-		.then(oneUser => {
-			return res.json({
-				id: oneUser.id,
-				name: oneUser.user_name,
-				lastName: oneUser.last_name,
-				age: oneUser.age,
-				email: oneUser.email,
-				city: oneUser.city,
-				image: oneUser.image
-			})})
-	},
-
 	login: (req,res)=> {
 		res.render("users/login", { title: "Login", css: "/css/login.css" })
 	},
