@@ -16,13 +16,18 @@ const controller = {
 	allProductsAPI: async (req, res) => { 
 		await db.Product
 		.findAll({include: ["category", "colors"], attributes: {exclude: ['price', 'stock', 'category_id']}})
+
+		let productsBaño = await db.Product.findAll({ where: { category_id: 1}})
+		let productsOnTheGo = await db.Product.findAll({ where: { category_id: 2}})
+		let productsCocina = await db.Product.findAll({ where: { category_id: 3}})
+
 		.then(products => {
 			return res.json({
 				count: products.length,
 				countByCategory: {
-					Baño: "ACÁ VA UN NÚMERO",
-					OnTheGo: "OTRO NUMERO",
-					Cocina: "OTRO"
+					Baño: productsBaño.length,
+					OnTheGo: productsOnTheGo.length,
+					Cocina: productsCocina.length
 				},
 				products: products, 
 				detail: "http://localhost:3030/producto/api/products/ACÁ IRÍA CADA ID" 
