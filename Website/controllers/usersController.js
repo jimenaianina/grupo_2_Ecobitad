@@ -184,7 +184,33 @@ try {
 	return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css", colors, categories, sizes })
 } else { return res.redirect("/usuario/acceder")}
 } catch (error) {return res.send(error)}
-} 
+},
+
+	destroyCart: async (req, res) => {
+		try { 
+
+			let cartToDelete = await db.Cart.findOne({
+				where: {
+					user_id: req.params.id
+				}
+			})
+
+			await db.CartProduct.destroy({
+				where: {
+					cart_id: cartToDelete.id
+				}
+			});
+
+			await db.Cart.destroy({
+				where: {
+					user_id: req.session.userLogged.id
+				}
+			});
+		
+		return res.redirect('/');
+
+	} catch(error) {return res.send(error)}
+	}
 };
 
 module.exports = controller;
