@@ -172,7 +172,7 @@ try {
 
 destroyCart: async (req, res) => {
 		try { 
-			let cartsToDelete = await db.Cart.findAll({
+			/*let cartsToDelete = await db.Cart.findAll({
 				where: {
 					user_id: 12
 				}
@@ -188,7 +188,7 @@ destroyCart: async (req, res) => {
 				where: {
 					user_id: 12
 				}
-			});
+			});*/
 		
 		return res.redirect('/');
 

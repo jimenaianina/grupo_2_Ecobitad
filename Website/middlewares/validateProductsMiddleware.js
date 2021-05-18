@@ -24,12 +24,12 @@ const validacionProducto = [
         let acceptedExtensions = ['.jpg', '.png', '.gif'];
         if (!file) {
             throw new Error('Debes subir una imagen');
-        } else {
+        } /*else {
             let fileExtension = path.extname(file.originalname);
             if (!acceptedExtensions.includes(fileExtension)) {
                 throw new Error ("Las extensiones del archivo permitidas son " + acceptedExtensions.join(', '));
             }
-        }
+        }*/
         return true;
         })
     ];
