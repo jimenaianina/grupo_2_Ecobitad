@@ -1,7 +1,7 @@
 const path = require('path');
 const { body } = require('express-validator');
 const db = require('../database/models');
-const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,20}$/;
+const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&.])([A-Za-z\d$@$!%*?&]|[^ ]){8,20}$/;
 
 const validacionRegistro = [
     body('name')
@@ -30,7 +30,7 @@ const validacionRegistro = [
     body('password')
         .notEmpty().withMessage("El campo de contraseña no debe estar vacío")
         .isLength({ min: 8 }).withMessage("La contraseña debe tener al menos 8 caracteres")
-        .matches(regex).withMessage("La contraseña debe contener mayúsculas, minúsculas, números y caracteres especiales"),
+        .matches(regex).withMessage("La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un caracter especial ($ @ $ ! % * ? & .)"),
     
     body('image').custom((value, { req }) => {
         let file = req.file;

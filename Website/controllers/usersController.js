@@ -144,8 +144,6 @@ try {
 				cart_total: 0
 			}
 		});
-	
-	return res.send(cartUser)
 
 	let cartProductToCreate = await db.CartProduct.create({
 		cart_id: cartUser.id,

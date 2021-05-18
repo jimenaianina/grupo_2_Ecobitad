@@ -46,6 +46,9 @@ const controller = {
 			await db.Product.findByPk(req.params.id, {
 				include: ["category", "sizes", "colors", "images"],
 			})
+
+		
+
 		return res.render("products/editForm", { product:product , title: "Editar", css: "/css/forms.css", categories, colors, sizes})
 	}
 		catch(error){return res.send(error)}
@@ -58,7 +61,6 @@ const controller = {
 		let colors = await db.Color.findAll();
 
 		let errors = validationResult(req);
-
 
 		if (errors.errors.length > 0) {
 			return res.render('products/createForm', {

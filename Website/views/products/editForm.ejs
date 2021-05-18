@@ -26,9 +26,9 @@
 
 <form action = "/producto/actualizar/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
   <label for="name"> Nombre del producto </label>
-  <input type="text" placeholder="nombre del producto" name="name" id="name" class="box">
+  <input type="text" placeholder="nombre del producto" name="name" id="name" class="box" value="<%= product.product_name %>">
   <label for="description" > Descripción </label>
-  <textarea name="description" class="box" id="description" ></textarea>
+  <textarea name="description" class="box" id="description"><%= product.product_description %></textarea>
   <label for="image"> Fotos del producto </label>
   <input type="file" name="image" id="file" multiple>
   <label for="category"> Categoría </label>
@@ -53,7 +53,7 @@
   <input type="range" name="price" class="box" min="0" step="10" max="4000" value="0" oninput="this.nextElementSibling.value = this.value" id="price">
   <output>0</output>
   <label for="stock"> Stock </label>
-  <input type="number" name="stock" class="box" min="0" id="stock">
+  <input type="number" name="stock" class="box" min="0" id="stock" value="<%= product.stock %>">
   <div id="buttons">
   <button type="reset"> Borrar  </button>
   <button type="submit"> Editar producto </button>
