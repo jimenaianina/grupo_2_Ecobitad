@@ -119,55 +119,33 @@ const controller = {
 },
 
 cart: async (req,res) => {
-	
-	let userLogged = req.session.userLogged
-	let cartUser;
-	
-	try {
-		if (userLogged) {
-			cartUser = await db.Cart.findOrCreate({ 
-				where: 
-				{ user_id : userLogged.id}
-				, defaults: {
-					cart_total: 0
-				},
-				include: user
-			})
+	try { 
 
-	const cartProducts = await db.CartProduct.findAll({ 
-		where: {
-			cart_id: cart.id
-		}
-	})
+		return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css"})
+	}
 
-	return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css"})
-} else { return res.redirect("/usuario/acceder")}
-} catch (error) {return res.send(error)}
+ catch (error) {return res.send(error)}
 },
 
 addCart: async (req,res)=> {
-	let categories = await db.Category.findAll();
-	let sizes = await db.Size.findAll();
-	let colors = await db.Color.findAll();
 
-	let productToAdd = await db.Product.findByPk(req.params.id, {
-		include: ["category", "sizes", "colors", "images"],
-	});
+	let productToAdd = await db.Product.findByPk(req.params.id);
+
 	let userLogged = req.session.userLogged;
-	let cartUser;
 
 try {
 	if (userLogged) {
-	cartUser = await db.Cart.findOrCreate({ 
-		where: 
-		{ user_id : userLogged.id}
-		, defaults: {
-			cart_total: 0
-		}
-	})
 
+		let cartUser = await db.Cart.findOrCreate({ 
+			where: {
+				user_id: userLogged.id
+			},
+			defaults: {
+				cart_total: 0
+			}
+		});
+	
 	return res.send(cartUser)
-    //no está encontrando el cart (me tira que userId no existe, e igual no lo estoy llamando así)
 
 	let cartProductToCreate = await db.CartProduct.create({
 		cart_id: cartUser.id,
@@ -176,8 +154,14 @@ try {
 		unit_price: productToAdd.price
 		})
 	
-	let productsOnCart = await db.CartProduct.findAll({ where: { cart_id : cartUser.id } })
+	let productsOnCart = await db.CartProduct.findAll({ 
+		where: { 
+			cart_id : cartUser.id
+		 } 
+		})
+
 	let cartTotal = productsOnCart.unit_price.reduce((a, b) => a + b, 0)
+
 	cartUser.cart_total = cartTotal
 	await cartUser.save()
 
@@ -186,24 +170,23 @@ try {
 } catch (error) {return res.send(error)}
 },
 
-	destroyCart: async (req, res) => {
+destroyCart: async (req, res) => {
 		try { 
-
-			let cartToDelete = await db.Cart.findOne({
+			let cartsToDelete = await db.Cart.findAll({
 				where: {
-					user_id: req.params.id
+					user_id: 12
 				}
 			})
 
 			await db.CartProduct.destroy({
 				where: {
-					cart_id: cartToDelete.id
+					cart_id: cartsToDelete.id
 				}
 			});
 
-			await db.Cart.destroy({
+			await cartsToDelete.destroy({
 				where: {
-					user_id: req.session.userLogged.id
+					user_id: 12
 				}
 			});
 		

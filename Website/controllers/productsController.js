@@ -135,14 +135,19 @@ const controller = {
 
 		let errors = validationResult(req);
 
+		let product = 
+			await db.Product.findByPk(req.params.id, {
+				include: ["category", "sizes", "colors", "images"],
+			})
+
 
 		if (errors.errors.length > 0) {
-			return res.render('products/createForm', {
+			return res.render('products/editForm', {
 				errors: errors.mapped(),
 				oldData: req.body,
 				title: "Editar producto", 
 				css: "/css/forms.css",
-				categories, colors, sizes	
+				categories, colors, sizes, product: product
 			})
 		};
 

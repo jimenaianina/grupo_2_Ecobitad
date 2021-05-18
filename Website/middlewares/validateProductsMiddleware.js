@@ -20,7 +20,7 @@ const validacionProducto = [
     .notEmpty().withMessage('Debes especificar el stock del producto'),
         
     body('image').custom((value, {req}) => {
-        let file = req.file;
+        let file = req.files;
         let acceptedExtensions = ['.jpg', '.png', '.gif'];
         if (!file) {
             throw new Error('Debes subir una imagen');
