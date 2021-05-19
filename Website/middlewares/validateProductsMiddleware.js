@@ -20,15 +20,17 @@ const validacionProducto = [
     .notEmpty().withMessage('Debes especificar el stock del producto'),
         
     body('image').custom((value, {req}) => {
-        let file = req.files;
+        let files = req.files;
         let acceptedExtensions = ['.jpg', '.png', '.gif'];
-        if (!file) {
+        if (!files) {
             throw new Error('Debes subir una imagen');
         } else {
-            let fileExtension = path.extname(file.originalname);
-            if (!acceptedExtensions.includes(fileExtension)) {
-                throw new Error ("Las extensiones del archivo permitidas son " + acceptedExtensions.join(', '));
-            }
+            files.forEach( file => {
+                let fileExtension = path.extname(file.originalname);
+                if (!acceptedExtensions.includes(fileExtension)) {
+                    throw new Error ("Las extensiones del archivo permitidas son " + acceptedExtensions.join(', '));
+                }
+              })
         }
         return true;
         })

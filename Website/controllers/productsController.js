@@ -93,6 +93,8 @@ const controller = {
 		
 			let imagesToSave = [];
 			let imagesToSaveId = [];
+
+			
 		
 			for(let image of req.files) { 
 		 

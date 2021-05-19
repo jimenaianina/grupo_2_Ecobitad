@@ -1,7 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const productsController = require('../controllers/productsController');
-const upload = require('../middlewares/multerMiddleware');
+const multer = require('multer');
+const path = require('path');
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './upload/products');
+    },
+    filename: function (req, file, cb) {
+        cb(null, 'fotoProducto' + Date.now() + path.extname(file.originalname))}
+});
+
+const upload = multer( { storage: storage});
 
 const validacionProducto = require('../middlewares/validateProductsMiddleware'); 
 

@@ -119,40 +119,63 @@ const controller = {
 },
 
 cart: async (req,res) => {
-	try { 
+	
+	let userLogged = req.session.userLogged
+	
+	if(userLogged) {
 
-		return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css"})
-	}
+	let cart = await db.Cart.findOne({
+		where: { 
+			user_id: userLogged.id
+		}
+	});
 
- catch (error) {return res.send(error)}
+	let cartProducts = await db.CartProduct.findOne({ 
+		where: {
+			cart_id: cart.id
+		}
+	})
+
+	return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css", cart, cartProducts,})
+} else { return res.redirect("/usuario/acceder")}
 },
 
 addCart: async (req,res)=> {
+	let categories = await db.Category.findAll();
+	let sizes = await db.Size.findAll();
+	let colors = await db.Color.findAll();
 
-	let productToAdd = await db.Product.findByPk(req.params.id);
+	let productToAdd = await db.Product.findByPk(req.params.id, {
+		include: ["category", "sizes", "colors", "images"],
+	});
 
 	let userLogged = req.session.userLogged;
 
-try {
+	try { 
+		
+		let cartFromUser = await db.Cart.findAll({
+		where: {
+			id: userLogged.id
+		}
+	});
+
+	return res.send(cartFromUser)
+
 	if (userLogged) {
-
-		let cartUser = await db.Cart.findOrCreate({ 
-			where: {
-				user_id: userLogged.id
-			},
-			defaults: {
-				cart_total: 0
-			}
-		});
-
-	let cartProductToCreate = await db.CartProduct.create({
+	
+	let cartUser = await db.Cart.create({
+		user_id: userLogged.id,
+		cart_total: productToAdd.price,
+	});
+	
+	const cartProductToCreate = await db.CartProduct.create({
 		cart_id: cartUser.id,
 		product_id: productToAdd.id,
 		quantity: 1,
-		unit_price: productToAdd.price
-		})
-	
-	let productsOnCart = await db.CartProduct.findAll({ 
+		unit_price: productToAdd.price,
+	})
+
+	/*let productsOnCart = await db.CartProduct.findAll({ 
 		where: { 
 			cart_id : cartUser.id
 		 } 
@@ -161,11 +184,11 @@ try {
 	let cartTotal = productsOnCart.unit_price.reduce((a, b) => a + b, 0)
 
 	cartUser.cart_total = cartTotal
-	await cartUser.save()
+	await cartUser.save()*/
 
 	return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css", colors, categories, sizes })
 } else { return res.redirect("/usuario/acceder")}
-} catch (error) {return res.send(error)}
+} catch(error) {return res.send(error)}
 },
 
 destroyCart: async (req, res) => {
