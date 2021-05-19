@@ -32,6 +32,7 @@ const controller = {
 		try { 
 			if (userToLogin) {
 			let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
+			//por qué guarda siempre en cookies aún si el botón de rememberUser está destildado?
 			if(req.body.rememberUser) {
 				res.cookies('userEmail', req.body.email, { maxAge: 60000 * 2})
 				}
@@ -119,6 +120,9 @@ const controller = {
 },
 
 cart: async (req,res) => {
+
+	//este controller rompe todo, pero lo ideal sería que traiga el cartUser y el cartProducts del cartUser 
+	//y pasárselos a la vista para que muestre los productos en el cart
 	
 	let userLogged = req.session.userLogged
 	
@@ -151,22 +155,24 @@ addCart: async (req,res)=> {
 
 	let userLogged = req.session.userLogged;
 
+	//acá intentamos con un findOne en el cart con user_id = userLogged.id pero busca una 
+	//columna 'UserId' que no existe (ni le pedimos)
+
 	try { 
 		
-		let cartFromUser = await db.Cart.findAll({
+		let cartFromUser = await db.Cart.findOne({
 		where: {
 			id: userLogged.id
 		}
 	});
 
-	return res.send(cartFromUser)
-
 	if (userLogged) {
-	
+
+	if(cartFromUser) {
 	let cartUser = await db.Cart.create({
 		user_id: userLogged.id,
-		cart_total: productToAdd.price,
-	});
+		cart_total: 0,
+	})};
 	
 	const cartProductToCreate = await db.CartProduct.create({
 		cart_id: cartUser.id,
