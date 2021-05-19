@@ -181,6 +181,9 @@ addCart: async (req,res)=> {
 		unit_price: productToAdd.price,
 	})
 
+	// lo ideal sería sumar todos los unit_price de los cartProducts con el cart_id de cartUser y actualizar el
+	//cart_total de cartUser
+
 	/*let productsOnCart = await db.CartProduct.findAll({ 
 		where: { 
 			cart_id : cartUser.id
