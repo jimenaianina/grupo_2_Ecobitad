@@ -31,9 +31,11 @@ const mainRouter = require('./routes/main');
 const productsRouter = require('./routes/products'); 
 const usersRouter = require('./routes/users');
 const apiRouter = require('./routes/api');
+const cartRouter = require('./routes/cart');
 
 app.use('/', mainRouter);
 app.use('/producto', productsRouter);
 app.use('/usuario', usersRouter);
 app.use('/api', apiRouter);
+app.use('/carrito', cartRouter);
 

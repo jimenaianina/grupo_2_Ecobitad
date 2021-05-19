@@ -24,11 +24,5 @@ router.post('/salir', usersController.logout);
 
 router.delete('/eliminar/:id', usersController.destroy);
 
-router.get('/carrito', usersController.cart);
-
-router.post('/carrito/:id', usersController.addCart);
-
-router.delete('/eliminar-carrito/:id', usersController.destroyCart);
-
 
 module.exports = router;
