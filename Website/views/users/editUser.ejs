@@ -24,28 +24,28 @@
                 <ul></ul>
             </div>
             
-            <form action = "/usuario/editar/<%= locals.session.id %>" method="POST" enctype="multipart/form-data">
+            <form action = "/usuario/editar/<%= user.id %>" method="POST" enctype="multipart/form-data">
                 <div>
                     <label for="name"> Editar nombre </label>
-                    <p><input type="text" name="name" id="name" class="box" ></p>
+                    <p><input type="text" name="name" id="name" class="box" value="<%= user.user_name %>" ></p>
                 </div>
                 <div>
                     <label for="lastName"> Editar apellido </label>
-                    <p><input type="text" name="lastName" id="lastName" class="box" ></p>
+                    <p><input type="text" name="lastName" id="lastName" class="box" value="<%= user.last_name %>"></p>
                 </div>
                 <div>
                     <label for="email"> Editar E-mail </label>
-                    <p><input type="email" name="email" id="email" class="box" ></p>
+                    <p><input type="email" name="email" id="email" class="box" value="<%= user.user_email %>"></p>
                 </div>
                 <div> 
                     <label for="age"> Editar edad </label>
-                    <p><input type="number" name="age" id="age" class="box" min="0" ></p>
+                    <p><input type="number" name="age" id="age" class="box" min="0" value="<%= user.age %>"></p>
                 <div>
                     <label for="city"> Editar ciudad </label>
-                    <p><input type="text" name="city" id="city" class="box" ></p>
+                    <p><input type="text" name="city" id="city" class="box" value="<%= user.city %>"></p>
                 </div>
                 <div>
-                    <label for="password"> Cambiar ontraseña </label>
+                    <label for="password"> Cambiar contraseña </label>
                     <p><input type="password" name="password" id="password" class="box" ></p>
                 </div>
                 <div>
