@@ -18,7 +18,7 @@
 
                 <% cartProducts.forEach(product => { %> 
                     <div id="product-container">
-                        
+                        <img src="/products/<%= product.images[0].image_path%>" alt="">
                         <div id="product-info">
                             <%= product.product_name %>
                             <%= product.price %>
@@ -29,7 +29,11 @@
         </div>
 
         <h3 id="total"> Total de la compra = $<%= cart.cart_total %> </h4>
-
+        
+        <form action = '/eliminar-carrito/<%= locals.userLogged.id %>?_method=DELETE' method="POST">
+            <button type="submit" class="btn"> Vaciar carrito </button>
+        </form>
+    
         </main>
         
 

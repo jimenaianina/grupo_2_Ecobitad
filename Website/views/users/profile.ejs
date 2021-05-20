@@ -30,9 +30,6 @@
             <% if(locals.userLogged.role_id != 3) {%>
                 <a href="/producto/crear"><button type="button" class="btn 2"> Crear producto </button></a>
             <% } %>
-            <form action = '/eliminar-carrito/<%= locals.userLogged.id %>?_method=DELETE' method="POST">
-                <button type="submit" class="btn 2"> Eliminar Carrito </button>
-            </form>
             
         </div>
     </div>
