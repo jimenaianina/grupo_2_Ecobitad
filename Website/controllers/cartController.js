@@ -10,7 +10,7 @@ const controller = {
         let userLogged = req.session.userLogged
         
         if(userLogged) {
-    
+    /*
         let cart = await db.Cart.findOne({
             where: { 
                 user_id: userLogged.id
@@ -22,8 +22,8 @@ const controller = {
                 cart_id: cart.id
             }
         })
-    
-        return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css", cart, cartProducts,})
+    */
+        return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css"})
     } else { return res.redirect("/usuario/acceder")}
     },
     
@@ -38,28 +38,16 @@ const controller = {
     
         let userLogged = req.session.userLogged;
     
-        //acá intentamos con un findOne en el cart con user_id = userLogged.id pero busca una 
-        //columna 'UserId' que no existe (ni le pedimos)
-    
         try { 
-        
-            const cartFromUser = await db.Cart.findOne({
-            where: {
-                user_id: userLogged.id
-            }
-        });
-
-        return res.send(cartFromUser)
     
         if (userLogged) {
-    
-        //if(!cartFromUser) {
-        let cartUser = await db.Cart.create({
-            user_id: userLogged.id,
-            cart_total: 0,
-        });
+        const cartUser = await db.Cart.findOne({
+                where: {
+                    user_id: userLogged.id
+                },
+                attributes: {exclude: ['UserId']}
+            });
 
-        
         const cartProductToCreate = await db.CartProduct.create({
             cart_id: cartUser.id,
             product_id: productToAdd.id,
@@ -67,19 +55,18 @@ const controller = {
             unit_price: productToAdd.price,
         })
     
-        // lo ideal sería sumar todos los unit_price de los cartProducts con el cart_id de cartUser y actualizar el
-        //cart_total de cartUser
+        // lo ideal sería sumar todos los unit_price de los productsOnCart  y actualizar el cart_total de cartUser
     
-        /*let productsOnCart = await db.CartProduct.findAll({ 
+        let productsOnCart = await db.CartProduct.findAll({ 
             where: { 
                 cart_id : cartUser.id
-             } 
+             }
             })
-    
-        let cartTotal = productsOnCart.unit_price.reduce((a, b) => a + b, 0)
-    
+        return res.send(productsOnCart)
+        let cartTotal = 0;
+        /*
         cartUser.cart_total = cartTotal
-        await cartUser.save()*/
+        await cartUser.save();*/
     
         return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css", colors, categories, sizes })
     } else { return res.redirect("/usuario/acceder")}

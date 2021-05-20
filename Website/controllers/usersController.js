@@ -33,8 +33,8 @@ const controller = {
 			if (userToLogin) {
 			let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
 			//por qué guarda siempre en cookies aún si el botón de rememberUser está destildado?
-			if(req.body.rememberUser) {
-				res.cookies('userEmail', req.body.email, { maxAge: 60000 * 2})
+			if(req.body.rememberUser != undefined) {
+				res.cookie('userEmail', req.body.email, { maxAge: 6000 * 2})
 				}
 			if (isOkThePassword) {
 				delete userToLogin.password;
@@ -89,9 +89,14 @@ const controller = {
 			age: req.body.age,
 			city: req.body.city,
 			image: req.file.filename, 
-			role_id: 1,
+			role_id: 3,
 			password: bcrypt.hashSync(req.body.password, 10)
 		});
+
+		const cartToCreate = await db.Cart.create({
+            user_id: userToCreate.id,
+            cart_total: 0,
+        });
 
 			return res.redirect('/usuario/acceder')
 	 
