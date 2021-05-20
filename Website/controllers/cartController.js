@@ -70,7 +70,7 @@ const controller = {
         cartUser.cart_total = cartTotal
         await cartUser.save();
     
-        return res.redirect('/carrito', { title: "Carrito", css: "/css/cart2.css" })
+        return res.redirect('/carrito')
     } else { return res.redirect("/usuario/acceder")}
     } catch(error) {return res.send(error)}
     },
@@ -93,7 +93,7 @@ const controller = {
                     }
                 });
 
-            return res.redirect('/');
+            return res.redirect('/carrito');
     
         } catch(error) {return res.send(error)}
         }
