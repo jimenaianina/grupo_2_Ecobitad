@@ -101,6 +101,14 @@ const controller = {
 			return res.redirect('/usuario/acceder')
 	 
 	},
+	
+	edit: async (req, res) => {
+		
+	},
+	
+	update:  async (req, res) => {
+		
+	},
 
 	destroy: async (req, res) => {
 
