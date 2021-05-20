@@ -107,7 +107,41 @@ const controller = {
 	},
 	
 	update:  async (req, res) => {
+
+		let errors = validationResult(req);
+
+		let user = await db.User.findByPk(req.params.id)
+
+		if (errors.errors.length > 0) {
+			return res.render('users/editForm', {
+				errors: errors.mapped(),
+				oldData: req.body,
+				title: "Editar usuario", 
+				css: "/css/editUser.css",
+				user: user
+			})
+		};
+
+		try {
 		
+			const userToUpdate = user;
+
+		userToUpdate.user_name = req.body.name;
+		userToUpdate.last_name = req.body.lastName;
+		userToUpdate.email = req.body.email ;
+		userToUpdate.age = req.body.age ;
+		userToUpdate.city = req.body.city;
+		userToUpdate.image = req.file.filename,
+		userToUpdate.password = bcrypt.hashSync(req.body.password, 10);
+		
+		await userToUpdate.save();
+
+		return res.redirect("/usuario/perfil/" + req.params.id);
+		
+	}
+	catch(error) {return res.send(error)}
+},
+
 	},
 
 	destroy: async (req, res) => {
