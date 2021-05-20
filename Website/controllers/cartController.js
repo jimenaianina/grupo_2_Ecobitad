@@ -83,7 +83,8 @@ const controller = {
                 let cartsToDelete = await db.Cart.findOne({
                     where: {
                         user_id: userLogged.id
-                    }
+                    },
+                    attributes: {exclude: ['UserId']}
                 })
     
                 await db.CartProduct.destroy({
