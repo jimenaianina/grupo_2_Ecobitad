@@ -30,7 +30,7 @@
 
         <h3 id="total"> Total de la compra = $<%= cart.cart_total %> </h4>
         
-        <form action = '/eliminar-carrito/<%= locals.userLogged.id %>?_method=DELETE' method="POST">
+        <form action = '/eliminar/<%= locals.userLogged.id %>?_method=DELETE' method="POST">
             <button type="submit" class="btn"> Vaciar carrito </button>
         </form>
     
