@@ -22,6 +22,10 @@ router.post('/registro', upload.single('image'), validacionRegistro, usersContro
 
 router.post('/salir', usersController.logout);
 
+router.get('/editar/:id', usersController.edit);
+
+router.post('/editar/:id', usersController.update);
+
 router.delete('/eliminar/:id', usersController.destroy);
 
 
