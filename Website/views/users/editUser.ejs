@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang = "es">
+
+    <%- include ('../partials/head') %>
+
+    <body>
+    
+        <%- include ('../partials/header') %>
+        <script src="/js/register.js"></script>
+<main>
+    
+        <div class = "formularios">
+
+            <div class="errorsEV">
+                <% if (locals.errors) { %>
+                    <% for (let error in errors ) { %>
+                    <p> <%= errors[error].msg %> </p>
+                 <% } %>
+                <% } %>
+            </div>
+
+            <div class="errorsJV">
+                <ul></ul>
+            </div>
+            
+            <form action = "/usuario/editar" method="POST" enctype="multipart/form-data">
+                <div>
+                    <label for="name"> Editar nombre </label>
+                    <p><input type="text" name="name" id="name" class="box" ></p>
+                </div>
+                <div>
+                    <label for="lastName"> Editar apellido </label>
+                    <p><input type="text" name="lastName" id="lastName" class="box" ></p>
+                </div>
+                <div>
+                    <label for="email"> Editar E-mail </label>
+                    <p><input type="email" name="email" id="email" class="box" ></p>
+                </div>
+                <div> 
+                    <label for="age"> Editar edad </label>
+                    <p><input type="number" name="age" id="age" class="box" min="0" ></p>
+                <div>
+                    <label for="city"> Editar ciudad </label>
+                    <p><input type="text" name="city" id="city" class="box" ></p>
+                </div>
+                <div>
+                    <label for="password"> Cambiar ontraseña </label>
+                    <p><input type="password" name="password" id="password" class="box" ></p>
+                </div>
+                <div>
+                    <label for="image" class="picture"> Subí tu imagen </label>
+                    <input type="file" name="image" id="file" class="picture">
+                </div>
+                <p><button type="submit" class="btn"> Guardar Cambios </button></p>
+            </form>
+
+        
+
+        </div>
+        
+</main>
+ 
+<%- include ('../partials/footer') %>
+
+    </body>
+        
+</html>
