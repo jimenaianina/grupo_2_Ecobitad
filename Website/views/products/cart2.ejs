@@ -11,10 +11,24 @@
 
             <h1> Carrito de compras </h1>
 
-            <div id="cart"> 
+                <div id="cart"> 
+                <% if (cartProducts.length === 0) { %>
                     <h4 id="empty"> Tu carrito de compras está vacío </h4>
-            </div>
+                <% } else { %>
 
+                <% cartProducts.forEach(product => { %> 
+                    <div id="product-container">
+                        
+                        <div id="product-info">
+                            <%= product.product_name %>
+                            <%= product.price %>
+                        </div>
+                    </div>                    
+                <% }) %>
+            <% } %>
+        </div>
+
+        <h3 id="total"> Total de la compra = $<%= cart.cart_total %> </h4>
 
         </main>
         
