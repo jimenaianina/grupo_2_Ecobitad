@@ -104,6 +104,11 @@ const controller = {
 	
 	edit: async (req, res) => {
 		
+		let user = await db.User.findByPk(req.params.id);
+			
+		return res.render("users/editForm", 
+		{ title: "Editar usuario", css: "/css/editUser.css", user: user})
+	},
 	},
 	
 	update:  async (req, res) => {
