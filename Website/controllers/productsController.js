@@ -26,10 +26,6 @@ const controller = {
 	catch(error) {return res.send(error)}
 	},
 
-	cart: (req,res)=> {
-		return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css" })
-	},
-
 	create: async (req,res)=> {
 		let categories = await db.Category.findAll();
 		let sizes = await db.Size.findAll();
@@ -46,8 +42,6 @@ const controller = {
 			await db.Product.findByPk(req.params.id, {
 				include: ["category", "sizes", "colors", "images"],
 			})
-
-		
 
 		return res.render("products/editForm", { product:product , title: "Editar", css: "/css/forms.css", categories, colors, sizes})
 	}

@@ -11,4 +11,6 @@ router.post('/:id', cartController.addCart);
 
 router.delete('/eliminar/:id', cartController.destroyCart);
 
+router.get('/continuar', cartController.continue);
+
 module.exports = router;

@@ -103,7 +103,11 @@ const controller = {
             return res.redirect('/carrito');
     
         } catch(error) {return res.send(error)}
-        }
+        },
+
+    continue: (req, res) => {
+        return res.redirect('/producto')
+    }
 }
 
 module.exports = controller;
