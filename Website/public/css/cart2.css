@@ -28,6 +28,7 @@ h1 {
 
 #cart {
     display: flex;
+    flex-direction: column;
     width: 80%;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -41,6 +42,17 @@ h1 {
     display: flex;
     align-self: center;
 }
+
+#product-container {
+    display: flex;
+    align-items: center;
+}
+
+#product-container img {
+    max-height: 10vw;
+    margin-right: 30px;
+}
+
 
 button {
     width: 154px;

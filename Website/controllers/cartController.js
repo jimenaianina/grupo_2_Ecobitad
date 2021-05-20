@@ -20,16 +20,20 @@ const controller = {
             where: {
                 cart_id: cart.id
             }
-        })
+        });
+
+        let products = [];
+
+        for (const product of cartProducts) {
+            let productToAdd = await db.Product.findByPk(product.product_id, { include: ["category", "sizes", "colors", "images"]})
+            products.push(productToAdd)
+        }
     
-        return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css", cart: cart, cartProducts: cartProducts})
+        return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css", cart: cart, products: products})
     } else { return res.redirect("/usuario/acceder")}
     },
     
     addCart: async (req,res)=> {
-        let categories = await db.Category.findAll();
-        let sizes = await db.Size.findAll();
-        let colors = await db.Color.findAll();
     
         let productToAdd = await db.Product.findByPk(req.params.id, {
             include: ["category", "sizes", "colors", "images"],
@@ -80,7 +84,7 @@ const controller = {
 
                 let userLogged = req.session.userLogged;
 
-                let cartsToDelete = await db.Cart.findOne({
+                let cartToDelete = await db.Cart.findOne({
                     where: {
                         user_id: userLogged.id
                     },
@@ -89,9 +93,12 @@ const controller = {
     
                 await db.CartProduct.destroy({
                     where: {
-                        cart_id: cartsToDelete.id
+                        cart_id: cartToDelete.id
                     }
                 });
+
+                cartToDelete.cart_total = 0;
+                await cartToDelete.save();
 
             return res.redirect('/carrito');
     

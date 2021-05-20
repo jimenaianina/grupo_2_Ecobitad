@@ -12,16 +12,16 @@
             <h1> Carrito de compras </h1>
 
                 <div id="cart"> 
-                <% if (cartProducts.length === 0) { %>
+                <% if (products.length === 0) { %>
                     <h4 id="empty"> Tu carrito de compras está vacío </h4>
                 <% } else { %>
 
-                <% cartProducts.forEach(product => { %> 
+                <% products.forEach(product => { %> 
                     <div id="product-container">
-                        <img src="/products/<%= product.images[0].image_path%>" alt="">
+                        <img src="/products/<%= product.images[0].image_path%> " alt="">
                         <div id="product-info">
                             <%= product.product_name %>
-                            <%= product.price %>
+                            $<%= product.price %>
                         </div>
                     </div>                    
                 <% }) %>
@@ -30,8 +30,8 @@
 
         <h3 id="total"> Total de la compra = $<%= cart.cart_total %> </h4>
         
-        <form action = '/eliminar/<%= locals.userLogged.id %>?_method=DELETE' method="POST">
-            <button type="submit" class="btn"> Vaciar carrito </button>
+        <form action = '/carrito/eliminar/<%= locals.userLogged.id %>?_method=DELETE' method="POST">
+            <button type="submit" class="btn 2"> Vaciar carrito </button>
         </form>
     
         </main>

@@ -109,7 +109,6 @@ const controller = {
 		return res.render("users/editUser", 
 		{ title: "Editar usuario", css: "/css/editUser.css", user: user})
 	},
-	},
 	
 	update:  async (req, res) => {
 
@@ -145,7 +144,6 @@ const controller = {
 		
 	}
 	catch(error) {return res.send(error)}
-},
 
 	},
 
