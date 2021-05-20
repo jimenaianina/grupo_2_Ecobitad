@@ -106,7 +106,7 @@ const controller = {
 		
 		let user = await db.User.findByPk(req.params.id);
 			
-		return res.render("users/editForm", 
+		return res.render("users/editUser", 
 		{ title: "Editar usuario", css: "/css/editUser.css", user: user})
 	},
 	},
@@ -118,7 +118,7 @@ const controller = {
 		let user = await db.User.findByPk(req.params.id)
 
 		if (errors.errors.length > 0) {
-			return res.render('users/editForm', {
+			return res.render('users/editUser', {
 				errors: errors.mapped(),
 				oldData: req.body,
 				title: "Editar usuario", 
