@@ -124,7 +124,7 @@ const controller = {
 		
 		await userToUpdate.save();
 		
-		return res.redirect("/usuario/perfil/" + req.params.id);
+		return res.redirect("/usuario/salir");
 		
 	},
 
