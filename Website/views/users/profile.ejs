@@ -26,6 +26,9 @@
             <form action = "/usuario/salir" method="POST">
                 <button type="submit" class="btn"> Logout </button>
             </form>
+            <form action = "/usuario/editar/<%= locals.userLogged.id %>" method="GET">
+                <button type="submit" class="btn"> Modificar Usuario </button>
+            </form>
            
             <% if(locals.userLogged.role_id != 3) {%>
                 <a href="/producto/crear"><button type="button" class="btn 2"> Crear producto </button></a>

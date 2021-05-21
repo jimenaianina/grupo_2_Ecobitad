@@ -34,7 +34,6 @@ h1 {
     margin-bottom: 20px;
     background-color: whitesmoke;
     padding: 20px;
-    height: 300px;
     justify-content: center;
 }
 
@@ -46,16 +45,31 @@ h1 {
 #product-container {
     display: flex;
     align-items: center;
+    background-color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 12px;
 }
 
 #product-container img {
-    max-height: 10vw;
+    width: 80px;
     margin-right: 30px;
 }
 
+#botones {
+    display: flex;
+    flex-direction: row;
+    margin-top: 16px;
+    margin-bottom: 24px;
+}
+
+#botones form{
+    margin-left: 16px;
+    margin-right: 16px;
+}
 
 button {
-    width: 154px;
+    width: 200px;
     height: 40px;
     text-shadow: 1px #9daef5;
       -webkit-box-shadow: 24px whitesmoke;

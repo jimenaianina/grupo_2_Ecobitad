@@ -21,7 +21,8 @@
                         <img src="/products/<%= product.images[0].image_path%> " alt="">
                         <div id="product-info">
                             <%= product.product_name %>
-                            $<%= product.price %>
+                            <p>$<%= product.price %> x <% let cartProduct = cartProducts.find(cartProduct => cartProduct.product_id == product.id) %>
+                                <%= cartProduct.quantity %></p>
                         </div>
                     </div>                    
                 <% }) %>
@@ -30,12 +31,14 @@
 
         <h3 id="total"> Total de la compra = $<%= cart.cart_total %> </h4>
         
+        <div id="botones">
         <form action = '/carrito/eliminar/<%= locals.userLogged.id %>?_method=DELETE' method="POST">
             <button type="submit" class="btn 2"> Vaciar carrito </button>
         </form>
         <form action = '/carrito/continuar/' method="GET">
-            <button type="submit" class="btn 2"> Continuar comprando </button>
+            <button type="submit" class="btn 2"> Continuar compra </button>
         </form>
+        </div>
     
         </main>
         

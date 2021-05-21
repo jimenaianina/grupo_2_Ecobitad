@@ -29,7 +29,7 @@ const controller = {
             products.push(productToAdd)
         }
     
-        return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css", cart: cart, products: products})
+        return res.render("products/cart2", { title: "Carrito", css: "/css/cart2.css", cart: cart, cartProducts: cartProducts , products: products})
     } else { return res.redirect("/usuario/acceder")}
     },
     
@@ -40,6 +40,12 @@ const controller = {
         });
     
         let userLogged = req.session.userLogged;
+
+        let productsById = await db.CartProduct.findOne({ 
+            where: {
+                product_id: productToAdd.id
+            }
+        })
     
         try { 
     
@@ -51,12 +57,19 @@ const controller = {
                 attributes: {exclude: ['UserId']}
             });
 
+        if (productsById) {
+
+            productsById.quantity = productsById.quantity + 1;
+            await productsById.save();
+
+        } else {
+
         const cartProductToCreate = await db.CartProduct.create({
             cart_id: cartUser.id,
             product_id: productToAdd.id,
             quantity: 1,
             unit_price: productToAdd.price,
-        })
+        })}
     
         let arrayOfPrices = [];
 
@@ -67,7 +80,8 @@ const controller = {
             })
 
         productsOnCart.forEach( product => {
-            arrayOfPrices.push(product.unit_price)})
+            let prices = product.unit_price * product.quantity
+            arrayOfPrices.push(prices)})
         
         let cartTotal = arrayOfPrices.reduce(function(a, b){return a + b})
         
@@ -98,6 +112,7 @@ const controller = {
                 });
 
                 cartToDelete.cart_total = 0;
+                
                 await cartToDelete.save();
 
             return res.redirect('/carrito');
