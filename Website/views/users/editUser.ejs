@@ -11,6 +11,10 @@
 <main>
     
         <div class = "formularios">
+
+            <div class="errorsJV">
+                <ul></ul>
+            </div>
             
             <form action = "/usuario/actualizar/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div>
@@ -32,9 +36,10 @@
                     <label for="city"> Editar ciudad </label>
                     <p><input type="text" name="city" id="city" class="box" value="<%= user.city %>"></p>
                 </div>
-                <div>
+                <div class="campo">
                     <label for="password"> Cambiar contraseña </label>
-                    <p><input type="password" name="password" id="password" class="box" ></p>
+                    <p><input type="password" name="password" id="password" class="box">
+                        <i class="far fa-eye"></i></p>
                 </div>
                 <div class="image">
                     <label for="image" class="picture"> Subí tu imagen </label>

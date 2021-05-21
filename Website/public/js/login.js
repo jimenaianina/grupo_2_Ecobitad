@@ -1,16 +1,16 @@
 window.addEventListener('load', function() {
 
-  document.querySelector('.campo span').addEventListener('click', e => {
+  document.querySelector('.campo i').addEventListener('click', e => {
 
     const passwordInput = document.querySelector('#password');
 
-    if (e.target.classList.contains('show')) {
-        e.target.classList.remove('show');
-        e.target.innerHtml = "<i class='far fa-eye-slash'></i>";
+    if (e.target.classList.contains('fa-eye')) {
+        e.target.classList.remove('fa-eye');
+        e.target.classList.add('fa-eye-slash');
         passwordInput.type = 'text';
     } else {
-        e.target.classList.add('show');
-        e.target.innerHtml = "<i class='far fa-eye'></i>";
+        e.target.classList.add('fa-eye');
+        e.target.classList.remove('fa-eye-slash')
         passwordInput.type = 'password';
     }
 

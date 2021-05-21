@@ -50,6 +50,15 @@
     margin-top: 16px;
     margin-bottom: 16px;
   }
+
+  .campo i {
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 2px 10px;
+    font-size: 10px;
+    position: absolute;
+    bottom: 83px;
+}
   
   
   /* Desktop */

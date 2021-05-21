@@ -1,5 +1,21 @@
 window.addEventListener('load', function() {
 
+  document.querySelector('.campo i').addEventListener('click', e => {
+
+    const passwordInput = document.querySelector('#password');
+
+    if (e.target.classList.contains('fa-eye')) {
+        e.target.classList.remove('fa-eye');
+        e.target.classList.add('fa-eye-slash');
+        passwordInput.type = 'text';
+    } else {
+        e.target.classList.add('fa-eye');
+        e.target.classList.remove('fa-eye-slash')
+        passwordInput.type = 'password';
+    }
+
+});
+
     let formulario = document.querySelector("form");
     
     formulario.addEventListener("submit", function(event){
