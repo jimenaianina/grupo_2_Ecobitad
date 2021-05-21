@@ -1,16 +1,20 @@
 window.addEventListener('load', function() {
 
-  let contraseña = document.querySelector("input#password")
-  let ojoSi = document.getElementsById("ojoSi")
-  let ojoNo = document.getElementsById("ojoNo")
+  document.querySelector('.campo span').addEventListener('click', e => {
 
-  ojoSi.addEventListener("click", function(){
-  if(contraseña.type == "password"){
-    contraseña.type = "text";
-  }else{
-    contraseña.type = "password";
-  }
-  })
+    const passwordInput = document.querySelector('#password');
+
+    if (e.target.classList.contains('show')) {
+        e.target.classList.remove('show');
+        e.target.innerHtml = "<i class='far fa-eye-slash'></i>";
+        passwordInput.type = 'text';
+    } else {
+        e.target.classList.add('show');
+        e.target.innerHtml = "<i class='far fa-eye'></i>";
+        passwordInput.type = 'password';
+    }
+
+});
 
     let formulario = document.querySelector("form");
     

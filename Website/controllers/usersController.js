@@ -111,10 +111,8 @@ const controller = {
 	},
 	
 	update:  async (req, res) => {
-
-		try {
 		
-		const userToUpdate = req.session.userLogged;
+		let userToUpdate = await db.User.findByPk(req.params.id);
 
 		userToUpdate.user_name = req.body.name;
 		userToUpdate.last_name = req.body.lastName;
@@ -126,11 +124,10 @@ const controller = {
 		
 		await userToUpdate.save();
 
+		
+
 		return res.redirect("/usuario/perfil/" + req.params.id);
 		
-	}
-	catch(error) {return res.send(error)}
-
 	},
 
 	destroy: async (req, res) => {
