@@ -24,7 +24,7 @@ router.post('/salir', usersController.logout);
 
 router.get('/editar/:id', usersController.edit);
 
-router.post('/editar/:id', usersController.update);
+router.put('/actualizar/:id', upload.single('image'), usersController.update);
 
 router.delete('/eliminar/:id', usersController.destroy);
 

@@ -112,27 +112,13 @@ const controller = {
 	
 	update:  async (req, res) => {
 
-		let errors = validationResult(req);
-
-		let user = await db.User.findByPk(req.params.id)
-
-		if (errors.errors.length > 0) {
-			return res.render('users/editUser', {
-				errors: errors.mapped(),
-				oldData: req.body,
-				title: "Editar usuario", 
-				css: "/css/editUser.css",
-				user: user
-			})
-		};
-
 		try {
 		
-			const userToUpdate = user;
+		const userToUpdate = req.session.userLogged;
 
 		userToUpdate.user_name = req.body.name;
 		userToUpdate.last_name = req.body.lastName;
-		userToUpdate.email = req.body.email ;
+		userToUpdate.email = req.body.email;
 		userToUpdate.age = req.body.age ;
 		userToUpdate.city = req.body.city;
 		userToUpdate.image = req.file.filename,
@@ -148,8 +134,6 @@ const controller = {
 	},
 
 	destroy: async (req, res) => {
-
-		let userToDelete = req.session.userLogged.id;
 
 		try { 
 			await db.Cart.destroy({

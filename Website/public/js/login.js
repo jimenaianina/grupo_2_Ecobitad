@@ -1,5 +1,17 @@
 window.addEventListener('load', function() {
 
+  let contraseña = document.querySelector("input#password")
+  let ojoSi = document.getElementsById("ojoSi")
+  let ojoNo = document.getElementsById("ojoNo")
+
+  ojoSi.addEventListener("click", function(){
+  if(contraseña.type == "password"){
+    contraseña.type = "text";
+  }else{
+    contraseña.type = "password";
+  }
+  })
+
     let formulario = document.querySelector("form");
     
       formulario.addEventListener("submit", function(event){
