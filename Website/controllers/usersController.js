@@ -123,9 +123,7 @@ const controller = {
 		userToUpdate.password = bcrypt.hashSync(req.body.password, 10);
 		
 		await userToUpdate.save();
-
 		
-
 		return res.redirect("/usuario/perfil/" + req.params.id);
 		
 	},
